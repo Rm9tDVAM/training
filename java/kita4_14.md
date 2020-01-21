@@ -7,6 +7,8 @@
 ３ストライクまたは４ボールになったら入力を止め、ストライクとボールのカウントを表示する。
 # Code
 ~~~java 
+  1 import java.util.Scanner;
+  2 public class kita4_14{
   3     public static void main(String[] args){
   4         int strike=0, ball=0;
   5         while(strike<3&&ball<4){
