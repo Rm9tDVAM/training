@@ -1,4 +1,4 @@
-#### Question
+# Question
 次のプログラムを作成しなさい。
 
 巨人、阪神戦で毎回の得点を入力する。（１回～９回）
@@ -18,7 +18,7 @@
 巨人：5点, 阪神：6点
 阪神の勝ち
 ~~~
-#### Code
+# Code
 ~~~java
   1 import java.util.Scanner;
   2 public class kita4_7{
@@ -43,7 +43,7 @@
  21 }
 
 ~~~
-#### Result
+# Result
 ~~~
 $ java kita4_7
 1回表、巨人の得点は?2
