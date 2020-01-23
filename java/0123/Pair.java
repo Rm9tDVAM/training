@@ -5,14 +5,20 @@ public class Pair{
 		int howMany=new Scanner(System.in).nextInt();
 		int[] players=new int[howMany];
 		int[] card=new int[53];
+
+		//配列cardに1~xを入力する
 		for(int i=0;i<card.length;i++){
 			card[i]=i+1;
 		}
+
+		//配列playersに1~xを入力する
 		for(int i=0;i<players.length;i++){
 			players[i]=i+1;
 		}
+
 		int cardCount=1;
-		for(int i=0;i<players.length;i++){
+		//配列players.length-1回ループを回す
+		for(int i=0;i<players.length-1;i++){
 			for(int j=0;j<card.length-1;j++){
 				int index=new Random().nextInt(card.length-j);
 				int temp=card[index];
@@ -40,8 +46,8 @@ public class Pair{
 			int temp=players[playersCount];
 			players[playersCount]=players[players.length-1-i];
 			players[players.length-1-i]=temp;
-			System.out.println(Arrays.toString(players));
 		}
+		System.out.printf("%d枚目でPlayer%dの優勝%n",cardCount,players[0]);
 		System.out.println("優勝賞金"+cardCount+"万円");
 	}
 }
