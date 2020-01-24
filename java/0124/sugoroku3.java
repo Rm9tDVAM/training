@@ -15,6 +15,11 @@ public class sugoroku3{
 				playerTotal[j]+=dice;
 				System.out.printf("P%d...%d(%d)%n",
 						players[j],dice,playerTotal[j]);
+				if(playerTotal[j]>20){
+					System.out.printf("Overしたので%d戻った%n",
+							dice);
+					playerTotal[j]-=dice;
+				}
 				for(int l=0;l<playerTotal[j];l++){
 					System.out.print("*");
 				}
@@ -22,12 +27,6 @@ public class sugoroku3{
 					System.out.printf("%nGoal! P%d Win!",
 							players[j]);
 					return;
-				}
-				if(playerTotal[j]>20){
-					System.out.printf("Overしたので%d戻った",
-							dice);
-					playerTotal[j]-=dice;
-					break;
 				}
 				for(int l=0;l<19-playerTotal[j];l++){
 					System.out.print(" ");
