@@ -184,7 +184,6 @@ int[][] intArray;
 intArray[][]=new int[3][3];
 int[][] intArray=new int[3][3];
 ~~~
-test
 | |0|1|2|
 |-|-|-|-|
 |0|00|01|02|
@@ -198,7 +197,7 @@ test
 intArray[0][0]=10;
 intArray[1][0]=20;
 intArray[2][0]=30;
-~~~  
+~~~
 | |0|1|2|↲
 |-|-|-|-|↲
 |0|10|00|00|↲
