@@ -70,4 +70,19 @@ String inputStr=new Scanner(System.in).nextLine();
 1. 変数strはその文字(列)を含むか `str.contains("abc")`
 1. 変数strのある部分を取得する `String cutStr=str.substring)0,4);`
 1. 変数strの最後の一文字を取得する `String cutStr=substring(0,str.length()-1);`
-## 三項条件演算子
+## 三項条件演算子(三項演算子)
+- 条件式?式1:式2
+~~~java
+big>small?"true":"false"
+~~~
+## if文 `分岐の制御構文`
+> 条件式がtrueなら中のブロックへ
+~~~java
+if(条件式){
+		処理
+}else if(条件式){
+		処理
+}else{
+		処理
+}
+~~~
