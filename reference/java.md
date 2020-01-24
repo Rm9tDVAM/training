@@ -184,6 +184,7 @@ int[][] intArray;
 intArray[][]=new int[3][3];
 int[][] intArray=new int[3][3];
 ~~~
+test
 | |0|1|2|
 |-|-|-|-|
 |0|00|01|02|
