@@ -75,7 +75,7 @@ String inputStr=new Scanner(System.in).nextLine();
 ~~~java
 big>small?"true":"false"
 ~~~
-## if `分岐の制御構文`
+## if文 `分岐の制御構文`
 > 条件式がtrueなら中のブロックへ
 ~~~java
 if(条件式){
@@ -86,7 +86,7 @@ if(条件式){
 	処理
 }
 ~~~
-## switch `分岐の制御構文`
+## switch文 `分岐の制御構文`
 > 値とcaseが一致したら中のブロックへ
 ~~~java
 switch(条件式){
@@ -98,7 +98,7 @@ switch(条件式){
 		break;
 }
 ~~~
-## while `繰り返しの制御構文`
+## while文 `繰り返しの制御構文`
 > 条件式がtrueなら中のブロックへ
 ~~~java
 while(条件式){
@@ -110,21 +110,21 @@ while(条件式){
 	}	
 }
 ~~~
-## do while `繰り返しの制御構文`
+## do while文 `繰り返しの制御構文`
 > 条件式がtrueなら中のブロックへ
 ~~~java
 do{
 	処理
 }while(条件式);
 ~~~
-## for `繰り返しの制御構文`
+## for文 `繰り返しの制御構文`
 ~~~java
 for(int i=0;i<10;i++){
 	処理
 }
 ~~~
 > forのブロックは(初期化処理 ; 繰り返し条件 ; 繰り返し時処理)に分かれている
-## 拡張for `繰り返しの制御構文`
+## 拡張for文 `繰り返しの制御構文`
 ~~~java
 for(int n:配列名){
 	処理
@@ -134,3 +134,42 @@ for(int n:配列名){
 >1. 処理
 >1. 1~2の処理を配列要素が無くなるまで繰り返す
 ## 配列
+#### 宣言
+~~~java
+型名[] 配列名;
+配列名[]=new 型名[配列の長さ];
+型名[] 配列名=new 型名[配列の長さ];
+~~~
+~~~java
+int[] intArray;
+intArray=new int[3];
+int[] intArray=new int[3];
+~~~
+#### 代入
+~~~java
+配列名[インデックス]=値;
+~~~
+~~~java
+intArray[0]=10;
+intArray[0]=20;
+intArray[0]=30;
+~~~
+#### 宣言して代入
+~~~java
+型名[] 配列名={10,20,30};
+~~~
+~~~java
+int[] intArray={10,20,30};
+~~~
+#### 要素数の取得
+~~~java
+intArray.length
+~~~
+> int intArray=new int[3];の場合は3を返す
+>> インデックス0~2に対し、要素数は3なので注意
+#### 配列の中身を出力する
+~~~java
+System.out.println(Arrays.toString(intArray));
+~~~
+> int[] intArray={10,20,30};の場合は[10,20,30]と出力される
+## 二次元配列
