@@ -27,5 +27,10 @@ System.out.printf("%s,%.1f,%s",123,4.5,"あいう");
 >> %d int  
 >> %f double  
 >> %s String  
-[System.out.printf()の使い方](https://joytas.net/programming/system-out-printf%e3%81%ae%e4%bd%bf%e3%81%84%e6%96%b9).
-
+[Joytas.net/System.out.printf()の使い方](https://joytas.net/programming/system-out-printf%e3%81%ae%e4%bd%bf%e3%81%84%e6%96%b9).
+## Math.max and min
+~~~java
+int big=Math.max(num1,num2);
+int small=Math.min(num1,num2);
+~~~
+## Random
