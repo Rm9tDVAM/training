@@ -79,10 +79,22 @@ big>small?"true":"false"
 > 条件式がtrueなら中のブロックへ
 ~~~java
 if(条件式){
-		処理
+	処理
 }else if(条件式){
-		処理
+	処理
 }else{
+	処理
+}
+~~~
+## switch文 `分岐の制御構文`
+> 値とcaseが一致したら中のブロックへ
+~~~java
+switch(条件式){
+	case 1:
 		処理
+		break;
+	case 2:
+		処理
+		break;
 }
 ~~~
