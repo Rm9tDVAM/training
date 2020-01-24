@@ -18,10 +18,16 @@ public class sugoroku3{
 				for(int l=0;l<playerTotal[j];l++){
 					System.out.print("*");
 				}
-				if(playerTotal[j]>20){
+				if(playerTotal[j]==20){
 					System.out.printf("%nGoal! P%d Win!",
 							players[j]);
-					return
+					return;
+				}
+				if(playerTotal[j]>20){
+					System.out.printf("Overしたので%d戻った",
+							dice);
+					playerTotal[j]-=dice;
+					break;
 				}
 				for(int l=0;l<19-playerTotal[j];l++){
 					System.out.print(" ");
