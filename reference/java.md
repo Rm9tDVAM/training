@@ -203,3 +203,17 @@ intArray[2][0]=30;
 |0|10|00|00|
 |1|20|00|00|
 |2|30|00|00|
+#### 宣言して代入
+~~~java
+型名[][] 配列名={{10,20,30},{40,50,60}};
+~~~
+~~~java
+int[][] intArray={{10,20,30},{40,50,60}};
+~~~
+#### 要素数の取得
+~~~java
+intArray.length
+intArray[].length
+~~~
+> int[][] intArray=new int[3][3];
+> int[][] intArray=new int[3][3];
