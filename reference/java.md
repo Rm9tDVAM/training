@@ -5,12 +5,12 @@ import java.util.\*;//エスケープのバックスラッシュの消し方が�
 import java.util.Random;
 import java.util.Scanner;
 ~~~
-## 変数の宣言
+## 変数(variable)
 ~~~java
 型名 変数名;
 型名 変数名=初期値;
 ~~~
-## 定数の宣言
+## 定数(constant)
 ~~~java
 final 型名 変数名=初期値;
 ~~~
@@ -64,4 +64,10 @@ String inputStr=new Scanner(System.in).nextLine();
 1. 奇数 `5/2!=0`
 1. 倍数 `9%3==0`
 ## 文字列の比較など
-str.equals("abc")
+1. 変数strとその文字列は等しいか `str.equals("abc")`
+1. 変数strがaから始まるか `str.startsWith("a")`
+1. 変数strがsで終わるか `str.endsWith("c"`
+1. 変数strはその文字(列)を含むか `str.contains("abc")`
+1. 変数strのある部分を取得する `String cutStr=str.substring)0,4);`
+1. 変数strの最後の一文字を取得する `String cutStr=substring(0,str.length()-1);`
+## 三項条件演算子
