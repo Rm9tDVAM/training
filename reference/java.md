@@ -1,7 +1,7 @@
 # Java
 ## import
 ~~~java
-import java.util.\*;
+import java.util.\*;//エスケープのバックスラッシュの消し方が？
 import java.util.Random;
 import java.util.Scanner;
 ~~~
@@ -34,3 +34,29 @@ int big=Math.max(num1,num2);
 int small=Math.min(num1,num2);
 ~~~
 ## Random
+~~~java
+int r=new Random().nextInt(100);
+~~~
+## Scanner
+~~~java
+int inputInt=new Scanner(System.in).nextInt();
+~~~
+~~~java
+String inputStr=new Scanner(System.in).nextLine();
+~~~
+## 演算子(operator)
+- 加算 +
+- 減算 -
+- 乗算 *
+- 除算 /
+- 余剰 %
+## 条件式
+- == 左辺と右辺が等しい
+- != 左辺と右辺が異なる
+- > 左辺が右辺より大きい
+- < 左辺が右辺より小さい
+- >= 左辺が右辺より大きいか等しい
+- <= 左辺が右辺より小さいか等しい
+- && かつ`&&で区切られたブロック全てがtrueの場合true`
+- || または`||で区切られたブロックのどれかがtrueの場合true`
+
