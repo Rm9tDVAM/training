@@ -75,7 +75,7 @@ String inputStr=new Scanner(System.in).nextLine();
 ~~~java
 big>small?"true":"false"
 ~~~
-## if文 `分岐の制御構文`
+## if `分岐の制御構文`
 > 条件式がtrueなら中のブロックへ
 ~~~java
 if(条件式){
@@ -86,7 +86,7 @@ if(条件式){
 	処理
 }
 ~~~
-## switch文 `分岐の制御構文`
+## switch `分岐の制御構文`
 > 値とcaseが一致したら中のブロックへ
 ~~~java
 switch(条件式){
@@ -98,3 +98,30 @@ switch(条件式){
 		break;
 }
 ~~~
+## while `繰り返しの制御構文`
+> 条件式がtrueなら中のブロックへ
+~~~java
+while(条件式){
+	if(条件式){
+		処理
+		break;
+	}else{
+		処理
+	}	
+}
+~~~
+## do while `繰り返しの制御構文`
+> 条件式がtrueなら中のブロックへ
+~~~java
+do{
+	処理
+}while(条件式);
+~~~
+## for `繰り返しの制御構文`
+~~~java
+for(int i=0;i<10;i++){
+	処理
+}
+~~~
+> forのブロックは(初期化処理;繰り返し条件;繰り返し時処理)に分かれている
+## 拡張for `繰り返しの制御構文`
