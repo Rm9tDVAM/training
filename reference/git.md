@@ -4,7 +4,7 @@
 		-	Stageに上げる
 	2. `git commit -m"[comment]"`
 		- Stageに上げた内容をCommitとして保存
-		- 間違えた場合は`git --amend`して削除する
+			- 間違えた場合は`git --amend`して削除する
 	3. `git checkout master`
 		- master branchに移動する
 	4. `git merge [branch name]`
@@ -27,6 +27,7 @@
 		- 差分の表示
 	- `git graph`
 		- commit履歴の表示
+			> (end)が表示される場合は**q**で抜ける
 	- `git reflog`
 		- commit履歴の表示
 1. Git管理を始めるには
