@@ -69,68 +69,6 @@ header h1{
 > backrournd-size:coverとすることで、その画像で領域を埋める  
 > box-sizing:border-box;とすることでpaddingやborderを設定しても要素自体が大きくならない  
 > font-size:3.5vw;画面幅に対して文字サイズを変更する(設定は%)  
-main h2{
-  background: #345;
-  color:white;
-  text-align: center;
-  font-size:3vw;
-  padding:5px 0;
-}
-.imgFull{
-  display: block;
-  width:100%;
-}
-.youtubeContainer{
-  position: relative;
-  width:80%;
-  padding-top:45%;
-  margin:2vh auto;
-}
-.youtubeContainer iframe{
-  position: absolute;
-  top:0;
-  right:0;
-  width:100% !important;
-  height:100% !important;
-}
-
-#floatItems img{
-  display: block;
-  width:50%;
-border:1px solid #333;
-  box-sizing: border-box;
-  float:left;
-}
-footer{
-  text-align: right;
-  padding-right:10px;
-  color:#345;
-}
-/*1200px以上で適用*/
-@media screen and (min-width:1200px){
-  header h1{
-    font-size:3vw;
-  }
-}
-/*600px以下で適用*/
-@media screen and (max-width:600px){
-  header h1{
-    font-size:4vw;
-  }
-  main h2{
-    font-size:3.5vw;
-  }
-}
-
-/*480px以下で適用*/
-@media screen and (max-width:480px){
-  #floatItems img{
-
-  width:100%;
-
- }
-}
-
-
 ## 参考
+[Joytas.net/Webサイト制作-5日目(レスポンシブ)](https://joytas.net/programming/website/website05).
 [HTML特殊文字コード表](http://www.shurey.com/js/labo/character.html).
