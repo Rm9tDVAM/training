@@ -215,8 +215,8 @@ intArray.length
 intArray[].length
 ~~~
 > int[][] intArray=new int[2][4];で宣言した場合  
-> intArray.lengthで2を返す;  
-> intArray[0].lengthで4を返す;
+> intArray.lengthで2を返す  
+> intArray[0].lengthで4を返す
 ## 二次元ジャグ配列
 #### 二次元ジャグ配列の宣言
 ~~~java
@@ -229,6 +229,10 @@ intArray[1]=new int[6];
 |0|00|01|02|
 |1|10|11|12|13|14|15|
 ## メソッド
+#### メソッド利用によるメリット
+- プログラムの見通しがよくなり、全体を把握しやすくなる。
+- 機能単位に記述するため、修正範囲を限定できる。
+- 同じ処理を1つのメソッドにまとめることで、作業効率が上がる。
 #### メソッドの定義
 ~~~java
 public static 戻り値の型 メソッド名(引数リスト){
@@ -268,4 +272,17 @@ public static 戻り値の型 メソッド名(引数リスト){
 	return 戻り値;
 }
 ~~~
-
+#### メソッドの呼び出し、戻り値を受け取る
+~~~
+型 変数名=メソッド名(引数リスト);
+~~~
+~~~java
+public class Main{
+	public static int add(int x,int y){
+		return x+y;
+	}
+	public static void main(String[] args){
+		System.out.println("100+10="+add(100,10));
+	}
+}
+~~~
