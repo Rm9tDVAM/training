@@ -64,10 +64,11 @@ header h1{
   color:#345;
 }
 ~~~
-> 親要素にrelative,子要素にabsolute
-abc
-def
-
+> 親要素をrelative,子要素にabsoluteを指定
+> padding-top 34%に対して子要素でwidth,height:100%とすることで同じ領域を確保する
+> backrournd-size:coverとすることで、その画像で領域を埋める
+> box-sizing:border-box;とすることでpaddingやborderを設定しても要素自体が大きくならない
+> font-size:3.5vw;画面幅に対して文字サイズを変更する(設定は%)
 main h2{
   background: #345;
   color:white;
