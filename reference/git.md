@@ -42,8 +42,9 @@
 	- `git init`
 		- ローカルリポジトリを作成する
 1. GitHubのversion管理から特定のファイルを外すには.gitignoreに記述する
-	- \*.class
-	> initしたルートなどに置くことで、*.classを管理対象から外すことができる
+	- consoleでvi .gitignoreとし、下記の内容を記述する
+		> \*.class
+		>> initしたルートなどに置くことで、*.classを管理対象から外すことができる
 ## 参考
 [Joytas.net/Git](https://joytas.net/programming/git/git-1).  
 [Joytas.net/GitHubとの連携1](https://joytas.net/programming/git/github1).  
