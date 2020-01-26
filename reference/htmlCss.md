@@ -5,6 +5,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
+		<title>title</title>
 		<link rel="stylesheet" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
 		<link rel="stylesheet" href="css/main.css"/>
 	</head>
@@ -29,3 +30,18 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 	<tr><td>td1</td><td>td2</td><td>td3</td></tr>
 </table>
 ~~~
+## Image
+~~~html
+<div class="box">
+	<img src="images/[file name].jpg">
+</div>
+~~~
+## スマホ最適化
+~~~html
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+~~~
+> スマホで表示したときに縮小されてしまうのを防ぐ設定。
+## 参考
+[HTML特殊文字コード表](http://www.shurey.com/js/labo/character.html).
