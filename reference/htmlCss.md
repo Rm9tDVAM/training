@@ -65,7 +65,7 @@ header h1{
 ~~~
 > 親要素をrelative,子要素にabsoluteを指定  
 > padding-top 34%に対して子要素でwidth,height:100%とすることで同じ領域を確保する  
-> backrournd-size:coverとすることで、その画像で領域を埋める  
+> backrournd-size:coverとすることで、背景画像で領域を埋める  
 > box-sizing:border-box;とすることでpaddingやborderを設定しても要素自体が大きくならない  
 > font-size:3.5vw;画面幅に対して文字サイズを変更する(設定は%)  
 ## 参考
