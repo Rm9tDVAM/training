@@ -347,7 +347,27 @@ $ java Code5_13
 > 引数リストは()で囲まずに、半角スペースで区切って入力する
 ## 配列のインデックスを循環させる
 ~~~java
-import code...
+public class temp{↲
+»-public static void main(String[] args){↲
+»-»-int[] array={1,2,3};↲
+»-»-for(int i=0;i<10;i++){↲
+»-»-»-System.out.println(i%array.length);↲
+»-»-}↲
+»-}↲
+}↲
+~~~
+~~~
+$ java temp
+0
+1
+2
+0
+1
+2
+0
+1
+2
+0
 ~~~
 ## 配列を昇順に並び替える(sort)
 ~~~java
@@ -417,7 +437,7 @@ public class reverse{
 }
 ~~~
 >1234と入力した場合は4321の順で表示される
-## 10. 入力した秒からhh:mm:ssを求める
+## 入力した秒からhh:mm:ssを求める
 ~~~java
 import java.util.Scanner;
 public class secondTo{
