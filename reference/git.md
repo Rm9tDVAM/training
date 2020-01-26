@@ -37,10 +37,11 @@
 1. Git管理を始めるには
 	- `git clone [url]`
 		- リモートからローカルにダウンロードする
+			> GitHub上でforkして自分のリポジトリに持ってきてからCloneする場合もある
+			>> forkして開発した場合は、fork元にpullrequestして問題なければmargしてもらう
 	- `git init`
 		- ローカルリポジトリを作成する
 ## 参考
 [図解Git](https://marklodato.github.io/visual-git-guide/index-ja.html).
 - コミットオブジェクトは実際にはgit initしたディレクトリ以下の**スナップショット**
 - gitコマンドの中にはコミットオブジェクトを差分っぽく扱うものがあるが、実際には対象コミットオブジェクトとその直前のコミットオブジェクトの**差分を見ている**
-> Written with [StackEdit](httpsgit://stackedit.io/).
