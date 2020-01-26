@@ -1,7 +1,7 @@
 # Java
 ## import
 ~~~java
-import java.util. \*;//エスケープのバックスラッシュの消し方が？
+import java.util.\*;
 import java.util.Random;
 import java.util.Scanner;
 ~~~
@@ -225,5 +225,46 @@ intArray[1]=new int[6];
 ~~~
 | |0|1|2|3|4|5|
 |-|-|-|-|-|-|-|
-|0|00|01|01|
+|0|00|01|02|
 |1|10|11|12|13|14|15|
+## メソッド
+#### メソッドの定義
+~~~java
+public static 戻り値の型 メソッド名(引数リスト){
+	メソッドが呼び出されたときに実行される具体的な処理
+}
+~~~
+~~~java
+public static voi hello(){
+	System.out.println("湊さん、こんにちは");
+}
+~~~
+#### 引数の渡し方
+~~~
+何も渡さない場合：メソッド名()
+値を1つ渡す場合：メソッド名(値)
+何も渡さない場合：メソッド名(値,値)
+値には、変数名を指定することもできる。
+~~~
+~~~java
+public class Main{
+	public static void main(String[] args){
+		System.out.println("メソッドを呼び出します");
+		hello("湊");
+		hello("朝香");
+		hello("菅原");
+		System.out.println("メソッドの呼び出しが終わりました");
+	}
+	public static void hello(String name){
+		System.out.println(name+"さん、こんにちは");
+	}
+}
+~~~
+#### 値の戻し方
+~~~java
+public static 戻り値の型 メソッド名(引数リスト){
+	メソッドが実行されたときに動く処理
+	return 戻り値;
+}
+~~~
+
