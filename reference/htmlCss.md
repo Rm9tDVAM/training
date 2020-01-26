@@ -1,5 +1,5 @@
 # HTML&CSS
-## basic
+## Basic
 ~~~html
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,4 +21,11 @@
 ## Lorem ipsum
 ~~~html
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+~~~
+## Table
+~~~html
+<table border="1">
+	<tr><th>th1</th><th>th2</th><th>th3</th></tr>
+	<tr><td>td1</td><td>td2</td><td>td3</td></tr>
+</table>
 ~~~
