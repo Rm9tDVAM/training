@@ -63,6 +63,7 @@ String inputStr=new Scanner(System.in).nextLine();
 - 奇数 `5%2!=0`
 - 倍数 `9%3==0`
 ## 文字列の比較など
+1. 変数strの文字数を取得する `str.length()`
 1. 変数strとその文字列は等しいか `str.equals("abc")`
 1. 変数strがaから始まるか `str.startsWith("a")`
 1. 変数strがsで終わるか `str.endsWith("c"`
