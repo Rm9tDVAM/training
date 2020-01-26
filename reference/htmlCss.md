@@ -61,7 +61,6 @@ header h1{
   box-sizing: border-box;
   padding:10%;
   font-size:3.5vw;
-  color:#345;
 }
 ~~~
 > 親要素をrelative,子要素にabsoluteを指定  
