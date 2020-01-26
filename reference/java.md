@@ -1,7 +1,7 @@
 # Java
 ## import
 ~~~java
-import java.util.\*;//エスケープのバックスラッシュの消し方が？
+import java.util. \*;//エスケープのバックスラッシュの消し方が？
 import java.util.Random;
 import java.util.Scanner;
 ~~~
@@ -216,3 +216,14 @@ intArray[].length
 ~~~
 > int[][] intArray=new int[3][3];
 > int[][] intArray=new int[3][3];
+## 二次元ジャグ配列
+#### 二次元ジャグ配列の宣言
+~~~java
+int[][] intArray=new int[2][];
+intArray[0]=new int[3];
+intArray[1]=new int[6];
+~~~
+| |0|1|2|3|4|5|
+|-|-|-|-|-|-|-|
+|0|00|01|01|
+|1|10|11|12|13|14|15|
