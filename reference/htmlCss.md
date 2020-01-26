@@ -45,6 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 > スマホで表示したときに縮小されてしまうのを防ぐ設定。
 # CSS
 ## relativeで絶対配置
+~~~html
 header{
   position:relative;
   padding-top:34%;
@@ -62,6 +63,7 @@ header h1{
   font-size:3.5vw;
   color:#345;
 }
+~~~
 > 親要素にrelative,子要素にabsolute
 abc
 def
