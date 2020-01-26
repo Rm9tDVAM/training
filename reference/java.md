@@ -340,9 +340,9 @@ $ java Code5_13
 4
 ~~~
 #### コマンドライン引数
-`public static void main(String[] args){`
+`public static void main(String[] args){`  
 プログラム起動時に指定したコマンドライン引数がJVMによって配列に変換され、mainメソッド起動時に渡される。
 #### コマンドライン引数を利用したJavaプログラムの起動
-`java プログラム名 引数リスト`
+`java プログラム名 引数リスト`  
 \*引数リストは()で囲まずに、半角スペースで区切って入力する
 
