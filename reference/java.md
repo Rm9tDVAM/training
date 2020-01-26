@@ -314,6 +314,30 @@ $ java Code5_12
 #### 基本型の変数をメソッド呼び出しで渡すと
 - 呼び出し元の変数の内容が、呼び出し先にコピーされる。
 - 呼び出し先で引数の内容を書き換えても、呼び出し元の変数は変化しない。
-#### 配列をメソッドで呼び出しで渡すと
+#### 配列をメソッド呼び出しで渡すと
 - 呼び出し元の配列のアドレスが、呼び出し先の引数にコピーされる。
 - 呼び出し先で配列の実体を書き換えると、呼び出し元にも影響する。
+~~~java
+public class Code5_13{
+	public static void intArray(int[] array){
+		for(int i=0;i<array.length;i++){
+			array[i]++;
+		}
+	}
+	public static void main(String[] args){
+		int[] array={1,2,3};
+		intArray(array);
+		for(int i:array){
+			System.out.println(i);
+		}
+	}
+}
+~~~
+~~~
+$ java Code5_13
+2
+3
+4
+~~~
+#### コマンドライン引数
+
