@@ -47,6 +47,7 @@
 [Joytas.net/GitHubとの連携2](https://joytas.net/programming/git/github2).  
 [Joytas.net/Git(基本操作)](https://joytas.net/programming/git/basic).  
 [Joytas.net/Git(基本操作2)](https://joytas.net/programming/git/basic2).  
-[図解Git](https://marklodato.github.io/visual-git-guide/index-ja.html).
+[図解Git](https://marklodato.github.io/visual-git-guide/index-ja.html).  
+[GitHubを利用している企業](https://www.wantedly.com/tools/github/companies).
 - コミットオブジェクトは実際にはgit initしたディレクトリ以下の**スナップショット**
 - gitコマンドの中にはコミットオブジェクトを差分っぽく扱うものがあるが、実際には対象コミットオブジェクトとその直前のコミットオブジェクトの**差分を見ている**
