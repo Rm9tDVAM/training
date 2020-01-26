@@ -70,5 +70,5 @@ header h1{
 > box-sizing:border-box;とすることでpaddingやborderを設定しても要素自体が大きくならない  
 > font-size:3.5vw;画面幅に対して文字サイズを変更する(設定は%)  
 ## 参考
-[Joytas.net/Webサイト制作-5日目(レスポンシブ)](https://joytas.net/programming/website/website05).
+[Joytas.net/Webサイト制作-5日目(レスポンシブ)](https://joytas.net/programming/website/website05).  
 [HTML特殊文字コード表](http://www.shurey.com/js/labo/character.html).
