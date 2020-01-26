@@ -347,7 +347,7 @@ $ java Code5_13
 > 引数リストは()で囲まずに、半角スペースで区切って入力する
 ## 配列のインデックスを循環させる
 ~~~java
-public class temp{
+public class loopIndex{
   public static void main(String[] args){
     int[] array={1,2,3};
     for(int i=0;i<10;i++){
