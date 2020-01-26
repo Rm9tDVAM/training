@@ -351,23 +351,23 @@ public class loopIndex{
   public static void main(String[] args){
     int[] array={1,2,3};
     for(int i=0;i<10;i++){
-      System.out.println(i%array.length);
+      System.out.println(array[i%array.length]);
     }
   }
 }
 ~~~
 ~~~
-$ java temp
-0
+$ java loopIndex
 1
 2
-0
+3
 1
 2
-0
+3
 1
 2
-0
+3
+1
 ~~~
 ## 配列を昇順に並び替える(sort)
 ~~~java
