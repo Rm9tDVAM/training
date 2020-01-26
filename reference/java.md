@@ -214,7 +214,7 @@ int[][] intArray={{10,20,30},{40,50,60}};
 intArray.length
 intArray[].length
 ~~~
-> int[][] intArray=new int[3][3];
+> int[][] intArray=new int[3][3];  
 > int[][] intArray=new int[3][3];
 ## 二次元ジャグ配列
 #### 二次元ジャグ配列の宣言
