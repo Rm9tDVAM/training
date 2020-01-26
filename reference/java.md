@@ -437,6 +437,24 @@ public class reverse{
 }
 ~~~
 >1234と入力した場合は4321の順で表示される
+## 文字列をさかさまにする
+[Joytas.net/day21](https://joytas.net/%e8%a8%93%e7%b7%b4/day21).
+~~~java
+public class reverseWord{
+  public static void main(String[] args){
+    String Word="abcde";
+    String str="";
+    for(int i=Word.length()-1;i>=0;i--){
+      str+=Word.charAt(i);
+    }
+    System.out.println(str);
+  }
+}
+~~~
+~~~
+$ java reverseWord
+edcba
+~~~
 ## 入力した秒からhh:mm:ssを求める
 ~~~java
 import java.util.Scanner;
