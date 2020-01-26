@@ -345,4 +345,102 @@ $ java Code5_13
 #### コマンドライン引数を利用したJavaプログラムの起動
 `java プログラム名 引数リスト`  
 > 引数リストは()で囲まずに、半角スペースで区切って入力する
+## 配列のインデックスを循環させる
+~~~java
+import code...
+~~~
+#
 
+## 配列を昇順に並び替える(sort)
+~~~java
+public class sort{
+	public static void main(String[] args){
+		int[] array={6,2,10,4,8};
+		for(int i=0;i<array.length-1;i++){
+			for(int j=i+1;j<array.length;j++){
+				if(array[i] > array[j]){
+					int temp=array[i];
+					array[i]=array[j];
+					array[j]=temp;
+				}
+			}
+		}
+		for(int n:array){
+			System.out.println(n);
+		}
+	}
+}
+~~~
+## 配列を逆順に並びかえる(reverse)
+~~~java
+public class reverse{
+	public static void main(String[] args){
+		int[] array={1,2,3,4,5};
+		for(int i=0;i<array.length/2;i++){
+			int temp=array[i];
+			array[i]=array[array.length-1-i];
+			array[array.length-1-i]=temp;
+		}
+		for(int n:array){
+			System.out.println(n);
+		}
+	}
+}
+~~~
+## 配列をランダムに並びかえる(shuffle)
+~~~java
+import java.util.Arrays;
+import java.util.Random;
+public class shuffle{
+	public static void main(String[] args){
+		int[] array={1,2,3,4,5};
+		for(int i=0;i<array.length-1;i++){
+			int index=new Random().nextInt(array.length-i);
+			int temp=array[index];
+			array[index]=array[array.length-1-i];
+			array[array.length-1-i]=temp;
+		}
+		System.out.println(Arrays.toString(array));
+	}
+}
+~~~
+## インプットした4桁を降順に並び替える(reverse)
+~~~java
+import java.util.Scanner;
+public class reverse{
+	public static void main(String[] args){
+		System.out.print("4桁の数字>");
+		int num=new Scanner(System.in).nextInt();
+		for(int i=0;i<4;i++){
+			System.out.println(num%10);
+			num/=10;
+		}
+	}
+}
+~~~
+>1234と入力した場合は4321の順で表示される
+## 10. 入力した秒からhh:mm:ssを求める
+~~~java
+import java.util.Scanner;
+public class secondTo{
+	public static void main(String[] args){
+		System.out.print("秒を入力>");
+		int second=new Scanner(System.in).nextInt();
+		int hour=second/3600;
+		int minute=second%3600/60;
+		int rSecond=second%60;
+		System.out.printf("%02d:%02d:%02d%n",hour,minute,rSecond);
+	}
+}
+~~~
+## 知識として
+1. ラベル付きブレイク
+	- break outerでouter:whileに抜けることができる
+
+## おまけ
+; セミコロン
+\: コロン
+. ピリオド
+, カンマ
+1+5 オペランド 演算子 オペランド
+リテラル(literal)ソースコードに記述されている具体
