@@ -46,21 +46,26 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 # CSS
 ## relativeで絶対配置
 ~~~html
+<header>
+	<h1>Hello Responsive Web Design!</h1>
+</header>
+~~~
+~~~html
 header{
-  position:relative;
-  padding-top:34%;
+	position:relative;
+	padding-top:34%;
 }
 header h1{
-  position: absolute;
-  top:0;
-  right:0;
-  width:100%;
-  height:100%;
-  background-image:url(../images/[file name].png);
-  background-size:cover;
-  box-sizing: border-box;
-  padding:10%;
-  font-size:3.5vw;
+	position: absolute;
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+	background-image:url(../images/[file name].png);
+	background-size:cover;
+	box-sizing: border-box;
+	padding:10%;
+	font-size:3.5vw;
 }
 ~~~
 > 親要素をrelative,子要素にabsoluteを指定  
