@@ -1,4 +1,8 @@
 # HTML
+## Block-level Elements
+ブロックレベル要素は、見出し・段落・表など、文書を構成する基本となる要素で、一つのブロック（かたまり）として認識されます。 ブラウザでの表示も一つのかたまりとして扱われることが多く、一般的なブラウザでは前後に改行が入ります。
+## Inline Elements
+インライン要素は、主にブロックレベル要素の内容として用いられる要素で、文章の一部として扱われます。 例えば、p要素の中のstrong要素のように、段落のなかの一部を強調するような使われ方をする要素です。 一般的なブラウザでは前後に改行が入らず、文章の一部として表示されます。
 ## Basic
 ~~~html
 <!DOCTYPE html>
@@ -30,6 +34,17 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 	<tr><td>td1</td><td>td2</td><td>td3</td></tr>
 </table>
 ~~~
+## Ordered List
+~~~html
+<ol>
+	<li>JavaScript</li>
+	<li>Java</li>
+	<li>C#</li>
+	<li>PHP</li>
+	<li>Python</li>
+</ol>
+~~~
+> olの代わりにul(Unordered List)を使うと番号なしのリストを作成できる
 ## Image
 ~~~html
 <div class="box">
@@ -106,6 +121,7 @@ header h1{
 > box-sizing:border-box;とすることでpaddingやborderを設定しても要素自体が大きくならない  
 > font-size:3.5vw;画面幅に対して文字サイズを変更する(設定は%)  
 ## 参考
+[Webサイト制作-1日目(html)](https://joytas.net/programming/website/website01).  
 [Joytas.net/Webサイト制作-5日目(レスポンシブ)](https://joytas.net/programming/website/website05).  
 [Joytas.net/Webサイト制作-6日目(form)](https://joytas.net/programming/website/website06).  
 [MDN web docs](https://developer.mozilla.org/ja/).  
