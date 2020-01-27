@@ -122,6 +122,7 @@ header h1{
 > font-size:3.5vw;画面幅に対して文字サイズを変更する(設定は%)  
 ## 参考
 [Webサイト制作-1日目(html)](https://joytas.net/programming/website/website01).  
+[Webサイト制作(レイアウト)](1カラム,2カラム)(https://joytas.net/programming/website/layout).  
 [Joytas.net/Webサイト制作-5日目(レスポンシブ)](https://joytas.net/programming/website/website05).  
 [Joytas.net/Webサイト制作-6日目(form)](https://joytas.net/programming/website/website06).  
 [MDN web docs](https://developer.mozilla.org/ja/).  
