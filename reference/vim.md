@@ -49,6 +49,7 @@
 - tabnew：新しいタブを開く
 - tabe file.txt：新しいタブでファイルを開く
 - gt：次のタブへ移動
+- gT：前のタブへ移動
 - tabclose：タブを閉じる
 - vi -p file.txt file.txt：複数のファイルを同時に開く
 - tabdo %s/abc/ABC\g：全てのタブの全体から一致した単語を置換
