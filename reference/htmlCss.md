@@ -96,6 +96,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 container{
   margin:0 auto;
 }
+~~~
 > ブロック要素を親要素に対して、上下0左右をautoで左右中央寄せにしてくれる設定
 ## relativeで絶対配置
 ~~~html
