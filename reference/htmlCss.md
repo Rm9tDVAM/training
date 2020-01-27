@@ -108,4 +108,6 @@ header h1{
 ## 参考
 [Joytas.net/Webサイト制作-5日目(レスポンシブ)](https://joytas.net/programming/website/website05).  
 [Joytas.net/Webサイト制作-6日目(form)](https://joytas.net/programming/website/website06).  
+[MDN web docs](https://developer.mozilla.org/ja/).  
+[Can I use](https://caniuse.com/).  
 [HTML特殊文字コード表](http://www.shurey.com/js/labo/character.html).
