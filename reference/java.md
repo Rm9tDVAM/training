@@ -473,6 +473,12 @@ public class secondTo{
 ## 知識として
 1. ラベル付きブレイク
 	- break outerでouter:whileに抜けることができる
+1. ASC Order(アセンディング、昇順)
+1. DESC Order(ディセンディング、降順)
+1. scan.close();
+	- newで確保したメモリを明示的に開放する
+1. System.exit(0);
+	- アプリ強制終了(0は正常終了)
 ## おまけ
 ; セミコロン  
 \: コロン  
