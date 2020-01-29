@@ -363,7 +363,7 @@ $ java Code5_13
 - packageが異なれば、同じクラス名を使ってよい
 	> 完全限定クラス名(FQCN)が異なるので区別ができる
 
-		> packageを使うことによって、それぞれのpackage内では自由にクラス名をつけることが可能になる
+packageを使うことによって、それぞれのpackage内では自由にクラス名をつけることが可能になる
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
