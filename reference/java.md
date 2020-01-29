@@ -346,6 +346,22 @@ $ java Code5_13
 #### コマンドライン引数を利用したJavaプログラムの起動
 `java プログラム名 引数リスト`  
 > 引数リストは()で囲まずに、半角スペースで区切って入力する
+## sleepで処理を一時停止させる
+`public static void sleep(long millis`
+~~~java
+public class sleep{
+	public static void showMondokoro() throws Exception{
+		Thread.sleep(3000);
+	}
+}
+~~~
+> 単位ははミリ秒(3000=3秒)
+>> sleepメソッドを使う場合は例外処理が必要
+## キー入力があるまでコンソールの出力を止める
+~~~java
+new Scanner(System.in).nextLine();
+~~~
+> Enterが読み込まれるので注意する
 ## 配列のインデックスを循環させる
 ~~~java
 public class loopIndex{
