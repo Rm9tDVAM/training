@@ -361,7 +361,21 @@ $ java Code5_13
 #### 名前空間
 - 新しくクラスを作ると、そのクラス名は使えなくなり、使えるクラス名は減っていく(名前の衝突)
 - packageが異なれば、同じクラス名を使ってよい
-> 完全限定クラス名(FQCN)が異なるので区別ができる
+	> 完全限定クラス名(FQCN)が異なるので区別ができる
+#### Java APIについて
+- API(Application Programming Interface)
+- APIで提供されるパッケージ
+
+	|package name|comment|
+	|---|---|
+	|java.lang|javaに欠かせない、重要なクラス群|
+	|java.util|プログラミングを便利にするさまざまなクラス群|
+	|java.math|数学に関するクラス群|
+	|java.net|ネットワーク通信などを行うためのクラス群|
+	|java.io|ファイル読み書きなど、データを逐次処理するためのクラス群|
+	> java.langは頻繁に利用されるのでimport文を記述しなくても自動的にインポートされる
+- クラスロードは必要な時に必要なものだけ
+	> 必要なクラスだけを、必要になったときにロードする
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
@@ -511,6 +525,8 @@ public class secondTo{
 	- newで確保したメモリを明示的に開放する
 1. System.exit(0);
 	- アプリ強制終了(0は正常終了)
+## リンク
+[Java(tm) Platform, Standard Edition 8 API仕様](https://docs.oracle.com/javase/jp/8/docs/api/).
 ## おまけ
 ; セミコロン  
 \: コロン  
