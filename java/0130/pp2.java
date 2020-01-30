@@ -4,36 +4,14 @@ public class pp2{
 	public static void main(String[] args){
 		String[] suits={"♠","♦","♥","♣"};
 		String[] numbers={"1","2","3","4","5","6","7","8","9","10","J","Q","K"};
-		String[] cards=new String[52];
+		String[] cards=new String[numbers.length*4];
 		for(int i=0;i<cards.length;i++){
-			if(i<13){
-				cards[i]=suits[0]+numbers[i];
-			}else if(i<26){
-				cards[i]=suits[1]+numbers[i-13];
-			}else if(i<39){
-				cards[i]=suits[2]+numbers[i-26];
-			}else{
-				cards[i]=suits[3]+numbers[i-39];
-			}
+			cards[i]=suits[i/numbers.length]+numbers[i%numbers.length];
 		}
 		for(int i=0;i<cards.length;i++){
-			if(i<13){
-				System.out.print(cards[i]+" ");
-				if(i==12){
-					System.out.println();
-				}
-			}else if(i<26){
-				System.out.print(cards[i]+" ");
-				if(i==25){
-					System.out.println();
-				}
-			}else if(i<39){
-				System.out.print(cards[i]+" ");
-				if(i==38){
-					System.out.println();
-				}
-			}else{
-				System.out.print(cards[i]+" ");
+			System.out.print(cards[i]+" ");
+			if(i%numbers.length==numbers.length-1){
+				System.out.println();
 			}
 		}
 		for(int i=0;i<cards.length-1;i++){
@@ -43,12 +21,48 @@ public class pp2{
 			cards[cards.length-1-i]=temp;
 		}
 		System.out.println();
-		for(int i=0;i<5;i++){
+		/*for(int i=0;i<5;i++){
 			int index=new Random().nextInt(cards.length-1);
 			System.out.print(cards[i]+" ");
+		}*/
+		System.out.println(Arrays.toString(cards));
+		for(int i=0;i<4;i++){
+			for(int j=0;j<4-i;j++){
+				String temp1=cards[i].substring(1,cards[i].length());
+				String temp2=cards[i+j+1].substring(1,cards[i+j+1].length());
+				System.out.println(cardsToInt(temp1));
+				System.out.println(cardsToInt(temp2));
+				if(cardsToInt(temp1)>cardsToInt(temp2)){
+				}
+				String temp=cards[i];
+				cards[i]=cards[i+j+1];
+				cards[i+j+1]=temp;
+			}
+		System.out.println(Arrays.toString(cards));
+				System.out.println();
 		}
-		String temp=cards[0].substring(1,2);
-		int tempInt=Integer.parseInt(temp);
-			System.out.println(tempInt);
+	}
+	public static int cardsToInt(String str){
+		switch(str){
+			case "1":
+			case "2":
+			case "3":
+			case "4":
+			case "5":
+			case "6":
+			case "7":
+			case "8":
+			case "9":
+			case "10":
+				int temp=Integer.parseInt(str);
+				return temp;
+			case "J":
+				return 11;
+			case "Q":
+				return 12;
+			case "K":
+				return 13;
+		}
+		return 0;
 	}
 }
