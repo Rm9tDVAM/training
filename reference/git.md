@@ -11,6 +11,7 @@
 		- branchをmasterに統合する
 	5. `git push`
 		- ローカルリポジトリをリモートに反映する
+			> branchの先端がリモートより後ろにある理由で[reject]されたらgit pull
 1. branch操作
 	- `git branch`
 		- branch一覧の表示
