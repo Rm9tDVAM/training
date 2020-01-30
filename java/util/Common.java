@@ -23,4 +23,5 @@ public class Common{
 			arr[index]=arr[arr.length-1-i];
 			arr[arr.length-1-i]=temp;
 		}
+	}
 }
