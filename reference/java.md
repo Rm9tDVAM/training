@@ -397,7 +397,7 @@ $ java Code5_13
 |対象|品詞|大文字/小文字の用法|例|
 |---|---|---|---|
 |クラス名|名詞|単語の頭が大文字|Hero,MonsterInfo|
-|フィールド名|名詞|最初以外の単語の頭が大文字|
+|フィールド名|名詞|最初以外の単語の頭が大文字|level,itemList|
 |メソッド名|動詞|最初以外の単語の頭が大文字|attack,findWeakPoint|
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
