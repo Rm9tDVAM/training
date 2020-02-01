@@ -624,7 +624,7 @@ public class secondTo{
 1. System.exit(0);
 	- アプリ強制終了(0は正常終了)
 ## リンク
-[Java(tm) Platform, Standard Edition 8 API仕様](https://docs.oracle.com/javase/jp/8/docs/api/).
+[Java(tm) Platform, Standard Edition 8 API仕様](https://docs.oracle.com/javase/jp/8/docs/api/).  
 [splitでJavaの文字列を分割しよう! 良く使うサンプル付き!](https://engineer-club.jp/java-split).
 ## おまけ
 ; セミコロン  
