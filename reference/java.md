@@ -420,9 +420,9 @@ $ java Code5_13
 >> コンストラクタ名はクラス名と同じ。また、戻り値はなし  
 >> オーバーロード可能
 #### static method
-> class.methodで呼び出して使うメソッド
+- class.methodで呼び出して使うメソッド
 #### instance method
-> instanceを生成しないと使用できないメソッド
+- instanceを生成しないと使用できないメソッド
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
