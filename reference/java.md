@@ -64,6 +64,11 @@ String inputStr=new Scanner(System.in).nextLine();
 - 倍数 `9%3==0`
 ## StringをIntに変換する
 `temp=Integer.parseInt(strData[i]);`
+## 小文字を大文字にする。またはその逆
+~~~java
+str.toUpperCase();
+str.LowerCase();
+~~~
 ## 文字列の比較など
 1. 変数strの文字数を取得する `str.length()`
 1. 変数strとその文字列は等しいか `str.equals("abc")`
