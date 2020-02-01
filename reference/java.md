@@ -62,6 +62,8 @@ String inputStr=new Scanner(System.in).nextLine();
 - 偶数 `10%2==0`
 - 奇数 `5%2!=0`
 - 倍数 `9%3==0`
+## StringをIntに変換する
+`temp=Integer.parseInt(strData[i]);`
 ## 文字列の比較など
 1. 変数strの文字数を取得する `str.length()`
 1. 変数strとその文字列は等しいか `str.equals("abc")`
@@ -449,6 +451,53 @@ $ java loopIndex
 3
 1
 ~~~
+## カンマ区切りの文字列をカンマで区切ってstr配列に格納する
+public class strToArr{
+	public static void main(String[] args){
+		String str="リンゴ,ゴリラ,ラッパ";
+		String[] data=str.split(",");
+		System.out.println(Arrays.toString(data));
+	}
+}
+## 表記ゆれのある文字列を区切ってstr配列に格納する
+public class strToArr{
+	public static void main(String[] args){
+		String str="Mac,Win、Linux";
+		String[] data=str.split("[,、]");
+		System.out.println(Arrays.toString(data));
+	}
+}
+> [,、]は正規表現、「,」「、」が一致対象
+## カンマ区切りの文字列数字を配列に格納してから合計する
+public class strintSum{
+	public static void main(String[] args){
+		String str="3,5,7,19";
+		int[] dataInt;
+		String[] data=str.split(",");
+		dataInt=new int[data.length];
+		for(int i=0;i<data.length;i++){
+			int temp=0;
+			temp=Integer.parseInt(data[i]);
+			dataInt[i]=temp;
+		}
+		int sum=0;
+		for(int n:dataInt){
+			sum+=n;
+		}
+		System.out.print("合計は"+sum);
+	}
+}
+## 文字列を置換する
+import java.util.Scanner;
+public class Lesson3{
+	public static void main(String[] args){
+		String word=new Scanner(System.in).next();
+		String word2=word.replaceAll("[aiueo]","");
+		System.out.println(word2);
+	}
+}
+> replaceAllは前のブロックで一致したら後ろのブロックと置き換える
+>> [aiueo]は正規表現、「a」「i」「u」「e」「o」が一致対象
 ## 配列を昇順に並び替える(sort)
 ~~~java
 public class sort{
@@ -560,6 +609,7 @@ public class secondTo{
 	- アプリ強制終了(0は正常終了)
 ## リンク
 [Java(tm) Platform, Standard Edition 8 API仕様](https://docs.oracle.com/javase/jp/8/docs/api/).
+[splitでJavaの文字列を分割しよう! 良く使うサンプル付き!](https://engineer-club.jp/java-split).
 ## おまけ
 ; セミコロン  
 \: コロン  
