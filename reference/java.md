@@ -452,6 +452,7 @@ $ java loopIndex
 1
 ~~~
 ## カンマ区切りの文字列をカンマで区切ってstr配列に格納する
+~~~java
 public class strToArr{
 	public static void main(String[] args){
 		String str="リンゴ,ゴリラ,ラッパ";
@@ -459,7 +460,9 @@ public class strToArr{
 		System.out.println(Arrays.toString(data));
 	}
 }
+~~~
 ## 表記ゆれのある文字列を区切ってstr配列に格納する
+~~~java
 public class strToArr{
 	public static void main(String[] args){
 		String str="Mac,Win、Linux";
@@ -467,8 +470,10 @@ public class strToArr{
 		System.out.println(Arrays.toString(data));
 	}
 }
+~~~
 > [,、]は正規表現、「,」「、」が一致対象
 ## カンマ区切りの文字列数字を配列に格納してから合計する
+~~~java
 public class strintSum{
 	public static void main(String[] args){
 		String str="3,5,7,19";
@@ -487,7 +492,9 @@ public class strintSum{
 		System.out.print("合計は"+sum);
 	}
 }
+~~~
 ## 文字列を置換する
+~~~java
 import java.util.Scanner;
 public class Lesson3{
 	public static void main(String[] args){
@@ -496,6 +503,7 @@ public class Lesson3{
 		System.out.println(word2);
 	}
 }
+~~~
 > replaceAllは前のブロックで一致したら後ろのブロックと置き換える
 >> [aiueo]は正規表現、「a」「i」「u」「e」「o」が一致対象
 ## 配列を昇順に並び替える(sort)
