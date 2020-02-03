@@ -69,6 +69,12 @@ String inputStr=new Scanner(System.in).nextLine();
 str.toUpperCase();
 str.LowerCase();
 ~~~
+## intをStringに変換する
+`String intStr=String.valueOf(int);`
+## 10進数を2進数(String)に変換する
+`String binStr=Integer.toBinaryString(int);`
+## 文字列内の文字を文字配列に抽出する
+`char[] data=str.toCharArray();`
 ## 文字列の比較など
 1. 変数strの文字数を取得する `str.length()`
 1. 変数strとその文字列は等しいか `str.equals("abc")`
