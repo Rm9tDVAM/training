@@ -4,7 +4,7 @@
 		-	Stageに上げる
 	2. `git commit -m"[comment]"`
 		- Stageに上げた内容をCommitとして保存
-			- 間違えた場合は`git --amend`して削除する
+			- 間違えた場合は`git commit --amend`して削除する
 	3. `git checkout master`
 		- master branchに移動する
 	4. `git merge [branch name]`
