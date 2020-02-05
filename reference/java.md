@@ -83,6 +83,13 @@ str.LowerCase();
 1. 変数strはその文字(列)を含むか `str.contains("abc")`
 1. 変数strのある部分を取得する `String cutStr=str.substring)0,4);`
 1. 変数strの最後の一文字を取得する `String cutStr=substring(0,str.length()-1);`
+## charをfor文を使って配列に格納する
+~~~java
+char[] chars=new char[26];
+for(int i=0;i<26;i++){
+	chars[i]=(char)('a'+i);
+}
+~~~
 ## 三項条件演算子(三項演算子)
 - 条件式?式1:式2
 ~~~java
