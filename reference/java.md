@@ -540,6 +540,7 @@ Car@1f32e575
 2000 20000
 3000 30000
 ~~~
+outputとcodeを照合してコメントを記述
 ~~~java
 $ java Main
  4 »-»-Car[] sportsCar=new Car[3];↲
