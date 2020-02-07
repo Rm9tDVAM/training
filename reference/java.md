@@ -509,7 +509,7 @@ class クラス名 extends 元となるクラス名{
  3 »-public static void main(String[] args){↲
  4 »-»-Car[] sportsCar=new Car[3];↲
  5 »-»-System.out.println(Arrays.toString(sportsCar));↲
- 6 »-»-for(int i=0,engine=1000,price=10000;i<sportsCar.length;i++,engine+=1000,    price+=10000){↲
+ 6 »-»-for(int i=0,engine=1000,price=10000;i<sportsCar.length;i++,engine+=1000,price+=10000){↲
  7 »-»-»-Car temp=new Car(engine,price);↲
  8 »-»-»-System.out.println(temp);↲
  9 »-»-»-sportsCar[i]=temp;↲
