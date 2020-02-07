@@ -502,6 +502,72 @@ class クラス名 extends 元となるクラス名{
 	- 子クラスis-a親クラス(子クラスは、親クラスの一種である)
 - 継承の利用に関するルール
 	- is-aの原則が成立しないならば、ラクができるとしても継承を使ってはならない。
+#### 配列とインスタンス
+~~~java
+ 1 import java.util.Arrays;↲
+ 2 public class Main{↲
+ 3 »-public static void main(String[] args){↲
+ 4 »-»-Car[] sportsCar=new Car[3];↲
+ 5 »-»-System.out.println(Arrays.toString(sportsCar));↲
+ 6 »-»-for(int i=0,engine=1000,price=10000;i<sportsCar.length;i++,engine+=1000,    price+=10000){↲
+ 7 »-»-»-Car temp=new Car(engine,price);↲
+ 8 »-»-»-System.out.println(temp);↲
+ 9 »-»-»-sportsCar[i]=temp;↲
+10 »-»-}↲
+11 »-»-System.out.println(Arrays.toString(sportsCar));↲
+12 »-»-for(int i=0;i<sportsCar.length;i++){↲
+13 »-»-»-System.out.println(sportsCar[i].engine+" "+sportsCar[i].price);↲
+14 »-»-}↲
+15 »-}↲
+16 }↲
+17 class Car{↲
+18 »-int engine;↲
+19 »-int price;↲
+20 »-Car(int engine,int price){↲
+21 »-»-this.engine=engine;↲
+22 »-»-this.price=price;↲
+23 »-}↲
+24 }↲
+~~~
+~~~java
+$ java Main
+[null, null, null]
+Car@28a418fc
+Car@5305068a
+Car@1f32e575
+[Car@28a418fc, Car@5305068a, Car@1f32e575]
+1000 10000
+2000 20000
+3000 30000
+~~~
+~~~java
+$ java Main
+ 4 »-»-Car[] sportsCar=new Car[3];↲
+ 5 »-»-System.out.println(Arrays.toString(sportsCar));↲
+[null, null, null]
+Car型の配列を宣言した時点ではすべてnullが入っている
+
+ 7 »-»-»-Car temp=new Car(engine,price);↲
+ 8 »-»-»-System.out.println(temp);↲
+Car@28a418fc
+Car@5305068a
+Car@1f32e575
+Car型のインスタンスを生成してアドレスを表示
+
+ 9 »-»-»-sportsCar[i]=temp;↲
+10 »-»-}↲
+11 »-»-System.out.println(Arrays.toString(sportsCar));↲
+[Car@28a418fc, Car@5305068a, Car@1f32e575]
+生成したCar型のインスタンスを配列に入れる
+生成時のアドレスがそのまま配列に参照先として入っているのが分かる
+
+12 »-»-for(int i=0;i<sportsCar.length;i++){↲
+13 »-»-»-System.out.println(sportsCar[i].engine+" "+sportsCar[i].price);↲
+1000 10000
+2000 20000
+3000 30000
+Car型の配列にあるインスタンスの要素にアクセス
+~~~
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
