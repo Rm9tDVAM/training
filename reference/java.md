@@ -22,10 +22,10 @@ System.out.println("Hello World");//改行される
 ~~~java
 System.out.printf("%s,%.1f,%s",123,4.5,"あいう");
 ~~~
-> 123,4.5,あいう と表示される
->> %d int  
->> %f double  
->> %s String  
+- 123,4.5,あいう と表示される
+> %d int  
+> %f double  
+> %s String  
 [Joytas.net/System.out.printf()の使い方](https://joytas.net/programming/system-out-printf%e3%81%ae%e4%bd%bf%e3%81%84%e6%96%b9).
 ## Math.max and min
 ~~~java
