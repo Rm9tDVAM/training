@@ -191,7 +191,7 @@ intArray.length
 ~~~java
 System.out.println(Arrays.toString(intArray));
 ~~~
-> int[] intArray={10,20,30};の場合は[10,20,30]と出力される
+- int[] intArray={10,20,30};の場合は[10,20,30]と出力される
 ## 二次元配列
 #### 二次元配列の宣言
 ~~~java
