@@ -185,8 +185,8 @@ int[] intArray={10,20,30};
 ~~~java
 intArray.length
 ~~~
-> int intArray=new int[3];の場合は3を返す
->> インデックス0~2に対し、要素数は3なので注意
+- int intArray=new int[3];の場合は3を返す
+> インデックス0~2に対し、要素数は3なので注意
 #### 配列の中身を出力する
 ~~~java
 System.out.println(Arrays.toString(intArray));
