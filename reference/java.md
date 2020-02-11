@@ -243,9 +243,9 @@ int[][] intArray={{10,20,30},{40,50,60}};
 intArray.length
 intArray[].length
 ~~~
-> int[][] intArray=new int[2][4];で宣言した場合  
-> intArray.lengthで2を返す  
-> intArray[0].lengthで4を返す
+- int[][] intArray=new int[2][4];で宣言した場合  
+	- intArray.lengthで2を返す  
+	- intArray[0].lengthで4を返す
 ## 二次元ジャグ配列
 #### 二次元ジャグ配列の宣言
 ~~~java
