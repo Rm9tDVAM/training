@@ -104,7 +104,7 @@ for(int i=0;i<26;i++){
 big>small?"true":"false"
 ~~~
 ## if文 `分岐の制御構文`
-> 条件式がtrueなら中のブロックへ
+条件式がtrueなら中のブロックへ
 ~~~java
 if(条件式){
 	処理
