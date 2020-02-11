@@ -34,9 +34,17 @@ int small=Math.min(num1,num2);
 ~~~
 ## Random
 ~~~java
+Random ran=new Random();
+int ran=ran.nextInt(100);
+~~~
+~~~java
 int r=new Random().nextInt(100);
 ~~~
 ## Scanner
+~~~java
+Scanner scan=new Scanner(System.in)
+int input=scan.nextInt();
+~~~
 ~~~java
 int inputInt=new Scanner(System.in).nextInt();
 ~~~
