@@ -1,11 +1,10 @@
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 public class Main{
 	public static void main(String[] args){
 		Bingo[][] bingoArr=newBingoArr();
 		showBingoArr(bingoArr);
 	}
+
 
 	public static Bingo[][] newBingoArr(){
 		Random ran=new Random();
@@ -16,7 +15,6 @@ public class Main{
 				intArr[i][j]=num;
 			}
 		}
-
 		for(int i=0;i<bingoArr.length;i++){
 			for(int j=0,temp;j<bingoArr[i].length;j++){
 				temp=ran.nextInt(15-j);
@@ -28,6 +26,8 @@ public class Main{
 		bingoArr[2][2].num=0;
 		return bingoArr;
 	}
+
+
 	public static void showBingoArr(Bingo[][] bingoArr){
 		for(int i=0;i<bingoArr.length;i++){
 			for(int j=0;j<bingoArr[i].length;j++){
@@ -37,6 +37,8 @@ public class Main{
 		}
 	}
 } 
+
+
 class Bingo{
 	boolean isHit;
 	int num;
