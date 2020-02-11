@@ -597,7 +597,7 @@ public abstract class クラス名{
 public abstract 戻り値 メソッド名(引数リスト);
 ~~~
 #### 抽象クラスの制約
-抽象クラスは、newによるインスタン化が禁止されている。
+抽象クラスは、newによるインスタンス化が禁止されている。
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
