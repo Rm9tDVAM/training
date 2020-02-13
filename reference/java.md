@@ -636,6 +636,27 @@ public void setフィールド名(フィールドの型 任意の変数名){
 |long|java.lang.Long||boolean|java.lang.Boolean|
 #### AutoBoxing & AutoUnboxing
 ラッパークラス型のインスタンスとint型などの基本データ型のデータを相互に自動変換する機能
+##ArrayList
+#### ArrayListの宣言
+~~~java
+ArrayList<~> 変数名=new ArrayList<~>();
+~~~
+> ~の部分には、ArrayListに格納するインスタンスの型名を指定する
+> 右辺のインスタンス型名は省略可能
+|操作|戻り値|メソッド|機能|
+|---|---|---|---|
+|追加|boolean|add(●)|リストの最後に要素を追加|
+||void|add(int,●)|リストのint番目に要素を挿入|
+||~|set(int,●)|リストのint番目の要素を上書き|
+|取得|~|get(int)|int番目の要素を取り出す|
+|調査|int|size()|格納されている要素数を返す|
+||boolean|isEmpty()|要素数がゼロであるかを判定|
+||boolean|contains(●)|指定要素が含まれているかを判定|
+||int|indexOf(●)|指定要素が何番目にあるかを検索|
+|削除|void|clear()|要素のすべてを削除する|
+||~|remove(int)|int番目の要素を削除する|
+|イテレータ|Iterator<●>|iterator()|要素の順に処理するイテレータを返す|
+> ●はインスタンス型名を示す。
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
