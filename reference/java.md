@@ -507,38 +507,38 @@ public abstract 戻り値 メソッド名(引数リスト);
 public interface インタフェース名{
 }
 ~~~
-- Code 11-12 インタフェースとして宣言したCreature
+#### インタフェースとして宣言したCreature
 ~~~java
 public interface Creature{
 	public abstract void run();
 }
 ~~~
-- Code 11-13 一般的な書き方をしたインタフェース
+#### 一般的な書き方をしたインタフェース
 ~~~java
 public interface Creature{
 	void run();
 }
 ~~~
-- インタフェースにおける定数宣言
+#### インタフェースにおける定数宣言
 ~~~java
 public interface Circle{
 	double PI=3.141592;
 }
 ~~~
 > 自動的にpublic static finalが補われる
-- インタフェースの実装
+#### インタフェースの実装
 ~~~java
 public class クラス名 implements インタフェース名{
 }
 ~~~
-- 実装(implements)とは  
+#### 実装(implements)とは  
 	親インタフェースで未定だった各メソッドをオーバーライドして使えるようにすること
-- インタフェースの効果
+#### インタフェースの効果
 	1. 同じインタフェースをimplementsする複数の子クラスたちに、共通のメソッド群を実装するよう強制できる。
 	1. あるクラスがインタフェースを実装していれば、少なくともそのインタフェースが定めたメソッドは持っていることが保証される。
-- クラスにはないインタフェースの特権
+#### クラスにはないインタフェースの特権
 	異なる実装が衝突する問題が発生しないため、複数の親インタフェースによる多重継承が認められている。
-- インタフェースによる多重継承
+#### インタフェースによる多重継承
 ~~~java
 public class クラス名 implements 親インタフェース名1,親インタフェース名2{
 }
