@@ -560,7 +560,7 @@ public class クラス名 extends 親クラス implements 親インタフェー�
 ~~~java
 Character c=new SuperHero();
 ~~~
-このときCharacterは箱、中身がSuperHeroと捉えるとわかりやすい
+> このときCharacterは箱、中身がSuperHeroと捉えるとわかりやすい
 #### 「箱の型」と「中身の型」
 - 箱の型 どのメソッドを「呼べるか」を決定する。
 - 中身の型 メソッドが呼ばれたら、「どう動くか」を決定する。
