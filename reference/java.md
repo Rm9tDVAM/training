@@ -10,6 +10,7 @@
 ~~~java
 final 型名 変数名=初期値;
 ~~~
+> 変数名は全部大文字
 ## System.out.print and ln
 ~~~java
 System.out.print("Hello World");//改行されない
