@@ -247,7 +247,7 @@ intArray[].length
 ~~~java
 System.out.println(Arrays.deepToString(intArray));
 ~~~
-int[][] intArray={{10,20,30},{40,50,60}};の場合は
+int[][] intArray={{10,20,30},{40,50,60}};の場合は  
 [[10,20,30],[40,50,60]]と出力される
 ## 二次元ジャグ配列
 #### 二次元ジャグ配列の宣言
