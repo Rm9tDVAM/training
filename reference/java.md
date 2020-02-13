@@ -513,7 +513,7 @@ public interface Creature{
 	public abstract void run();
 }
 ~~~
-#### 一般的な書き方をしたインタフェース
+#### 一般的な書き方をしたCreatureインタフェース
 ~~~java
 public interface Creature{
 	void run();
