@@ -386,8 +386,7 @@ $ java Code5_13
 - 新しくクラスを作ると、そのクラス名は使えなくなり、使えるクラス名は減っていく(名前の衝突)
 - packageが異なれば、同じクラス名を使ってよい
 	- 完全限定クラス名(FQCN)が異なるので区別ができる
-## Java APIについて
-- API(Application Programming Interface)
+## Java API(Application Programming Interface)について
 - APIで提供されるパッケージ
 
 	|package name|comment|
