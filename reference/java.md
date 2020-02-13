@@ -243,6 +243,12 @@ intArray[].length
 - int[][] intArray=new int[2][4];で宣言した場合  
 	- intArray.lengthで2を返す  
 	- intArray[0].lengthで4を返す
+#### 配列の中身を出力する
+~~~java
+System.out.println(Arrays.deepToString(intArray));
+~~~
+int[][] intArray={{10,20,30},{40,50,60}};の場合は
+[[10,20,30],[40,50,60]]と出力される
 ## 二次元ジャグ配列
 #### 二次元ジャグ配列の宣言
 ~~~java
