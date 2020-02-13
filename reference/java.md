@@ -592,12 +592,12 @@ Wizard w=(Wizard)c;
 ~~~java
 アクセス修飾子 メソッド宣言;
 ~~~
-- privateアクセス修飾  
+#### privateアクセス修飾  
 privateであっても自分クラスからthis.~での読み書きは可能
 - メンバに関するアクセス修飾の定石
 - フィールドはすべてprivate
-- メソッドはすべてpublic
-- クラスに対するアクセス修飾の定石
+	- メソッドはすべてpublic
+	- クラスに対するアクセス修飾の定石
 特に理由がない限りpublicで修飾するのが一般的
 #### getterとsetter
 - getterメソッドの定石
