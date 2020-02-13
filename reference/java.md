@@ -556,12 +556,12 @@ public class クラス名 extends 親クラスimplements 親インタフェー�
 }
 ~~~
 #### 多態性
-- SuperHeroを「ザックリCharacterとして捉える」書き方  
-	このときCharacterは箱、中身がSuperHeroと捉えるとわかりやすい
-	~~~java
-	Character c=new SuperHero();
-	~~~  
-- 抽象クラスやインタフェースの型
+#### SuperHeroを「ザックリCharacterとして捉える」書き方  
+~~~java
+Character c=new SuperHero();
+~~~
+このときCharacterは箱、中身がSuperHeroと捉えるとわかりやすい
+#### 抽象クラスやインタフェースの型
 	抽象クラスやインタフェースからインスタンスを生み出すことはできないが、それらの型を利用することは可能。
 - あいまいな型の箱へのインスタンスの代入
 	インスタンスをあいまいに捉えることとなり、「厳密には何型のインスタンスだったか」がわからなくなってしまう。
