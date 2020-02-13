@@ -521,7 +521,7 @@ public interface Creature{
 ~~~
 - インタフェースにおける定数宣言
 ~~~java
-public intarface Circle{
+public interface Circle{
 	double PI=3.141592;
 }
 ~~~
