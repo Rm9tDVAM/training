@@ -531,6 +531,7 @@ public interface Circle{
 public class クラス名 implements インタフェース名{
 }
 ~~~
+
 #### 実装(implements)とは  
 	親インタフェースで未定だった各メソッドをオーバーライドして使えるようにすること
 #### インタフェースの効果
