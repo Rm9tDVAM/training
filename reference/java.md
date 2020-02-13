@@ -1,9 +1,6 @@
 # Java
 ## import
-`import java.util.*;`  
-`import java.util.Arrays;`  
-`import java.util.Random;`  
-`import java.util.Scanner;`
+`import java.util.*;`
 ## 変数(variable)
 ~~~java
 型名 変数名;
