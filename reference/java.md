@@ -632,6 +632,8 @@ public void setフィールド名(フィールドの型 任意の変数名){
 |short|java.lang.Short||double|java.lang.Double|
 |int|java.lang.Integer||char|java.lang.Character|
 |long|java.lang.Long||boolean|java.lang.Boolean|
+#### AutoBoxing & AutoUnboxing
+ラッパークラス型のインスタンスとint型などの基本データ型のデータを相互に自動変換する機能
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
