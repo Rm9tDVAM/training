@@ -543,22 +543,19 @@ public class クラス名 implements インタフェース名{
 public class クラス名 implements 親インタフェース名1,親インタフェース名2{
 }
 ~~~
-- インタフェースの継承
+#### インタフェースの継承
 
 |継承元|継承先|使用するキーワード|継承元の数|
 |---|---|---|---|
 |クラス|クラス|extends|1つ|
 |インタフェース|クラス|implements|1つ以上|
 |インタフェース|インタフェース|extends|1つ以上|
-- extendsとimplementsの両方を使ったクラス定義
+#### extendsとimplementsの両方を使ったクラス定義
 ~~~java
 public class クラス名 extends 親クラスimplements 親インタフェース1,親インタフェース2{
 }
 ~~~
-- 多態性とは  
-	多態性(polymorphism)はオブジェクト指向プログラミングを支える3大機能
-- 多態性のあいまいなイメージ  
-	「あるものを、あえてザックリ捉える」ことで、さまざまなメリットを享受しようという機能。
+#### 多態性
 - SuperHeroを「ザックリCharacterとして捉える」書き方  
 	このときCharacterは箱、中身がSuperHeroと捉えるとわかりやすい
 	~~~java
