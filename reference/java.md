@@ -625,11 +625,13 @@ public void setフィールド名(フィールドの型 任意の変数名){
 1. Map(ペアで対応付けて格納する)
 #### ジェネリクス
 <>記号を使った表現のこと
-#### コレクションにはできないこと  
-コレクションには、基本データ型の情報を格納することができない。
 #### 基本データ型とラッパークラスの対応
 |基本データ型|ラッパークラス||基本データ型|ラッパークラス|
 |---|---|---|---|---|
+|byte|java.lang.Byte||float|java.lang.Float|
+|short|java.lang.Short||double|java.lang.Double|
+|int|java.lang.Integer||char|java.lang.Character|
+|long|java.lang.Long||boolean|java.lang.Boolean|
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
