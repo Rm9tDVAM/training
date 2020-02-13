@@ -569,7 +569,7 @@ Character c=new SuperHero();
 Character c=new Wizard();
 Wizard w=(Wizard)c;
 ~~~
-> あいまいな型に入っている中身を厳密な型に代入するのはダウンキャスト(down cast)という
+> あいまいな型に入っている中身を厳密な型に代入するのは**ダウンキャスト(down cast)**という
 - 安全にキャストできるかを判定する
 ~~~java
 変数 instanceof 型名
