@@ -583,7 +583,7 @@ Wizard w=(Wizard)c;
 |protected|〇|〇|〇|×|
 |package private|〇|〇|×|×|
 |private|〇|×|×|×|
-アクセス修飾子(access modifier)と呼ばれる
+> アクセス修飾子(access modifier)と呼ばれる
 #### フィールドのアクセス制御
 ~~~java
 アクセス修飾子 フィールド宣言;
