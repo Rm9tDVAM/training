@@ -636,7 +636,7 @@ public void setフィールド名(フィールドの型 任意の変数名){
 |long|java.lang.Long||boolean|java.lang.Boolean|
 #### AutoBoxing & AutoUnboxing
 ラッパークラス型のインスタンスとint型などの基本データ型のデータを相互に自動変換する機能
-##ArrayList
+## ArrayList
 #### ArrayListの宣言
 ~~~java
 ArrayList<~> 変数名=new ArrayList<~>();
