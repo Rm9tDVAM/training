@@ -641,7 +641,7 @@ public void setフィールド名(フィールドの型 任意の変数名){
 ~~~java
 ArrayList<~> 変数名=new ArrayList<~>();
 ~~~
-> ~の部分には、ArrayListに格納するインスタンスの型名を指定する
+> ~の部分には、ArrayListに格納するインスタンスの型名を指定する  
 > 右辺のインスタンス型名は省略可能
 
 |操作|戻り値|メソッド|機能|
@@ -658,6 +658,18 @@ ArrayList<~> 変数名=new ArrayList<~>();
 ||~|remove(int)|int番目の要素を削除する|
 |イテレータ|Iterator<●>|iterator()|要素の順に処理するイテレータを返す|
 > ●はインスタンス型名を示す。
+#### for文を用いたリスト要素の取り出し
+~~~java
+for(int i=0;i<リスト変数.size();i++){
+	リスト変数.get(i)
+}
+~~~
+#### 拡張for文を用いたリスト要素の取り出し
+~~~java
+for(リスト要素の型 s:リスト変数){
+	System.out.println(s);
+}
+~~~
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
