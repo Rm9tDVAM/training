@@ -670,8 +670,6 @@ for(リスト要素の型 s:リスト変数){
 	System.out.println(s);
 }
 ~~~
-
-
 #### static member(静的メンバ)  
 staticキーワードが付けられたフィールドやメソッド
 #### static field(静的フィールド)の3つの効果
@@ -699,8 +697,6 @@ staticキーワードが付けられたフィールドやメソッド
 ~~~
 #### 静的メソッドの制約  
 同一クラス内のstaticがついていないフィールドやメソッドは利用できない。
-
-
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
