@@ -23,8 +23,8 @@ updated DATE
 DROP TABLE IF EXISTS members;
 ~~~
 ## Link
-[wiki MySQL](https://ja.wikipedia.org/wiki/MySQL).
-[日本MySQLユーザ会](http://www.mysql.gr.jp/).
+[wiki MySQL](https://ja.wikipedia.org/wiki/MySQL).  
+[日本MySQLユーザ会](http://www.mysql.gr.jp/).  
 [MySQL Reference Manuals](https://dev.mysql.com/doc/).
 ## Other
 [Defines all Languages known to GitHub.](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
