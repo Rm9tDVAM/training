@@ -1,7 +1,7 @@
 # MySQL
 ## mysql --version
 mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64),
-> 中身はMariaDB
+> 中身はMariaDB 10.4.11
 ## データベース作成
 ~~~mysql
 CREATE DATABASE myapp
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS members;
 ~~~
 ## Link
 [wiki MySQL](https://ja.wikipedia.org/wiki/MySQL).  
-[日本MySQLユーザ会](http://www.mysql.gr.jp/).  
-[MySQL Reference Manuals](https://dev.mysql.com/doc/).
+[wiki MariaDB](https://ja.wikipedia.org/wiki/MariaDB).
+[MariaDB Reference](https://mariadb.com/docs/reference/).
 ## Other
 [Defines all Languages known to GitHub.](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
