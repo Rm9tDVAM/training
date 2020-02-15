@@ -1,6 +1,6 @@
 # MySQL
 ## mysql --version
-mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64),
+mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 > 中身はMariaDB 10.4.11
 ## データベース作成
 ~~~mysql
@@ -30,4 +30,4 @@ DROP TABLE IF EXISTS members;
 [wiki MariaDB](https://ja.wikipedia.org/wiki/MariaDB).  
 [MariaDB Reference](https://mariadb.com/docs/reference/).
 ## Other
-[Defines all Languages known to GitHub.](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+[Defines all Languages known to GitHub](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
