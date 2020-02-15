@@ -1,4 +1,7 @@
 # MySQL
+## mysql --version
+mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64),
+> 中身はMariaDB
 ## データベース作成
 ~~~mysql
 CREATE DATABASE myapp
