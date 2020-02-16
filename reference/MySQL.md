@@ -20,7 +20,7 @@ DEFAULT CHARACTER SET utf8mb4;
 ~~~mysql
 DROP DATABASE IF EXISTS db_name;
 ~~~
-## テーブル作成[CREATE TABLE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_TABLE/)
+## [CREATE TABLE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_TABLE/)
 ~~~musql
 CREATE [OR REPLACE] [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
     (create_definition,...) [table_options    ]... [partition_options]
