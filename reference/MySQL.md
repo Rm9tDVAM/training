@@ -192,7 +192,7 @@ SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3;
 SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3 OFFSET 1;
 ~~~
 ## [UPDATE.](https://mariadb.com/docs/reference/es/sql-statements/UPDATE/)
-- Single-table syntax:
+#### Single-table syntax:
 ~~~mysql
 UPDATE [LOW_PRIORITY] [IGNORE] table_reference 
   [PARTITION (partition_list)]
@@ -201,7 +201,7 @@ UPDATE [LOW_PRIORITY] [IGNORE] table_reference
   [ORDER BY ...]
   [LIMIT row_count]
 ~~~
-Multiple-table syntax:
+#### Multiple-table syntax:
 ~~~mysql
 UPDATE [LOW_PRIORITY] [IGNORE] table_references
     SET col1={expr1|DEFAULT} [, col2={expr2|DEFAULT}] ...
