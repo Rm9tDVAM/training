@@ -16,7 +16,7 @@ create_specification:
 CREATE DATABASE db_name
 DEFAULT CHARACTER SET utf8;
 ~~~
-## データベース削除
+## [DROP DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_DATABASE/)
 ~~~mysql
 DROP DATABASE IF EXISTS myapp;
 ~~~
