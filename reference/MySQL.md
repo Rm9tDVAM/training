@@ -2,7 +2,7 @@
 ## mysql --version
 mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 > 中身はMariaDB 10.4.11
-## [CREATE DATABASE](https://mariadb.com/docs/reference/es/sql-statements/CREATE_DATABASE/).
+## [CREATE DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_DATABASE/)
 ~~~mysql
 CREATE [OR REPLACE] {DATABASE | SCHEMA} [IF NOT EXISTS] db_name
     [create_specification] ...
