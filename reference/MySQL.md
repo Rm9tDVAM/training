@@ -45,9 +45,9 @@ updated DATE
 ~~~
 - id INT PRIMARY KEY AUTO_INCREMENT  
 Tableを作るときにINT idの値を自動インクリメントする
-- [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)
+- [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)  
 Variable-length string with limit up to 65,535 bytes
-## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)  
+## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
 ~~~mysql
 DROP [TEMPORARY] TABLE [IF EXISTS] [/*COMMENT TO SAVE*/]
     tbl_name [, tbl_name] ...
