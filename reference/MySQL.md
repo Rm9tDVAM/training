@@ -14,7 +14,7 @@ create_specification:
 ~~~
 ~~~mysql
 CREATE DATABASE db_name
-DEFAULT CHARACTER SET utf8;
+DEFAULT CHARACTER SET utf8mb4;
 ~~~
 ## [DROP DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_DATABASE/)
 ~~~mysql
@@ -35,7 +35,7 @@ select_statement:
     [IGNORE | REPLACE] [AS] SELECT ...   (Some legal select statement)
 ~~~
 ~~~mysql
-CREATE TABLE members(
+CREATE TABLE tbl_name(
 id INT PRIMARY KEY AUTO_INCREMENt,
 name VARCHAR(30),
 depart VARCHAR(20) DEFAULT '無所属',
@@ -43,7 +43,13 @@ age INt,
 updated DATE
 );
 ~~~
-## テーブル削除
+## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
+~~~mysql
+DROP [TEMPORARY] TABLE [IF EXISTS] [/*COMMENT TO SAVE*/]
+    tbl_name [, tbl_name] ...
+    [WAIT n|NOWAIT]
+    [RESTRICT | CASCADE]
+~~~
 ~~~mysql
 DROP TABLE IF EXISTS members;
 ~~~
