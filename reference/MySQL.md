@@ -44,7 +44,7 @@ updated DATE
 );
 ~~~
 - id INT PRIMARY KEY AUTO_INCREMENT  
-プライマリキーのINT idの値をTableが新しく作られるたびに自動でインクリメントする
+Tableを作るときにINT idの値を自動インクリメントする
 - [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
 ~~~mysql
