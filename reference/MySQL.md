@@ -49,6 +49,24 @@ Tableを作るときにINT idの値を自動インクリメントする
 Variable-length **string** with limit up to 65,535 bytes
 - [INT.](https://mariadb.com/docs/reference/es/data-types/INT/)  
 **Integer** from -2147483648 to 2147483647 when signed, or from 0 to 4294967295 when unsigned.
+- [DATA.](https://mariadb.com/docs/reference/es/data-types/DATE/#es-data-types-date)
+~~~sql
+CREATE TABLE t1 (d DATE);
+
+INSERT INTO t1 VALUES ("2010-01-12"), ("2011-2-28"), ('120314'),('13*04*21');
+
+SELECT * FROM t1;
++------------+
+| d          |
++------------+
+| 2010-01-12 |
+| 2011-02-28 |
+| 2012-03-14 |
+| 2013-04-21 |
++------------+
+~~~
+- [Data Types in 10.4](https://mariadb.com/docs/reference/es10.4/data-types/#data-types-in-10-4)
+データタイプの一覧
 
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
 ~~~mysql
