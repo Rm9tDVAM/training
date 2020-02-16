@@ -64,7 +64,7 @@ SELECT * FROM t1;
 | 2013-04-21 |
 +------------+
 ~~~
-- [Data Types in 10.4.](https://mariadb.com/docs/reference/es10.4/data-types/#data-types-in-10-4)
+- [Data Types in 10.4.](https://mariadb.com/docs/reference/es10.4/data-types/#data-types-in-10-4)  
 データタイプの一覧
 
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
