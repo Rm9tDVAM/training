@@ -126,11 +126,8 @@ SELECT
       procedure|[PROCEDURE procedure_name(argument_list)]
       [INTO OUTFILE 'file_name' [CHARACTER SET charset_name] [export_options]
 
-
 INTO DUMPFILE 'file_name'	INTO var_name [, var_name] ]
-
       [[FOR UPDATE | LOCK IN SHARE MODE] [WAIT n | NOWAIT] ] ]
-
 
 export_options:
     [{FIELDS | COLUMNS}
@@ -143,6 +140,7 @@ export_options:
         [TERMINATED BY 'string']
     ]
 ~~~
+
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
 [wiki MariaDB.](https://ja.wikipedia.org/wiki/MariaDB)  
