@@ -43,6 +43,9 @@ age INt,
 updated DATE
 );
 ~~~
+- id INT PRIMARY KEY AUTO_INCREMENt
+プライマリキーのINT idの値をTableが新しく作られるたびに自動でインクリメントする
+- [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
 ~~~mysql
 DROP [TEMPORARY] TABLE [IF EXISTS] [/*COMMENT TO SAVE*/]
