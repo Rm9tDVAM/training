@@ -36,14 +36,14 @@ select_statement:
 ~~~
 ~~~mysql
 CREATE TABLE tbl_name(
-id INT PRIMARY KEY AUTO_INCREMENt,
+id INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(30),
 depart VARCHAR(20) DEFAULT '無所属',
 age INt,
 updated DATE
 );
 ~~~
-- id INT PRIMARY KEY AUTO_INCREMENt
+- id INT PRIMARY KEY AUTO_INCREMENT  
 プライマリキーのINT idの値をTableが新しく作られるたびに自動でインクリメントする
 - [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
