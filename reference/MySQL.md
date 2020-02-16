@@ -146,6 +146,6 @@ export_options:
 [wiki MariaDB.](https://ja.wikipedia.org/wiki/MariaDB)  
 [MariaDB Reference.](https://mariadb.com/docs/reference/)  
 [MySQL-1日目(基礎文法1).](https://joytas.net/programming/mysql/mysql01)  
-[]()  
+[MySQL-2日目(基本文法1演習).](https://joytas.net/programming/mysql/mysql02)
 ## Other
 [Defines all Languages known to GitHub](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
