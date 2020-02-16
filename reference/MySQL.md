@@ -18,9 +18,22 @@ DEFAULT CHARACTER SET utf8;
 ~~~
 ## [DROP DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_DATABASE/)
 ~~~mysql
-DROP DATABASE IF EXISTS myapp;
+DROP DATABASE IF EXISTS db_name;
 ~~~
-## テーブル作成
+## テーブル作成[CREATE TABLE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_TABLE/)
+~~~musql
+CREATE [OR REPLACE] [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...) [table_options    ]... [partition_options]
+CREATE [OR REPLACE] [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    [(create_definition,...)] [table_options   ]... [partition_options]
+    select_statement
+CREATE [OR REPLACE] [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+   { LIKE old_table_name | (LIKE old_table_name) }
+
+
+select_statement:
+    [IGNORE | REPLACE] [AS] SELECT ...   (Some legal select statement)
+~~~
 ~~~mysql
 CREATE TABLE members(
 id INT PRIMARY KEY AUTO_INCREMENt,
