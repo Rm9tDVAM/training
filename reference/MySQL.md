@@ -100,8 +100,8 @@ INSERT INTO tbl_name
 VALUES(3,'佐藤次郎','人事部',35,'2015-01-15');
 
 /*連続入力化*/
-INSERT INTO tbl_name(name,depart,age)
-VALUES('田中一郎','経理部',48),
+INSERT INTO tbl_name(name,depart,age)VALUES
+('田中一郎','経理部',48),
 ('山口弘子','営業部',28),
 ('渡辺順二','人事部',58),
 ('中島博之','総務部',49),
