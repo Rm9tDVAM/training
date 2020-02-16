@@ -140,7 +140,53 @@ export_options:
         [TERMINATED BY 'string']
     ]
 ~~~
+~~~mysql
+/*全件抽出*/
+SELECT * FROM members;
 
+/*nameカラム取得*/
+SELECT name FROM members;
+
+/*name,ageカラム取得*/
+SELECT name,age FROM members;
+
+/*WHERE句で絞り込み*/
+SELECT * FROM members WHERE age=25;
+SELECT * FROM members WHERE age>25;
+SELECT * FROM members WHERE age>=25;
+//<>でない
+SELECT * FROM members WHERE age<>25;
+SELECT * FROM members WHERE age>25 AND age <40
+SELECT * FROM members WHERE age>25 OR updated <='2015-01-15'
+//BETWEEN(端の値含む)
+SELECT * FROM members WHERE updated BETWEEN '2015-01-15' AND '2015-02-15'
+//INの中にあるデータを抽出
+SELECT * FROM members WHERE depart IN('営業部','人事部');
+//null判定
+SELECT * FROM members WHERE updated IS NULL;
+SELECT * FROM members WHERE updated IS NOT NULL;
+//あいまい検索
+SELECT * FROM members WHERE name LIKE '鈴木%';
+SELECT * FROM members WHERE name LIKE '%木%';
+SELECT * FROM members WHERE name LIKE '%田';
+//北が含まれない
+SELECT * FROM members WHERE name NOT LIKE '%北%';
+
+/*ORDER BY （並び替え)*/
+//年齢降順
+SELECT * FROM members ORDER BY age DESC;
+//updatedがnullでないデータを年齢昇順
+SELECT * FROM members WHERE updated IS NOT NULL
+ORDER BY age ASC;
+//ORDER BYは複数指定できる
+SELECT * FROM members ORDER BY age DESC,name ASC;
+//LIMIT 件数を制限できる
+SELECT * FROM members ORDER BY age DESC LIMIT 3;
+
+/*LIMIT と合わせてOFFSET指定＊/
+//２番目に年齢を高い人から3人取得
+SELECT * FROM members ORDER BY age DESC LIMIT 3 OFFSET 1;
+~~~
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
 [wiki MariaDB.](https://ja.wikipedia.org/wiki/MariaDB)  
