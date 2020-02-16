@@ -107,7 +107,7 @@ VALUES(3,'佐藤次郎','人事部',35,'2015-01-15');
 INSERT INTO tbl_name(name,depart,age)VALUES
 ('田中一郎','経理部',48),
 ('山口弘子','営業部',28),
-('渡辺順二','人事部',58),
+('渡辺順','人事部',58),
 ('中島博之','総務部',49),
 ('山下圭吾','経理部',23);
 ~~~
@@ -192,7 +192,6 @@ SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3;
 SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3 OFFSET 1;
 ~~~
 ## [UPDATE.](https://mariadb.com/docs/reference/es/sql-statements/UPDATE/)
-#### Single-table syntax:
 ~~~mysql
 UPDATE [LOW_PRIORITY] [IGNORE] table_reference 
   [PARTITION (partition_list)]
@@ -201,11 +200,26 @@ UPDATE [LOW_PRIORITY] [IGNORE] table_reference
   [ORDER BY ...]
   [LIMIT row_count]
 ~~~
-#### Multiple-table syntax:
 ~~~mysql
-UPDATE [LOW_PRIORITY] [IGNORE] table_references
-    SET col1={expr1|DEFAULT} [, col2={expr2|DEFAULT}] ...
+/*鈴木さくらの部署を人事部に変更*/
+UPDATE members SET depart='人事部'
+WHERE name='鈴木さくら';
+/*鈴木さくらの部署を人事部に変更,年齢を1歳あげる*/
+UPDATE members SET depart='人事部',age=age+1
+WHERE name='鈴木さくら';
+## [DELETE.](https://mariadb.com/docs/reference/es/sql-statements/DELETE/)
+#### Single-table syntax:
+~~~mysql
+DELETE [LOW_PRIORITY] [QUICK] [IGNORE] 
+    FROM tbl_name [PARTITION (partition_list)]
     [WHERE where_condition]
+    [ORDER BY ...]
+    [LIMIT row_count]
+    [RETURNING select_expr 
+      [, select_expr ...]]
+~~~
+~~~mysql
+DELETE FROM members WHERE id=3;
 ~~~
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
