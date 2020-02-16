@@ -47,7 +47,7 @@ updated DATE
 Tableを作るときにINT idの値を自動インクリメントする
 - [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)  
 Variable-length **string** with limit up to 65,535 bytes
-- [INT.](https://mariadb.com/docs/reference/es/data-types/INT/)
+- [INT.](https://mariadb.com/docs/reference/es/data-types/INT/)  
 **Integer** from -2147483648 to 2147483647 when signed, or from 0 to 4294967295 when unsigned.
 
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
