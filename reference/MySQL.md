@@ -52,9 +52,7 @@ Variable-length **string** with limit up to 65,535 bytes
 - [DATA.](https://mariadb.com/docs/reference/es/data-types/DATE/#es-data-types-date)
 ~~~sql
 CREATE TABLE t1 (d DATE);
-
 INSERT INTO t1 VALUES ("2010-01-12"), ("2011-2-28"), ('120314'),('13*04*21');
-
 SELECT * FROM t1;
 +------------+
 | d          |
