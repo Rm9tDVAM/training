@@ -65,7 +65,7 @@ SELECT * FROM t1;
 | 2013-04-21 |
 +------------+
 ~~~
-- [Data Types in 10.4](https://mariadb.com/docs/reference/es10.4/data-types/#data-types-in-10-4)
+- [Data Types in 10.4.](https://mariadb.com/docs/reference/es10.4/data-types/#data-types-in-10-4)
 データタイプの一覧
 
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
@@ -90,18 +90,18 @@ INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE]
       [, select_expr ...]]
 ~~~
 ~~~mysql
-INSERT INTO members(id,name,depart,age,updated)
+INSERT INTO tbl_name(id,name,depart,age,updated)
 VALUES(1,'山田太郎','営業部',40,'2014-12-01');
 
-INSERT INTO members(name,age)
+INSERT INTO tbl_name(name,age)
 VALUES ('鈴木さくら',25);
 
 /*全カラムに対して挿入はカラムの並び省略化)*/
-INSERT INTO members
+INSERT INTO tbl_name
 VALUES(3,'佐藤次郎','人事部',35,'2015-01-15');
 
 /*連続入力化*/
-INSERT INTO members(name,depart,age)
+INSERT INTO tbl_name(name,depart,age)
 VALUES('田中一郎','経理部',48),
 ('山口弘子','営業部',28),
 ('渡辺順二','人事部',58),
@@ -109,9 +109,10 @@ VALUES('田中一郎','経理部',48),
 ('山下圭吾','経理部',23);
 ~~~
 ## Link
-[wiki MySQL](https://ja.wikipedia.org/wiki/MySQL).  
-[wiki MariaDB](https://ja.wikipedia.org/wiki/MariaDB).  
-[MariaDB Reference](https://mariadb.com/docs/reference/).  
-https://joytas.net/programming/mysql/mysql01]
+[wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
+[wiki MariaDB.](https://ja.wikipedia.org/wiki/MariaDB)  
+[MariaDB Reference.](https://mariadb.com/docs/reference/)  
+[MySQL-1日目(基礎文法1).](https://joytas.net/programming/mysql/mysql01)  
+[]()  
 ## Other
 [Defines all Languages known to GitHub](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
