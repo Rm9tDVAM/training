@@ -107,6 +107,42 @@ INSERT INTO tbl_name(name,depart,age)VALUES
 ('中島博之','総務部',49),
 ('山下圭吾','経理部',23);
 ~~~
+## [SELECT.](https://mariadb.com/docs/reference/es/sql-statements/SELECT/)
+Retrieves data from one or more tables.
+~~~mysql
+SELECT
+    [ALL | DISTINCT | DISTINCTROW]
+    [HIGH_PRIORITY]
+    [STRAIGHT_JOIN]
+    [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+    [SQL_CACHE | SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+    select_expr [, select_expr ...]
+    [ FROM table_references
+      [WHERE where_condition]
+      [GROUP BY {col_name | expr | position} [ASC | DESC], ... [WITH ROLLUP]]
+      [HAVING where_condition]
+      [ORDER BY {col_name | expr | position} [ASC | DESC], ...]
+      [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+      procedure|[PROCEDURE procedure_name(argument_list)]
+      [INTO OUTFILE 'file_name' [CHARACTER SET charset_name] [export_options]
+
+
+INTO DUMPFILE 'file_name'	INTO var_name [, var_name] ]
+
+      [[FOR UPDATE | LOCK IN SHARE MODE] [WAIT n | NOWAIT] ] ]
+
+
+export_options:
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
+        [[OPTIONALLY] ENCLOSED BY 'char']
+        [ESCAPED BY 'char']
+    ]
+    [LINES
+        [STARTING BY 'string']
+        [TERMINATED BY 'string']
+    ]
+~~~
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
 [wiki MariaDB.](https://ja.wikipedia.org/wiki/MariaDB)  
