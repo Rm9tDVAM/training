@@ -47,7 +47,7 @@ updated DATE
 Tableを作るときにINT idの値を自動インクリメントする
 - depart VARCHAR(20) DEFAULT '無所属',  
 Tableを作るときにdepartに入力がなければデフォルトとして無所属が入る
-- [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)  
+- [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)
 Variable-length **string** with limit up to 65,535 bytes
 - [INT.](https://mariadb.com/docs/reference/es/data-types/INT/)  
 **Integer** from -2147483648 to 2147483647 when signed, or from 0 to 4294967295 when unsigned.
