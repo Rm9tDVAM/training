@@ -76,11 +76,14 @@ DROP [TEMPORARY] TABLE [IF EXISTS] [/*COMMENT TO SAVE*/]
     [RESTRICT | CASCADE]
 ~~~
 ~~~mysql
-DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS tbl_name;
 ~~~
+[INSERT.](https://mariadb.com/docs/reference/es/sql-statements/INSERT/)  
+Adds a row or rows of data to table.
 ## Link
 [wiki MySQL](https://ja.wikipedia.org/wiki/MySQL).  
 [wiki MariaDB](https://ja.wikipedia.org/wiki/MariaDB).  
-[MariaDB Reference](https://mariadb.com/docs/reference/).
+[MariaDB Reference](https://mariadb.com/docs/reference/).  
+https://joytas.net/programming/mysql/mysql01]
 ## Other
 [Defines all Languages known to GitHub](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
