@@ -2,7 +2,7 @@
 ## mysql --version
 mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 > 中身はMariaDB 10.4.11
-## データベース作成
+## CREATE DATABASE
 ~~~mysql
 CREATE [OR REPLACE] {DATABASE | SCHEMA} [IF NOT EXISTS] db_name
     [create_specification] ...
@@ -13,7 +13,7 @@ create_specification:
   | COMMENT [=] 'comment'
 ~~~
 ~~~mysql
-CREATE DATABASE myapp
+CREATE DATABASE db_name
 DEFAULT CHARACTER SET utf8;
 ~~~
 ## データベース削除
