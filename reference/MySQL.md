@@ -45,7 +45,7 @@ updated DATE
 ~~~
 - id INT PRIMARY KEY AUTO_INCREMENT  
 Tableを作るときにINT idの値を自動インクリメントする
-- depart VARCHAR(20) DEFAULT '無所属',
+- depart VARCHAR(20) DEFAULT '無所属',  
 Tableを作るときにdepartに入力がなければデフォルトとして無所属が入る
 - [VARCHAR.](https://mariadb.com/docs/reference/es/data-types/VARCHAR/)  
 Variable-length **string** with limit up to 65,535 bytes
