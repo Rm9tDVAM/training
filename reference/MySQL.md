@@ -220,6 +220,25 @@ DELETE [LOW_PRIORITY] [QUICK] [IGNORE]
 ~~~
 ~~~mysql
 DELETE FROM members WHERE id=3;
+## [COUNT().](https://mariadb.com/docs/reference/es/functions/COUNT/)
+Returns the number of values in the given expression.
+~~~mysql
+/*集計関数。結果は基本1行*/
+/*count(*) 登録データ件数*/
+SELECT count(*) FROM members;
+ 
+/*avg(age) 年齢の平均*/
+SELECT avg(age) FROM members;
+ 
+/*max(age)　年齢の最大*/
+SELECT max(age) FROM members;
+ 
+/*min(age)*　年齢の最小/
+SELECT min(age) FROM members;
+ 
+/*sum(age)*　年齢の合計/
+SELECT sum(age) FROM members;
+~~~
 ~~~
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
