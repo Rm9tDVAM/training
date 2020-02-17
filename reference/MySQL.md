@@ -218,6 +218,7 @@ DELETE [LOW_PRIORITY] [QUICK] [IGNORE]
     [LIMIT row_count]
     [RETURNING select_expr 
       [, select_expr ...]]
+~~~
 ~~~mysql
 DELETE FROM members WHERE id=3;
 ~~~
