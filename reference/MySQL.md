@@ -207,6 +207,7 @@ WHERE name='鈴木さくら';
 /*鈴木さくらの部署を人事部に変更,年齢を1歳あげる*/
 UPDATE members SET depart='人事部',age=age+1
 WHERE name='鈴木さくら';
+~~~
 ## [DELETE.](https://mariadb.com/docs/reference/es/sql-statements/DELETE/)
 #### Single-table syntax:
 ~~~mysql
@@ -217,7 +218,6 @@ DELETE [LOW_PRIORITY] [QUICK] [IGNORE]
     [LIMIT row_count]
     [RETURNING select_expr 
       [, select_expr ...]]
-~~~
 ~~~mysql
 DELETE FROM members WHERE id=3;
 ## [COUNT().](https://mariadb.com/docs/reference/es/functions/COUNT/)
