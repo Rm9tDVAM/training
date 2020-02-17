@@ -209,7 +209,7 @@ UPDATE members SET depart='人事部',age=age+1
 WHERE name='鈴木さくら';
 ~~~
 ## [DELETE.](https://mariadb.com/docs/reference/es/sql-statements/DELETE/)
-#### Single-table syntax:
+Single-table syntax:
 ~~~mysql
 DELETE [LOW_PRIORITY] [QUICK] [IGNORE] 
     FROM tbl_name [PARTITION (partition_list)]
