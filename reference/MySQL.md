@@ -235,10 +235,10 @@ SELECT avg(age) FROM members;
 /*max(age)　年齢の最大*/
 SELECT max(age) FROM members;
  
-/*min(age)*　年齢の最小/
+/*min(age)*　年齢の最小*/
 SELECT min(age) FROM members;
  
-/*sum(age)*　年齢の合計/
+/*sum(age)*　年齢の合計*/
 SELECT sum(age) FROM members;
 ~~~
 ## Link
