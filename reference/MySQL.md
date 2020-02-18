@@ -49,31 +49,15 @@ SELECT * FROM t1;
 
 ## [DROP TABLE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_TABLE/)
 ~~~mysql
-DROP [TEMPORARY] TABLE [IF EXISTS] [/*COMMENT TO SAVE*/]
-    tbl_name [, tbl_name] ...
-    [WAIT n|NOWAIT]
-    [RESTRICT | CASCADE]
-~~~
-~~~mysql
 DROP TABLE IF EXISTS tbl_name;
 ~~~
 ## [INSERT.](https://mariadb.com/docs/reference/es/sql-statements/INSERT/)  
-Adds a row or rows of data to table.
 ~~~mysql
-INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE]
- [INTO] tbl_name [PARTITION (partition_list)] [(col,...)]
- {VALUES | VALUE} ({expr | DEFAULT},...),(...),...
- [ ON DUPLICATE KEY UPDATE
-   col=expr
-     [, col=expr] ... ] [RETURNING select_expr 
-      [, select_expr ...]]
-~~~
-~~~mysql
-INSERT INTO tbl_name(id,name,depart,age,updated)
-VALUES(1,'山田太郎','営業部',40,'2014-12-01');
-
 INSERT INTO tbl_name(name,age)
 VALUES ('鈴木さくら',25);
+
+INSERT INTO tbl_name(id,name,depart,age,updated)
+VALUES(1,'山田太郎','営業部',40,'2014-12-01');
 
 /*全カラムに対して挿入はカラムの並び省略可)*/
 INSERT INTO tbl_name
@@ -88,38 +72,6 @@ INSERT INTO tbl_name(name,depart,age)VALUES
 ('山下圭吾','経理部',23);
 ~~~
 ## [SELECT.](https://mariadb.com/docs/reference/es/sql-statements/SELECT/)
-Retrieves data from one or more tables.
-~~~mysql
-SELECT
-    [ALL | DISTINCT | DISTINCTROW]
-    [HIGH_PRIORITY]
-    [STRAIGHT_JOIN]
-    [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
-    [SQL_CACHE | SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
-    select_expr [, select_expr ...]
-    [ FROM table_references
-      [WHERE where_condition]
-      [GROUP BY {col_name | expr | position} [ASC | DESC], ... [WITH ROLLUP]]
-      [HAVING where_condition]
-      [ORDER BY {col_name | expr | position} [ASC | DESC], ...]
-      [LIMIT {[offset,] row_count | row_count OFFSET offset}]
-      procedure|[PROCEDURE procedure_name(argument_list)]
-      [INTO OUTFILE 'file_name' [CHARACTER SET charset_name] [export_options]
-
-INTO DUMPFILE 'file_name'	INTO var_name [, var_name] ]
-      [[FOR UPDATE | LOCK IN SHARE MODE] [WAIT n | NOWAIT] ] ]
-
-export_options:
-    [{FIELDS | COLUMNS}
-        [TERMINATED BY 'string']
-        [[OPTIONALLY] ENCLOSED BY 'char']
-        [ESCAPED BY 'char']
-    ]
-    [LINES
-        [STARTING BY 'string']
-        [TERMINATED BY 'string']
-    ]
-~~~
 ~~~mysql
 /*全件抽出*/
 SELECT * FROM tbl_name;
@@ -169,14 +121,6 @@ SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3 OFFSET 1;
 ~~~
 ## [UPDATE.](https://mariadb.com/docs/reference/es/sql-statements/UPDATE/)
 ~~~mysql
-UPDATE [LOW_PRIORITY] [IGNORE] table_reference 
-  [PARTITION (partition_list)]
-  SET col1={expr1|DEFAULT} [,col2={expr2|DEFAULT}] ...
-  [WHERE where_condition]
-  [ORDER BY ...]
-  [LIMIT row_count]
-~~~
-~~~mysql
 /*鈴木さくらの部署を人事部に変更*/
 UPDATE members SET depart='人事部'
 WHERE name='鈴木さくら';
@@ -185,16 +129,6 @@ UPDATE members SET depart='人事部',age=age+1
 WHERE name='鈴木さくら';
 ~~~
 ## [DELETE.](https://mariadb.com/docs/reference/es/sql-statements/DELETE/)
-Single-table syntax:
-~~~mysql
-DELETE [LOW_PRIORITY] [QUICK] [IGNORE] 
-    FROM tbl_name [PARTITION (partition_list)]
-    [WHERE where_condition]
-    [ORDER BY ...]
-    [LIMIT row_count]
-    [RETURNING select_expr 
-      [, select_expr ...]]
-~~~
 ~~~mysql
 DELETE FROM members WHERE id=3;
 ~~~
