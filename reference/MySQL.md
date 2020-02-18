@@ -4,22 +4,10 @@ mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 > XAMPPのMySQLはMariaDB 10.4.11
 ## [CREATE DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_DATABASE/)
 ~~~mysql
-CREATE [OR REPLACE] {DATABASE | SCHEMA} [IF NOT EXISTS] db_name
-    [create_specification] ...
-
-create_specification:
-    [DEFAULT] CHARACTER SET [=] charset_name
-  | [DEFAULT] COLLATE [=] collation_name
-  | COMMENT [=] 'comment'
-~~~
-~~~mysql
 CREATE DATABASE db_name
 DEFAULT CHARACTER SET utf8mb4;
 ~~~
 ## [DROP DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/DROP_DATABASE/)
-~~~mysql
-DROP {DATABASE | SCHEMA} [IF EXISTS] db_name
-~~~
 ~~~mysql
 DROP DATABASE IF EXISTS db_name;
 ~~~
