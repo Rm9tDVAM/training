@@ -2,6 +2,13 @@
 ## mysql --version
 mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 > XAMPPのMySQLはMariaDB 10.4.11
+## CRUD
+|名前|操作|SQL|
+|---|---|---|
+|Create|生成|INSERT|
+|Read|読み取り|SELECT|
+|Update|更新|UPDATE|
+|Delete|削除|DELETE|
 ## [CREATE DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_DATABASE/)
 ~~~mysql
 CREATE DATABASE db_name
@@ -53,8 +60,9 @@ DROP TABLE IF EXISTS tbl_name;
 ~~~
 ## [INSERT.](https://mariadb.com/docs/reference/es/sql-statements/INSERT/)  
 ~~~mysql
-INSERT INTO tbl_name(name,age)
-VALUES ('鈴木さくら',25);
+insert into tbl_name(partition_list)values(
+INSERT INTO tbl_name(name,age)VALUES
+('鈴木さくら',25);
 
 INSERT INTO tbl_name(id,name,depart,age,updated)
 VALUES(1,'山田太郎','営業部',40,'2014-12-01');
@@ -133,10 +141,7 @@ WHERE name='鈴木さくら';
 DELETE FROM members WHERE id=3;
 ~~~
 ## [COUNT().](https://mariadb.com/docs/reference/es/functions/COUNT/)
-Returns the number of values in the given expression.
 ~~~mysql
-/*集計関数。結果は基本1行*/
-/*count(*) 登録データ件数*/
 SELECT count(*) FROM members;
  
 /*avg(age) 年齢の平均*/
@@ -154,8 +159,10 @@ SELECT sum(age) FROM members;
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
 [wiki MariaDB.](https://ja.wikipedia.org/wiki/MariaDB)  
+[MySQL 5.6 Reference.](https://dev.mysql.com/doc/refman/5.6/ja/)  
 [MariaDB Reference.](https://mariadb.com/docs/reference/)  
 [MySQL-1日目(基礎文法1).](https://joytas.net/programming/mysql/mysql01)  
-[MySQL-2日目(基本文法1演習).](https://joytas.net/programming/mysql/mysql02)
+[MySQL-2日目(基本文法1演習).](https://joytas.net/programming/mysql/mysql02)  
+[MySQL-3日目(基礎文法2).](https://joytas.net/programming/mysql/mysql03)
 ## Other
 [Defines all Languages known to GitHub](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
