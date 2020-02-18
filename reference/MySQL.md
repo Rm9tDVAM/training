@@ -12,22 +12,10 @@ DEFAULT CHARACTER SET utf8mb4;
 DROP DATABASE IF EXISTS db_name;
 ~~~
 ## [CREATE TABLE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_TABLE/)
-~~~musql
-CREATE [OR REPLACE] [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
-    (create_definition,...) [table_options    ]... [partition_options]
-CREATE [OR REPLACE] [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
-    [(create_definition,...)] [table_options   ]... [partition_options]
-    select_statement
-CREATE [OR REPLACE] [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
-   { LIKE old_table_name | (LIKE old_table_name) }
-
-select_statement:
-    [IGNORE | REPLACE] [AS] SELECT ...   (Some legal select statement)
-~~~
 ~~~mysql
 CREATE TABLE tbl_name(
 id INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(30),
+name VARCHAR(30) not null,
 depart VARCHAR(20) DEFAULT '無所属',
 age INT,
 updated DATE
