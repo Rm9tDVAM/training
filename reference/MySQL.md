@@ -60,7 +60,6 @@ DROP TABLE IF EXISTS tbl_name;
 ~~~
 ## [INSERT.](https://mariadb.com/docs/reference/es/sql-statements/INSERT/)  
 ~~~mysql
-insert into tbl_name(partition_list)values(
 INSERT INTO tbl_name(name,age)VALUES
 ('鈴木さくら',25);
 
