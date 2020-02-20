@@ -142,10 +142,16 @@ DELETE FROM members WHERE id=3;
 ## [COUNT().](https://mariadb.com/docs/reference/es/functions/COUNT/)
 ~~~mysql
 SELECT count(*) FROM members;
- 
-/*avg(age) 年齢の平均*/
+~~~
+## [AVG().](https://mariadb.com/docs/reference/es/functions/AVG/)
+~~~mysql
 SELECT avg(age) FROM members;
- 
+~~~
+~~~mysql
+floor(avg(salary))as 平均給与,
+~~~
+floorで括ることで小数点以下切り捨て
+~~~mysql
 /*max(age)　年齢の最大*/
 SELECT max(age) FROM members;
  
@@ -154,6 +160,31 @@ SELECT min(age) FROM members;
  
 /*sum(age)*　年齢の合計*/
 SELECT sum(age) FROM members;
+~~~
+## [REPLACE().](https://mariadb.com/docs/reference/es/functions/REPLACE/)
+全角を半角に置換
+~~~mysql
+update syain set name=replace(name,'　',' ');
+~~~
+## [TIMESTAMPDIFF().](https://mariadb.com/docs/reference/es/functions/TIMESTAMPDIFF/)
+~~~mysql
+timestampdiff(year,birth,curdate())as age,
+~~~
+curdate()は本日の日付
+> dete(now())という方法もあります
+## Other
+以下の出力を求めよ。なおランクは
+10000000以上がS  
+6000000以上がA  
+その他がB  
+とする。
+~~~mysql
+select name as 名前,
+salary*12 as 年収,
+case when salary*12>=10000000 then 'S' 
+when salary*12>=6000000 then 'A' 
+else 'B' 
+END as ランク from syain order by salary desc;
 ~~~
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
