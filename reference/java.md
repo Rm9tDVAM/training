@@ -80,17 +80,17 @@ str.LowerCase();
 `String binStr=Integer.toBinaryString(int);`
 ## 文字列内の文字を文字配列に抽出する
 `char[] data=str.toCharArray();`
-#### Stringクラスに備わる文字列調査のメソッド
+## Stringクラスに備わる文字列調査のメソッド
 |操作|メソッド定義|
 |---|---|
 |内容が等しいか調べる|public boolean equals(Object o)|
 |文字列、小文字(※)を区別せず内容が等しいか調べる|public boolean equalsIgnoreCase(String s)|
 |文字列長を調べる|public int length()|
 |空文字か(長さが0か)を調べる|public boolean isEmpty|
-#### 文字列を検索するメソッドは2つに分類される
+## 文字列を検索するメソッドは2つに分類される
 1. 含まれるか否かだけを判定するもの
 1. 「文字列のどこに含まれているか」という位置情報を返すもの
-#### Stringクラスに備わる文字列検索のメソッド
+## Stringクラスに備わる文字列検索のメソッド
 |操作|メソッド定義|
 |---|---|
 |一部に文字列sを含むかを調べる|public boolean contains(String s)|
@@ -98,28 +98,24 @@ str.LowerCase();
 |文字列sで終わるかを調べる|public boolean endsWith(String s)|
 |文字ch(または文字列 str)が最初に登場する位置を調べる|public int indexOf(int ch)<br>public int indexOf(String str)|
 |文字ch(または文字列str)を後ろから検索して最初に登場する位置を調べる|public int lastIndexOf(int ch)<br>public int lastIndexOf(String str)|
-#### Stringクラスに備わる文字列切り出しメソッド
+## Stringクラスに備わる文字列切り出しメソッド
 |操作|メソッド定義|
 |---|---|
 |指定位置の1文字を切り出す|public char charAt(int index)|
 |指定位置から始まる文字列を任意の長さだけ切り出す|public String substring(int index)<br>public String substring(int index, int endIndex)|
-#### Stringクラスに備わる文字列変換のメソッド
+## Stringクラスに備わる文字列変換のメソッド
 |操作|メソッド定義|
 |---|---|
 |大文字を小文字に変換する|public String toLowerCase()|
 |小文字を大文字に変換する|public String toUpperCase()|
 |前後の空白を除去する|public String trim()|
 |文字列を置き換える|public String replace(String before, String after)
-#### Stringインスタンスの普遍性
+## Stringインスタンスの普遍性
 Stringインスタンスが保持する文字列情報は、インスタンス化した際に初期化され、以後二度と変化することはない。
-#### 不変(immutable)
+## 不変(immutable)
 インスタンス化の後に内容が絶対に変化しない
-#### 可変(mutable)
+## 可変(mutable)
 インスタンス生成後もsetterなどによってフィールドにアクセスできる
-
-
-
-
 ## charをfor文を使ってchar配列に格納する
 ~~~java
 char[] chars=new char[26];
