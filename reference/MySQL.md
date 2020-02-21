@@ -2,9 +2,10 @@
 ## mysql --version
 mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 > XAMPPのMySQLはMariaDB 10.4.11
-- dump  
+## Words
+#### dump  
 データベースの内容を丸ごと複製したファイルのこと
-- RDBMS(relational database management system)  
+#### RDBMS(relational database management system)  
 表形式でデータを格納した複数のテーブルを関連付けすることができるDBMSのこと
 ## CRUD
 |名前|操作|SQL|
