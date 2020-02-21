@@ -184,6 +184,53 @@ SELECT cd.title,cat.category,cd.price FROM cds AS cd
 LEFT JOIN categories AS cat
 ON cd.cat_id=cat.id;
 ~~~
+#### salesとempsを内部結合
+売上を記録した人の名前を抽出。重複は除外すること。
+~~~mysql
+SELECT DISTINCT e.name 
+FROM sales AS s 
+JOIN emps AS e 
+ON s.emp_id=e.id
+~~~
+#### depsとempsを内部結合
+年齢昇順に抽出せよ。ただし年齢は30歳未満。取得項目は、名前、年齢、部署名とする。年齢が同じ場合は部署名を辞書順に並べること。
+~~~mysql
+SELECT e.name AS 名前,e.age AS 年齢,d.dep AS 部署名
+FROM deps AS d
+JOIN emps AS e
+ON d.id=e.dep_id
+WHERE e.age<30
+ORDER BY age ASC,dep ASC;
+~~~
+#### salesとempsとdepsを内部結合
+取得項目名を日付,名前,年齢,部署名,売上高として全件抽出せよ。
+~~~mysql
+SELECT s.s_date AS 日付,
+e.name AS 名前,
+e.age AS 年齢,
+d.dep AS 部署名,
+s.sale AS 売上高
+FROM sales AS s
+JOIN emps AS e
+ON s.emp_id=e.id
+JOIN deps AS d
+ON e.dep_id = d.id;
+~~~
+#### salesとempsとdepsを左結合
+総売上個人ランキングトップ３を降順で取得する。取得項目は名前、部署名、総売上とする。
+~~~mysql
+SELECT e.name AS 名前,
+d.dep AS 部署名,
+sum(s.sale) AS 総売上 
+FROM sales AS s
+LEFT JOIN emps AS e
+ON s.emp_id=e.id
+LEFT JOIN deps AS d
+ON e.dep_id=d.id
+GROUP BY s.emp_id
+ORDER BY 総売上 DESC
+LIMIT 3;
+~~~
 ## [UPDATE.](https://mariadb.com/docs/reference/es/sql-statements/UPDATE/)
 ~~~mysql
 /*鈴木さくらの部署を人事部に変更*/
