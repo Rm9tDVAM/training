@@ -146,6 +146,42 @@ SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3;
 //２番目に年齢を高い人から3人取得
 SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3 OFFSET 1;
 ~~~
+~~~mysql
+#### 内部結合 JOIN(それぞれのテーブルの指定した列の値が一致するデータだけを取得)
+~~~mysql
+/*cdsの目蒲線物語や、categoryのDANCEは表示されていない*/
+SELECT * FROM cds
+JOIN categories
+ON cds.cat_id=categories.id;
+~~~
+#### 左結合 LEFT JOIN(左結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて基準テーブルにしか存在しないデータについても取得する(下の例だとcdsのデータは全部表示する))
+~~~mysql
+/*cdsの目蒲線物語が表示される*/
+SELECT * FROM cds
+LEFT JOIN categories
+ON cds.cat_id=categories.id;
+~~~
+#### 右結合 RIGHT JOIN(右結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて結合するテーブルにしか存在しないデータについても取得する(下の例だとcategoriesのデータは全部表示する))
+~~~mysql
+/*categoriesのDANCEが表示される*/
+SELECT * FROM cds
+RIGHT JOIN categories
+ON cds.cat_id=categories.id;
+~~~
+#### 取得カラムの指定
+~~~mysql
+/*原則テーブル名.カラム名で指定する*/
+SELECT cds.title,categories.category,cds.price FROM cds
+LEFT JOIN categories
+ON cds.cat_id=categories.id;
+~~~
+#### テーブルに別名
+~~~mysql
+/*テーブルに別名をつけることができ、以後その文脈中では別名をつかう(元のテーブル名はつかえない)*/
+SELECT cd.title,cat.category,cd.price FROM cds AS cd
+LEFT JOIN categories AS cat
+ON cd.cat_id=cat.id;
+~~~
 ## [UPDATE.](https://mariadb.com/docs/reference/es/sql-statements/UPDATE/)
 ~~~mysql
 /*鈴木さくらの部署を人事部に変更*/
