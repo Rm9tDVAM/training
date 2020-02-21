@@ -154,36 +154,6 @@ SELECT * FROM cds
 JOIN categories
 ON cds.cat_id=categories.id;
 ~~~
-#### 左結合 LEFT JOIN
-左結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて基準テーブルにしか存在しないデータについても取得する(下の例だとcdsのデータは全部表示する)
-~~~mysql
-/*cdsの目蒲線物語が表示される*/
-SELECT * FROM cds
-LEFT JOIN categories
-ON cds.cat_id=categories.id;
-~~~
-#### 右結合 RIGHT JOIN
-右結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて結合するテーブルにしか存在しないデータについても取得する(下の例だとcategoriesのデータは全部表示する)
-~~~mysql
-/*categoriesのDANCEが表示される*/
-SELECT * FROM cds
-RIGHT JOIN categories
-ON cds.cat_id=categories.id;
-~~~
-#### 取得カラムの指定
-~~~mysql
-/*原則テーブル名.カラム名で指定する*/
-SELECT cds.title,categories.category,cds.price FROM cds
-LEFT JOIN categories
-ON cds.cat_id=categories.id;
-~~~
-#### テーブルに別名
-~~~mysql
-/*テーブルに別名をつけることができ、以後その文脈中では別名をつかう(元のテーブル名はつかえない)*/
-SELECT cd.title,cat.category,cd.price FROM cds AS cd
-LEFT JOIN categories AS cat
-ON cd.cat_id=cat.id;
-~~~
 #### salesとempsを内部結合
 売上を記録した人の名前を抽出。重複は除外すること。
 ~~~mysql
@@ -216,6 +186,14 @@ ON s.emp_id=e.id
 JOIN deps AS d
 ON e.dep_id = d.id;
 ~~~
+#### 左結合 LEFT JOIN
+左結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて基準テーブルにしか存在しないデータについても取得する(下の例だとcdsのデータは全部表示する)
+~~~mysql
+/*cdsの目蒲線物語が表示される*/
+SELECT * FROM cds
+LEFT JOIN categories
+ON cds.cat_id=categories.id;
+~~~
 #### salesとempsとdepsを左結合
 総売上個人ランキングトップ３を降順で取得する。取得項目は名前、部署名、総売上とする。
 ~~~mysql
@@ -230,6 +208,28 @@ ON e.dep_id=d.id
 GROUP BY s.emp_id
 ORDER BY 総売上 DESC
 LIMIT 3;
+~~~
+#### 右結合 RIGHT JOIN
+右結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて結合するテーブルにしか存在しないデータについても取得する(下の例だとcategoriesのデータは全部表示する)
+~~~mysql
+/*categoriesのDANCEが表示される*/
+SELECT * FROM cds
+RIGHT JOIN categories
+ON cds.cat_id=categories.id;
+~~~
+#### 取得カラムの指定
+~~~mysql
+/*原則テーブル名.カラム名で指定する*/
+SELECT cds.title,categories.category,cds.price FROM cds
+LEFT JOIN categories
+ON cds.cat_id=categories.id;
+~~~
+#### テーブルに別名
+~~~mysql
+/*テーブルに別名をつけることができ、以後その文脈中では別名をつかう(元のテーブル名はつかえない)*/
+SELECT cd.title,cat.category,cd.price FROM cds AS cd
+LEFT JOIN categories AS cat
+ON cd.cat_id=cat.id;
 ~~~
 ## [UPDATE.](https://mariadb.com/docs/reference/es/sql-statements/UPDATE/)
 ~~~mysql
