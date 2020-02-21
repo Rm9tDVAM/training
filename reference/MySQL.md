@@ -27,7 +27,7 @@ mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 |8|DISTINCT||
 |9|ORDER BY|取得した列を並び替える|
 |10|TOP(LIMIT)||
-[MIbtv](https://i.stack.imgur.com/MIbtv.png"MIbtv")
+![MIbtv](https://i.stack.imgur.com/MIbtv.png"MIbtv")
 ## [CREATE DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_DATABASE/)
 ~~~mysql
 CREATE DATABASE db_name
