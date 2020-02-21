@@ -1,7 +1,8 @@
 # Eclipse
 ## Word
 #### Eclipse
-統合開発環境IDE(Integrated Drive Electronics)の一種
+IDE(Integrated Drive Electronics)の一種
+> 統合開発環境とも
 #### Apache Tomcat
 Java ServletやJavaServer Pages(JSP)を実行するためのWebコンテナ
 ## Tips
