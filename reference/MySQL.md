@@ -146,7 +146,7 @@ SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3;
 //２番目に年齢を高い人から3人取得
 SELECT * FROM tbl_name ORDER BY age DESC LIMIT 3 OFFSET 1;
 ~~~
-#### 内部結合 JOIN  
+#### 内部結合 JOIN
 それぞれのテーブルの指定した列の値が一致するデータだけを取得
 ~~~mysql
 /*cdsの目蒲線物語や、categoryのDANCEは表示されていない*/
@@ -162,7 +162,8 @@ SELECT * FROM cds
 LEFT JOIN categories
 ON cds.cat_id=categories.id;
 ~~~
-#### 右結合 RIGHT JOIN(右結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて結合するテーブルにしか存在しないデータについても取得する(下の例だとcategoriesのデータは全部表示する))
+#### 右結合 RIGHT JOIN
+右結合はそれぞれのテーブルの指定した列の値が一致するデータに加えて結合するテーブルにしか存在しないデータについても取得する(下の例だとcategoriesのデータは全部表示する)
 ~~~mysql
 /*categoriesのDANCEが表示される*/
 SELECT * FROM cds
