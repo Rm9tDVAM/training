@@ -18,15 +18,15 @@ mysql  Ver 15.1 Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 |順番|句|内容|
 |:---:|---|---|
 |1|FROM|実行対象のテーブルを指定|
-|2|ON||
-|3|JOIN||
+|2|ON|結合の条件|
+|3|JOIN|テーブルの結合|
 |4|WHERE|テーブルに対してレコードの抽出条件を指定|
 |5|GROUP BY|レコードをグループ化|
 |6|HAVING|グループ化した結果に対して抽出条件を指定|
 |7|SELECT|取得(表示)する列を指定|
-|8|DISTINCT||
+|8|DISTINCT|重複レコードを1つにまとめる|
 |9|ORDER BY|取得した列を並び替える|
-|10|TOP(LIMIT)||
+|10|TOP(LIMIT)|先頭から指定した行数を取得|
 ## SELECT文のフローチャート
 ![select](https://i.stack.imgur.com/MIbtv.png"select")
 ## [CREATE DATABASE.](https://mariadb.com/docs/reference/es/sql-statements/CREATE_DATABASE/)
