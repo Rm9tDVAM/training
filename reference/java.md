@@ -664,7 +664,7 @@ public void setフィールド名(フィールドの型 任意の変数名){
 |long|java.lang.Long||boolean|java.lang.Boolean|
 #### AutoBoxing & AutoUnboxing
 ラッパークラス型のインスタンスとint型などの基本データ型のデータを相互に自動変換する機能
-## ArrayList
+## List
 #### ArrayListの宣言
 ~~~java
 ArrayList<~> 変数名=new ArrayList<~>();
@@ -686,6 +686,23 @@ ArrayList<~> 変数名=new ArrayList<~>();
 ||~|remove(int)|int番目の要素を削除する|
 |イテレータ|Iterator<●>|iterator()|要素の順に処理するイテレータを返す|
 > ●はインスタンス型名を示す。
+#### HashMapの宣言
+~~~java
+Map<キーの型,型の値> マップ変数=new HashMap<>();
+~~~
+HashMap<●,■>が備えるメソッド
+|操作|戻り値|メソッド|意味|
+|---|---|---|---|
+|追加|■|put(●,■)|マップに●と■のペアを格納する|
+|取得|■|get(●)|キー値●に対応する値を取得(なければnull)|
+|調査|int|size()|格納されているペア数を数える|
+||boolean|isEmpty()|要素数がゼロであるかを判定|
+||boolean|containsKey(●)|指定データがキーに含まれているかを判定|
+||boolean|containsValue(■)|指定データが値に含まれているかを判定|
+|削除|void|clear()|要素をすべて削除する|
+||■|remove(●)|指定した内容の要素を削除する|
+|その他|Set<●>|keySet()|格納されているキーの一覧を返す|
+> 値の重複は許されるが、キーの重複は許されない
 #### for文を用いたリスト要素の取り出し
 ~~~java
 for(int i=0;i<リスト変数.size();i++){
