@@ -754,6 +754,69 @@ staticキーワードが付けられたフィールドやメソッド
 - 等価 同じ内容であること
 #### toString()とequals()のオーバーライド
 新しくクラスを開発したら、toString()とequals()をオーバーライドする必要性がないかを検討する。
+## ファイルの読み書き(3段ラッピング)
+~~~java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+public class Main3 {
+	public static void main(String[] args) {
+		BufferedWriter bw=null;
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream("./memo.txt");
+			OutputStreamWriter osw=new OutputStreamWriter(fos,"utf-8");
+			bw=new BufferedWriter(osw);
+			bw.append("Hello");
+			bw.append(System.lineSeparator());
+			bw.append("World");
+			bw.flush();
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			if(bw !=null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		BufferedReader br=null;
+		try {
+			FileInputStream fis=new FileInputStream("./memo.txt");
+			InputStreamReader isr=new InputStreamReader(fis,"utf-8");
+			br=new BufferedReader(isr);
+			String line;
+			while((line=br.readLine()) !=null){
+				System.out.println(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			if(br !=null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}
+~~~
 ## sleepで処理を一時停止させる
 `public static void sleep(long millis)`
 ~~~java
