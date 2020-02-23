@@ -80,15 +80,13 @@
 	id	名称		職業コード	hp	mp	状態コード
 	A01	スガワラ	21		131	20	
 	~~~
-
-
-
-    NULL
-	
 	~~~mysql
-	select * from パーティー where id='A01'
+	update パーティー set hp=120 where id='A01'
 	~~~
 	~~~mysql
+	select * from パーティー where id='A01'
+	id	名称		職業コード	hp	mp	状態コード
+	A01	スガワラ	21		120	20	
 	~~~
 
 8.ﾊﾟｰﾃｨｰテーブルから、HPが100未満のデータについて、ID,名称、HPの一覧を抽出する。
