@@ -76,6 +76,17 @@
 	~~~
 1. パーティーテーブルのID「A01｣のデータについて、HPを120に更新する。
 	~~~mysql
+	select * from パーティー where id='A01'
+	id	名称	職業コード	hp	mp	状態コード
+	A01	スガワラ	21		131	20	
+	~~~
+
+
+
+    NULL
+	
+	~~~mysql
+	select * from パーティー where id='A01'
 	~~~
 	~~~mysql
 	~~~
