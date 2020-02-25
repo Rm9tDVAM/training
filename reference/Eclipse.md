@@ -10,6 +10,10 @@ Java ServletやJavaServer Pages(JSP)を実行するためのWebコンテナ
 `sysout Ctrl+Space`
 #### import文のオートインポート
 `Ctrl+Shift+o`
+#### オートインデント
+`Ctrl+i`
+#### 上の行に入力
+`Ctrl+Shift+Enter`
 #### 下の行に入力
 `Shift+Enter`
 ## Vrapper
