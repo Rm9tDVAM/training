@@ -356,16 +356,19 @@ ORDER BYの列指定には列番号を用いることができる。
 	~~~
 	~~~mysql
 	id	名称	職業コード	hp	mp	状態コード	
-	A02	オーエ	10	156	84	NULL	
+	A02	オーエ		10	156	84	NULL	
 	A01	スガワラ	21	120	232	NULL	
-	C01	ミナト	01	89	35	01	
+	C01	ミナト		01	89	35	01	
 	~~~
-29. パーティーテーブルから、MPが3番目に高いデータを抽出する。
+1. パーティーテーブルから、MPが3番目に高いデータを抽出する。
 	~~~mysql
+	select * from パーティー order by mp desc limit 1 offset 2
 	~~~
 	~~~mysql
+	select * from パーティー order by mp desc limit 1 offset 2
+	A02	オーエ	10	156	84	NULL	
 	~~~
-30. パーティーテーブルから、次の形式の一覧を取得する。
+1. パーティーテーブルから、次の形式の一覧を取得する。
 	~~~mysql
 	~~~
 	~~~mysql
