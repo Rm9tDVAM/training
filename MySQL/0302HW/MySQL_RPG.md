@@ -389,8 +389,9 @@ ORDER BYの列指定には列番号を用いることができる。
 [tips]
 まだ参加していない->経験イベントテーブルあるデータを除外
 副問い合わせを用いWHERE句を以下のように記述するとよい
-	- WHERE イベント番号 NOT IN(SELECT イベント番号 FROM 経験イベント　WHERE )
+WHERE イベント番号 NOT IN(SELECT イベント番号 FROM 経験イベント　WHERE )
 	~~~mysql
+	
 	~~~
 	~~~mysql
 	~~~
