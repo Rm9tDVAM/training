@@ -168,10 +168,14 @@ WHERE イベント番号 NOT IN(SELECT イベント番号 FROM 経験イベン�
 すでにクリアされた->経験イベントテーブルある
 副問い合わせを用いWHERE句を以下のように記述するとよい
 	~~~mysql
-	select イベント
+	select * from イベント
+	where イベント番号 in(
+	select イベント番号 from 経験イベント where タイプ=2)
 	~~~
 	~~~mysql
 	~~~
+	## LEVEL4
+
 1. cw
 	~~~mysql
 	~~~
