@@ -202,14 +202,16 @@ AND タイプ = '2'
 次の別名で一覧を作成する。  
 ・なまえ ・HPとMP　・ステータス  
 HPとMPはMPを[/]でつなげたもの、ステータスには状態コードを日本語で置き換えたものを表示すること。ただし、ステータスに異常がない場合には何も表示しない。
-![](https://joytas.net/wp-content/uploads/2018/02/1.png)
-[Tips]
-ムズイ。コードテーブルをコード種別で絞りんこんでLEFT JOINする。
-SELECT
-〜ここを記述する〜
+![](https://joytas.net/wp-content/uploads/2018/02/1.png)  
+[Tips]  
+ムズイ。コードテーブルをコード種別で絞りんこんでLEFT JOINする。  
+SELECT  
+〜ここを記述する〜  
+~~~mysql
 FROM パーティー AS p
 LEFT JOIN (SELECT * FROM コード WHERE コード種別=2) AS c
 ON p.状態コード = c.コード値
+~~~
 	~~~mysql
 	~~~
 	~~~mysql
