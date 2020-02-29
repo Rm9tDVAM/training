@@ -228,7 +228,7 @@ ON p.状態コード = c.コード値
 ・イベント番号が1から10なら「序盤」  
 ・イベント番号が11から17なら「中盤」  
 ・上記意外なら「終盤」  
-![](https://joytas.net/wp-content/uploads/2018/02/2-219x300.png)
+![](https://joytas.net/wp-content/uploads/2018/02/2-219x300.png)  
 [Tips]  
 結合は使わない。CASEで場合分け。
 	~~~mysql
