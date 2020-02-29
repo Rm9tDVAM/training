@@ -217,11 +217,12 @@ ON p.状態コード = c.コード値
 	on p.状態コード=c.コード値
 	order by id asc
 	~~~
-	- Anser ...工事中
+	- Anser
 	~~~mysql
 	select 名称 as なまえ,
 	concat(hp,'/',mp)as HPとMP,
-	case when コード名称=
+	case when 状態コード=01 then コード名称
+	else '' end as ステータス
 	FROM パーティー AS p
 	LEFT JOIN (SELECT * FROM コード WHERE コード種別=2) AS c
 	ON p.状態コード = c.コード値
