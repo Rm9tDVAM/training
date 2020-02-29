@@ -217,6 +217,7 @@ ON p.状態コード = c.コード値
 	on p.状態コード=c.コード値
 	order by id asc
 	~~~
+	- Anser ...工事中
 	~~~mysql
 	select 名称 as なまえ,
 	concat(hp,'/',mp)as HPとMP,
