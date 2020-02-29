@@ -112,9 +112,7 @@ IN()を使う
 	~~~
 1. パーティーテーブルとイベントテーブルそれぞれについて、主キーの役割を果たしている列名を日本語で解答する。
 	~~~mysql
-	select id as 識別子 from パーティー
-	~~~
-	~~~mysql
+	select id as 識別子 from パーティー;
 	select イベント番号 as 識別子 from イベント
 	~~~
 	## LEVEL3
