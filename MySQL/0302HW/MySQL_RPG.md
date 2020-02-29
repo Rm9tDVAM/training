@@ -210,14 +210,6 @@ SELECT
 FROM パーティー AS p  
 LEFT JOIN (SELECT * FROM コード WHERE コード種別=2) AS c  
 ON p.状態コード = c.コード値
-	- Left Join
-	~~~mysql
-	select * from パーティー as p
-	left join(select * from コード where コード種別=2)as c
-	on p.状態コード=c.コード値
-	order by id asc
-	~~~
-	- Anser
 	~~~mysql
 	select 名称 as なまえ,
 	concat(hp,'/',mp)as HPとMP,
