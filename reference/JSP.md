@@ -101,4 +101,16 @@ JSPファイルの正体はサーブレットクラスだが、扱い方はMTML�
 - リクエストを受け取るのはサーブレットクラス(コントローラ)
 - レスポンスをするのはJSPファイル(ビュー)
 - 処理を担うのは一般的なJavaのクラス(モデル)
+#### フォワードとは
+フォワードを使用すると、処理を他のサーブレットクラスやJSPファイルに移すことができる。
+#### フォワードの構文
+~~~java
+RequestDispatcher rd= request.getRequestDispatcher("フォワード先");
+rd.forward(request,response);
+~~~
+「javax.servlet.RequestDispatcher」をインポートする必要がある
+#### フォワード先の指定方法
+- JSPファイルの場合 → /WebContentからのパス
+- サーブレットクラスの場合 → /URLパターン  
+＊フォワード先は同じWebアプリケーションでないとならない。
 
