@@ -260,5 +260,3 @@ ON p.状態コード = c.コード値
 	~~~mysql
 	select truncate(777-777*0.3,0) as 支払った金額 from パーティー limit 1
 	~~~
-	~~~mysql
-	~~~
