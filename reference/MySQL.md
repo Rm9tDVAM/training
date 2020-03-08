@@ -291,6 +291,10 @@ when salary*12>=6000000 then 'A'
 else 'B' 
 END as ランク from syain order by salary desc;
 ~~~
+#### 副問い合わせは3つの返しがある
+1. 値を一つ返す
+1. 配列を返す
+1. テーブルを返す
 ## Link
 [wiki MySQL.](https://ja.wikipedia.org/wiki/MySQL)  
 [wiki MariaDB.](https://ja.wikipedia.org/wiki/MariaDB)  
