@@ -222,8 +222,8 @@ response.sendRedirect("リダイレクト先のURL");
 #### 転送後のURLの違い
 - フォワード後 →URLはリクエスト時のまま。
 - リダイレクト後 →リダイレクト先のURLに変更。
-Link
-1. [bootstrap4.](https://joytas.net/programming/website/bootstrap4)  
+## Link
+[bootstrap4.](https://joytas.net/programming/website/bootstrap4)  
 - cssフレームワーク
 デザインやレイアウトの手助けとなるツール
 > 他にもいろいろある
