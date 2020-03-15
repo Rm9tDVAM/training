@@ -1,15 +1,43 @@
 ## JavaScript
 #### promptによるユーザ入力
 ~~~javascript
-let input=prompt("input");
-if(isNaN(input)){
-	console.log(input+100);
-	console.log('isNaNで文字かどうか判定し、文字列連結');
-}else{
-	if(parseInt(input)===100){
-		console.log('100が入力された');
+let list=[];
+while(true){
+	let input=prompt("input num,99 break");
+	if(parseInt(input)===99){
+		break;
 	}
-	console.log(parseInt(input)+100);
+	if(isNaN(input)){
+		input+='と入力されました'
+			console.log(input);
+		console.log('isNaNで文字かどうか判定し、文字列連結し3回表示');
+		for(let i=0;i<3;i++){
+			console.log(i+1+'回目:'+input);
+		}
+	}else{
+		if(parseInt(input)===10){
+			console.log('10が入力された');
+		}else if(input<10){
+			console.log('10より小さいと0までカウントダウン');
+			while(input>0){
+				console.log(input);
+				input--;
+			}
+		}else{
+			console.log('10以上の場合は配列に入れる');
+			list.push(input);
+			console.log(list);
+			list.sort();
+			console.log(list);
+			console.log('listをsort()した');
+			if(list.length>3){
+				console.log('要素が3より大きいのでshift()');
+				let temp=list.shift();
+				console.log('shiftされた値:'+temp);
+				console.log(list);
+			}
+		}
+	}
 }
 ~~~
 input abc
@@ -17,9 +45,9 @@ input abc
 abc100
 isNaNで文字かどうか判定し、文字列連結
 ~~~
-input 100
+input 10
 ~~~javascript
-100が入力された
-200
+10が入力された
+20
 ~~~
 
