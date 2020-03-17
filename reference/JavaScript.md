@@ -29,7 +29,8 @@ while(true){
 			console.log(list);
 			list.sort();
 			console.log(list);
-			console.log('listをsort()した');
+			console.log('文字コード順にソート');
+			askSort(list);
 			if(list.length>3){
 				console.log('要素が3より大きいのでshift()');
 				let temp=list.shift();
@@ -39,15 +40,15 @@ while(true){
 		}
 	}
 }
-~~~
-input abc
-~~~javascript
-abc100
-isNaNで文字かどうか判定し、文字列連結
-~~~
-input 10
-~~~javascript
-10が入力された
-20
-~~~
-
+let askSort=(list)=>{
+	console.log(list);
+	for(let i=0;i<list.length;i++){
+		for(let j=0;j<list.length;j++){
+			if(list(i)<list(list.length-1-i){
+				let temp=list(i);
+				list(i)=list(list.length-1-i);
+				list(list.length-1-i)=temp;
+			}
+		}
+	}
+}
