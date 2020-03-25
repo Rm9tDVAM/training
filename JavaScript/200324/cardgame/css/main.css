@@ -10,7 +10,13 @@ td.card{
 	margin:2px;
 	background-size:cover;
 }
-/*以下を追記*/
 td.card.back{
   background-image:url(../images/z01.gif) !important;
+}
+#info{
+    text-align:center;
+}
+.hidden{
+    transition:1.5s;
+    opacity:0;
 }

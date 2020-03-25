@@ -35,31 +35,30 @@ window.onload=function(){
       let tempCard=cards[i*13+j];
       td.classList.add('card','back');
       td.onclick=flip;
-      //以下を追加
       td.num=tempCard.num;
       td.style.backgroundImage=`url(images/${tempCard.front})`;
       tr.appendChild(td);
     }
     table.appendChild(tr);
   }
-  //以下の変数を追加
+
+  let remain=52;
   let firstCard=null;
   let flipTimerId=NaN;
   function flip(e){
     let td=e.target;
-    //下の一行をコメントアウト
-    //td.classList.toggle('back');
-    //以下を追記
     if(!td.classList.contains('back') || flipTimerId){
-      return;//表のカードをクリックしても何もしない。
+      return;
     }
-    td.classList.remove('back');//カードを表にする。
+    td.classList.remove('back');
     if(firstCard===null){
-      firstCard=td;//1枚目だったら今めくったカードをfirstCardに設定
+      firstCard=td;
     }else{
-      //2枚目だったら1枚目と比較して結果を判定する。
       if(firstCard.num===td.num){
-        //２枚が同じだったときの処理
+        firstCard.classList.add('hidden');
+        td.classList.add('hidden');
+        remain-=2;
+        showInfo();
         firstCard=null;
       }else{
         flipTimerId=setTimeout(function(){
@@ -69,8 +68,26 @@ window.onload=function(){
           firstCard=null;
         },1200);
       }
-
-
     }
   }
-}
+  const info=document.getElementById('info');
+  let time=0;
+  let timerId=NaN;
+  function showInfo(){
+      let msg;
+      if(remain>0){
+          msg=`残り:${remain}枚`;
+      }else{
+          msg='Clear!!';
+          clearInterval(timerId);
+      }
+      info.textContent=msg+"("+time+"s)";
+  }
+  function countStart(){
+      let timerId=setInterval(()=>{
+          time+=1;
+          showInfo();
+      },1000);
+  }
+  countStart();
+};
