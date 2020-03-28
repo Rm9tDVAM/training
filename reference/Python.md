@@ -60,6 +60,8 @@ print(scores)
 print(f'scoresのキーは:{list(scores)}')
 print(f'scoresの要素数:{len(scores)}')
 print(f'scoresの合計:{sum(scores.values())}')
+d1=dict(zip(['算数','国語','理科'],[10,20]))
+print(d1)
 ~~~
 ~~~
 {'network': 10}
@@ -68,6 +70,7 @@ print(f'scoresの合計:{sum(scores.values())}')
 scoresのキーは:['network', 'security']
 scoresの要素数:2
 scoresの合計:30
+{'算数': 10, '国語': 20}
 ~~~
 - タプル
 要素の変更できないリスト
