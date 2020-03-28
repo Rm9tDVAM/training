@@ -57,7 +57,7 @@ scores['database']=20;scores['security']=30
 print(scores)
 del scores['database'];scores['security']=20
 print(scores)
-print(f'scoresのいキーは:{list(scores)}')
+print(f'scoresのキーは:{list(scores)}')
 print(f'scoresの要素数:{len(scores)}')
 print(f'scoresの合計:{sum(scores.values())}')
 ~~~
@@ -65,7 +65,22 @@ print(f'scoresの合計:{sum(scores.values())}')
 {'network': 10}
 {'network': 10, 'database': 20, 'security': 30}
 {'network': 10, 'security': 20}
-scoresのいキーは:['network', 'security']
+scoresのキーは:['network', 'security']
 scoresの要素数:2
 scoresの合計:30
+~~~
+- タプル
+要素の変更できないリスト
+- セット
+~~~python
+scores={1,2,3,1}
+scores.add(2)
+print(scores)
+print(f'要素数は{len(scores)}')
+print(f'合計は{sum(scores)}')
+~~~
+~~~
+{1, 2, 3}
+要素数は3
+合計は6
 ~~~
