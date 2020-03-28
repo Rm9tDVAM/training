@@ -51,10 +51,21 @@ a[0]=10=[10, 1, 2, 3]
 ~~~
 - ディクショナリ
 ~~~python
-
-
+scores={'network':10}
+print(scores)
+scores['database']=20;scores['security']=30
+print(scores)
+del scores['database'];scores['security']=20
+print(scores)
+print(f'scoresのいキーは:{list(scores)}')
+print(f'scoresの要素数:{len(scores)}')
+print(f'scoresの合計:{sum(scores.values())}')
 ~~~
 ~~~
-
-
+{'network': 10}
+{'network': 10, 'database': 20, 'security': 30}
+{'network': 10, 'security': 20}
+scoresのいキーは:['network', 'security']
+scoresの要素数:2
+scoresの合計:30
 ~~~
