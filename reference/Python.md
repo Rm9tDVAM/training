@@ -63,7 +63,9 @@ while True:
         scores[subject]=score if jughe=='y' else scores[subject]
     else:
         scores[subject]=score
-    print(scores)
+    for n in range(len(scores)):
+        temp=list(scores)
+        print(f'sub:{temp[n]},score:{scores[temp[n]]}')
     jughe=(input('next?(y or n)>>'))
     if jughe=='n':
         break
@@ -74,16 +76,20 @@ print(d1)
 {'network': 10}
 subject>> database
 score>> 10
-{'network': 10, 'database': 10}
+sub:network,score:10
+sub:database,score:10
 next?(y or n)>> y
 subject>> database
 score>> 20
 同じ科目名です、スコアを上書きしますか?(y or n)>> y
-{'network': 10, 'database': 20}
+sub:network,score:10
+sub:database,score:20
 next?(y or n)>> y
 subject>> security
 score>> 30
-{'network': 10, 'database': 20, 'security': 30}
+sub:network,score:10
+sub:database,score:20
+sub:security,score:30
 next?(y or n)>> n
 {'算数': 10, '国語': 20}
 ~~~
