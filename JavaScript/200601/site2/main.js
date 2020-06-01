@@ -1,15 +1,22 @@
 'use strict';
 window.onload=function(){
-	const name=document.getElementById('name');
-	const age=document.getElementById('age');
+	const ans=Math.floor(Math.random()*100)+1;
+	console.log(ans);
+	const userInput=document.getElementById('userInput');
 	const bt=document.getElementById('bt');
-	const result=document.getElementById('result');
-	bt.addEventListener('click',()=>{
-		let dogName=name.value;
-		let dogAge=age.value;
-		console.log(typeof dogAge);
-		dogAge=Number(dogAge);
-		console.log(typeof dogAge);
-		result.textContent=`${dogName}(${dogAge}才)は人間の年齢だと${dogAge*7}です`;
+	const list=document.getElementById('list');
+	let count=1;
+	bt.addEventListener('click',function(){
+		let li=document.createElement('li');
+		let userAns=userInput.value;
+		userAns=Number(userAns);
+		if(userAns===ans){
+			li.textContent=`${count++}回目:${userAns} 正解!!`;
+		}else if(userAns>ans){
+			li.textContent=`${count++}回目:${userAns} もっと下だよ`;
+		}else{
+			li.textContent=`${count++}回目:${userAns} もっと上だよ`;
+		}
+		list.appendChild(li);
 	});
 };
