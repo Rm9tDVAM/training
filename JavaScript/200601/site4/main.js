@@ -1,29 +1,33 @@
 'use strict';
 window.onload=function(){
-	const table=document.getElementById('table');
-	const MAX=9;
-	for(let i=0;i<=MAX;i++){
-		let tr=document.createElement('tr');
-		for(let j=0;j<=MAX;j++){
-			let td;
-			if(i===0){
-				td=document.createElement('th');
-				if(j===0){
-					td.textContent='X';
-				}else{
-					td.textContent=j;
-				}
-			}else{
-				if(j===0){
-					td=document.createElement('th');
-					td.textContent=i;
-				}else{
-					td=document.createElement('td');
-					td.textContent=i*j;
-				}
-			}
-			tr.appendChild(td);
+	class Menu{
+		constructor(name,price,cal){
+			this.name=name;
+			this.price=price;
+			this.cal=cal;
 		}
-		table.appendChild(tr);
 	}
+	const name=document.getElementById('name');
+	const price=document.getElementById('price');
+	const cal=document.getElementById('cal');
+	const total=document.getElementById('total');
+	const bt=document.getElementById('bt');
+	const table=document.getElementById('table');
+	let ls=[];
+	bt.addEventListener('click',()=>{
+		let menu=new Menu(name.value,price.value,cal.value);
+		ls.push(menu);
+		let tr=document.createElement('tr');
+		let td=document.createElement('td');
+		td.textContent=menu.name;
+		tr.appendChild(td);
+		td=document.createElement('td');
+		td.textContent=menu.price;
+		tr.appendChild(td);
+		td=document.createElement('td');
+		td.textContent=menu.cal;
+		tr.appendChild(td);
+		table.appendChild(tr);
+		total.textContent=`全${ls.length}件`
+	});
 };
