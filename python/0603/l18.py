@@ -1,0 +1,9 @@
+a=(1,2,3)
+print(a[0])
+b=a+(4,)
+print(b)
+n1,n2,n3=a
+print(n1)
+a1,*ls=a
+print(a1)
+print(ls)
