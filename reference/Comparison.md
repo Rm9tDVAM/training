@@ -1,6 +1,12 @@
 # Comparison
 ## import
-|java|import java.util.*;|
+|||
+|---|---|
+|C#|using System.Collections;|
+|Java|import java.util.*;|
+|Java Script||
+|JSP||
+|Python||
 
 
 ## 変数(variable)
