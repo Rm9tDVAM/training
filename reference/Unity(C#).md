@@ -1,19 +1,23 @@
 # Unity
 1. オブジェクトを生成
-    1. プレハブ
-        1. hogePrefabs[]の宣言
-            ~~~c#
-            public GameObject[] hogePrefabs;
-            ~~~
-                > Unity/Project/Prefabs
-        1. Instantiate(インスタンスの生成)
+    1. Instantiate
         ~~~c#
-        GameObject hoge = (GameObject) Instantiate(
-            hogePrefabs[Random.Range(0, hogePrefabs.Length)],
-            
-
-        );
+        public class Test : MonoBehaviour{
+            public Transform prefab;
+            private void Start()
+            {
+                for(int i = 0; i < 10; i++)
+                {
+                    Instantiate(
+                        prefab,
+                        new Vector3(i*2.0F,0,0),
+                        Quaternion.identity
+                    );
+                }
+            }
+        }
         ~~~
+    1. [unity|DOCUMENTATION:Object.Instantiate](https://docs.unity3d.com/ja/current/ScriptReference/Object.Instantiate.html)
 1. オブジェクトを動かす方法
     1. AddForce(Rigidbody に力を加える)
         ~~~c#
@@ -31,10 +35,10 @@
         }
         ~~~
         - up, forward, rightがある(逆方向は-をつける)
-        ~~~c#
-        -transform.right
-        ~~~
-        [unity|DOCUMENTATION:Rigidbody.AddForce](https://docs.unity3d.com/ja/current/ScriptReference/Rigidbody.AddForce.html)
+            ~~~c#
+            -transform.right
+            ~~~
+    1. [unity|DOCUMENTATION:Rigidbody.AddForce](https://docs.unity3d.com/ja/current/ScriptReference/Rigidbody.AddForce.html)
     1. Transform
         1. transform.position
         1. transform.localPosition
