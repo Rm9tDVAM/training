@@ -30,8 +30,10 @@
             }
         }
         ~~~
-        - 他にforward, rightがある
-            > 逆向きは頭に-をつけて`-transform.right`みたいにする
+        - up, forward, rightがある(逆方向は-をつける)
+        ~~~c#
+        -transform.right
+        ~~~
         [unity|DOCUMENTATION:Rigidbody.AddForce](https://docs.unity3d.com/ja/current/ScriptReference/Rigidbody.AddForce.html)
     1. Transform
         1. transform.position
