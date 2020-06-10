@@ -17,9 +17,9 @@
             }
         }
         ~~~
-    1. [unity|DOCUMENTATION:Object.Instantiate](https://docs.unity3d.com/ja/current/ScriptReference/Object.Instantiate.html)
+        - [unity|DOCUMENTATION:Object.Instantiate](https://docs.unity3d.com/ja/current/ScriptReference/Object.Instantiate.html)
 1. オブジェクトを動かす方法
-    1. AddForce(Rigidbody に力を加える)
+    1. AddForce
         ~~~c#
         public class Test : MonoBehaviour{
             public float thrust;
@@ -38,7 +38,7 @@
             ~~~c#
             -transform.right
             ~~~
-    1. [unity|DOCUMENTATION:Rigidbody.AddForce](https://docs.unity3d.com/ja/current/ScriptReference/Rigidbody.AddForce.html)
+        - [unity|DOCUMENTATION:Rigidbody.AddForce](https://docs.unity3d.com/ja/current/ScriptReference/Rigidbody.AddForce.html)
     1. Transform
         1. transform.position
         1. transform.localPosition
