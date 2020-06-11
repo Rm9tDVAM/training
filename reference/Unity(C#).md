@@ -1,56 +1,63 @@
 # Unity
-1. オブジェクトを生成
-    1. Instantiate
-        ~~~c#
-        public class Test : MonoBehaviour{
-            public Transform prefab;
-            private void Start()
+1. Instantiate
+    ~~~c#
+    public class Test : MonoBehaviour{
+        public Transform prefab;
+        private void Start()
+        {
+            for(int i = 0; i < 10; i++)
             {
-                for(int i = 0; i < 10; i++)
-                {
-                    Instantiate(
-                        prefab,
-                        new Vector3(i*2.0F,0,0),
-                        Quaternion.identity
-                    );
-                }
+                Instantiate(
+                    prefab,
+                    new Vector3(i*2.0F,0,0),
+                    Quaternion.identity
+                );
             }
         }
-        ~~~
-        - [unity|DOCUMENTATION:Object.Instantiate](https://docs.unity3d.com/ja/current/ScriptReference/Object.Instantiate.html)
-1. オブジェクトを動かす方法
-    1. AddForce
-        ~~~c#
-        public class Test : MonoBehaviour{
-            public float thrust;
-            public Rigidbody rd;
+    }
+    ~~~
+    - [unity|DOCUMENTATION:Object.Instantiate](https://docs.unity3d.com/ja/current/ScriptReference/Object.Instantiate.html)
+1. AddForce
+    ~~~c#
+    public class Test : MonoBehaviour{
+        public float thrust;
+        public Rigidbody rd;
 
-            private void Start()
+        private void Start()
+        {
+            rd = GetComponent<Rigidbody>();
+        }
+        void Update() {
+            rd.AddForce(transform.up*9.7f);
+        }
+    }
+    ~~~
+    - up, forward, rightがある(逆方向は-をつける)
+        ~~~c#
+        -transform.right
+        ~~~
+    - [unity|DOCUMENTATION:Rigidbody.AddForce](https://docs.unity3d.com/ja/current/ScriptReference/Rigidbody.AddForce.html)
+1. Transform
+    ~~~c#
+    public class Test : MonoBehaviour
+    {
+        void Start()
+        {
+            foreach (Transform child in transform)
             {
-                rd = GetComponent<Rigidbody>();
-            }
-            void Update() {
-                rd.AddForce(transform.up*9.7f);
+                child.position += Vector3.up * 100.0f;
             }
         }
-        ~~~
-        - up, forward, rightがある(逆方向は-をつける)
-            ~~~c#
-            -transform.right
-            ~~~
-        - [unity|DOCUMENTATION:Rigidbody.AddForce](https://docs.unity3d.com/ja/current/ScriptReference/Rigidbody.AddForce.html)
-    1. Transform
-        1. transform.position
-        1. transform.localPosition
-    - transform.forward
-        > new Vector3(0,0,1.0f)
-    1. 円運動
-        ~~~c#
-        public class Test : MonoBehaviour{
-            Vector3 pos;
-            void Start() {Vector3 pos = transform.position;}
-            void Update() {transform.localPosition = pos + new Vector3(Mathf.Sin(Time.time), Mathf.Cos(Time.time), 0);}}
-        ~~~
+    }
+    ~~~
+    - [unity|DOCUMENTATION:Transform](https://docs.unity3d.com/ja/current/ScriptReference/Transform.html)
+1. 円運動
+    ~~~c#
+    public class Test : MonoBehaviour{
+        Vector3 pos;
+        void Start() {Vector3 pos = transform.position;}
+        void Update() {transform.localPosition = pos + new Vector3(Mathf.Sin(Time.time), Mathf.Cos(Time.time), 0);}}
+    ~~~
 1. クォータニオン
     [【Unity道場 博多スペシャル 2017】クォータニオン完全マスター](https://www.youtube.com/watch?v=uKWLPU8gfIY)
 
@@ -67,8 +74,6 @@
     1. ?
     1. ?
     1. Destroy()
-1. ゲームオブジェクト
-    - さまざまなコンポーネントを追加できる。デフォルトではTransformコンポーネントのみが設定されている
 1. 左手系の座標
     - Red x軸
     - Green y軸
