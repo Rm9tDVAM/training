@@ -51,6 +51,10 @@
     }
     ~~~
     - [unity|DOCUMENTATION:Transform](https://docs.unity3d.com/ja/current/ScriptReference/Transform.html)
+1. Vector3
+    - [unity|DOCUMENTATION:Vector3](https://docs.unity3d.com/ja/current/ScriptReference/Vector3.html)
+1. Input.GetAxis
+    - [unity|DOCUMENTATION:Input.GetAxis](https://docs.unity3d.com/ja/current/ScriptReference/Input.GetAxis.html)
 1. 円運動
     ~~~c#
     public class Test : MonoBehaviour{
