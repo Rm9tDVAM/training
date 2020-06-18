@@ -6,9 +6,10 @@
 
 	|言語||
 	|---|---|
-	|C#|`Console.WriteLine($"この{hoge}は{hoga}です");`|
+	|C#||
 
 - a
+	|C#|Console.WriteLine($"この{hoge}は{hoga}です");|
 	|Java|System.out.printf("この%sは%dです",hoge,hoga);|
 	|JS|console.log('この'+hoge+'は'+hoga+'です');|
 	|JSP|<% System.out.printf("この%sは%dです",hoge,hoga) %>;|
