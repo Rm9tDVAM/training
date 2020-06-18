@@ -7,8 +7,15 @@
 |JS||
 |JSP|<%@ page import="java.util.*" %>|
 |Python|import math|
-#### 文字
-#### 数字
+#### 変数
+|言語|||
+|---|---||
+|C#|||
+|Java|int<br>String<br>boolean|int 10;<br>String "hoge";|
+|JS|||
+|JSP|||
+|Python|||
+#### 定数
 ## コンソール出力
 |言語|string hoge, int hoga|
 |---|---|
