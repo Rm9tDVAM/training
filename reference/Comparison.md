@@ -14,9 +14,11 @@
 	~~~js
 	console.log('この'+hoge+'は'+hoga+'です');
 	~~~
+
 	~~~jsp
 	<% System.out.printf("この%sは%dです",hoge,hoga) %>;
 	~~~
+
 	~~~python
 	print(f'この{hoge}は{hoga}です')
 	~~~
