@@ -9,7 +9,7 @@
 |Python|import math|
 #### 変数
 |言語|||
-|---|---||
+|---|---|---|
 |C#|||
 |Java|int<br>String<br>boolean|int 10;<br>String "hoge";|
 |JS|||
