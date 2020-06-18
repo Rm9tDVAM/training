@@ -3,6 +3,7 @@
 #### 文字
 #### 数字
 ## コンソール出力
+
 |C#|Console.WriteLine($"この{hoge}は{hoga}です");|
 |Java|System.out.printf("この%sは%dです",hoge,hoga);|
 |JS|console.log('この'+hoge+'は'+hoga+'です');|
