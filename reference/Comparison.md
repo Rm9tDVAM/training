@@ -6,7 +6,7 @@
 
 	|言語||
 	|---|---|
-	|C#|Console.WriteLine($"この{hoge}は{hoga}です");|
+	|C#|`Console.WriteLine($"この{hoge}は{hoga}です");`|
 
 - a
 	|Java|System.out.printf("この%sは%dです",hoge,hoga);|
