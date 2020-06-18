@@ -1,12 +1,12 @@
 # Comparsion
-## 宣言
+## import
 |言語||
 |---|---|
-|C#||
-|Java||
+|C#|using UnityEngine.UI;|
+|Java|import java.util.*;|
 |JS||
-|JSP||
-|Python||
+|JSP|<%@ page import="java.util.*" %>|
+|Python|import math|
 #### 文字
 #### 数字
 ## コンソール出力
