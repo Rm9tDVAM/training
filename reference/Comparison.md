@@ -19,6 +19,7 @@
 	|JSP|<% System.out.printf() %>;|
 	|Python|(print()|
 	- string hoge, int hoga
+
 	~~~c#
 	Console.WriteLine($"この{hoge}は{hoga}です");
 	~~~
