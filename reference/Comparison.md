@@ -5,7 +5,7 @@
 ## コンソール出力
 	~~~c#
 	Console.WriteLine($"この{hoge}は{hoga}です");
-	~~~  
+	~~~<br>
 	~~~java
 	System.out.printf("この%sは%dです",hoge,hoga);
 	~~~
