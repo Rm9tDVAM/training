@@ -1,9 +1,16 @@
 # Comparsion
 ## 宣言
+|言語||
+|---|---|
+|C#||
+|Java||
+|JS||
+|JSP||
+|Python||
 #### 文字
 #### 数字
 ## コンソール出力
-|言語||
+|言語|string hoge, int hoga|
 |---|---|
 |C#|Console.WriteLine($"この{hoge}は{hoga}です");|
 |Java|System.out.printf("この%sは%dです",hoge,hoga);|
