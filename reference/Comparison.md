@@ -6,9 +6,11 @@
 	~~~c#
 	Console.WriteLine($"この{hoge}は{hoga}です");
 	~~~
+
 	~~~java
 	System.out.printf("この%sは%dです",hoge,hoga);
 	~~~
+	
 	~~~js
 	console.log('この'+hoge+'は'+hoga+'です');
 	~~~
