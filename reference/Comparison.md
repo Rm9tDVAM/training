@@ -9,6 +9,7 @@
 |JS|console.log('この'+hoge+'は'+hoga+'です');|
 |JSP|<% System.out.printf("この%sは%dです",hoge,hoga) %>;|
 |Python|print(f'この{hoge}は{hoga}です')|
+
 - a
 |言語||
 |---|---|
