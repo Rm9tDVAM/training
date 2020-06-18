@@ -8,10 +8,10 @@
 |JSP|<%@ page import="java.util.*" %>|
 |Python|import math|
 #### 変数
-|言語||||
+|言語|||アクセス修飾子|
 |---|---|---|---|
-|C#|int<br>string<br>bool|int n;string str;||
-|Java|int<br>String<br>boolean|int n;<br>String str;||
+|C#|int<br>string<br>bool|int n;<br>string str;||
+|Java|int<br>String<br>boolean|int n;<br>String str;|パッケージプライベート|
 |JS||||
 |JSP||||
 |Python||||
