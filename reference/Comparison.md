@@ -11,7 +11,7 @@
 |言語|||アクセス修飾子|
 |---|---|---|---|
 |C#|int<br>string<br>bool|int n;<br>string str;||
-|Java|int<br>String<br>boolean|int n;<br>String str;|パッケージプライベート|
+|Java|int<br>String<br>boolean|int n;<br>String str;|package private|
 |JS||||
 |JSP||||
 |Python||||
