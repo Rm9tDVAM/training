@@ -1,20 +1,16 @@
-import java.util.Scanner;
+import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        int n=9
-        int r=0;
-        String s=sc.nextLine();
-        String[] sArr=new String[n];
-        for(int i=0;i<n;i++){
-            sArr[i]=String.valueOf(s.charAt(i));
-        }
-        for(int i=0;i<n;i++){
-            if(sArr[i].equals("a")){
-                r+=1;
+        int n=sc.nextInt();sc.nextLine();
+        int sum=0;
+        String str=sc.nextLine();
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)==('R')){
+                sum++;
             }
         }
-        System.out.print(n-r+" "+r);
+        System.out.print(n-sum+" "+sum);
         sc.close();
     }
 }
