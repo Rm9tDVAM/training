@@ -8,8 +8,8 @@
 ~~~java
 if(str.contains("String")){}
 ~~~
-## indexOf(index)
-- 要素の番号
+## indexOf
+- 要素の番号(index)
 ~~~java
 if(str.indexOf("String")){}
 ~~~
