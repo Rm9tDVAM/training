@@ -1,16 +1,19 @@
-import java.util.*;
+import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();sc.nextLine();
-        int sum=0;
-        String str=sc.nextLine();
-        for(int i=0;i<str.length();i++){
-            if(str.charAt(i)==('R')){
-                sum++;
+        int min=99;
+        int max=0;
+        for(int i=0,temp=0;i<5;i++){
+            temp=sc.nextInt();
+            if(temp<min){
+                min=temp;
+            }
+            if(temp>max){
+                max=temp;
             }
         }
-        System.out.print(n-sum+" "+sum);
+        System.out.printf("%d%n%d",max,min);
         sc.close();
     }
 }
