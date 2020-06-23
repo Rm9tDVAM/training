@@ -4,8 +4,6 @@
 ((int)(n*(d/100)));
 ~~~
 ## contains
-~~~java
-~~~
 ## indexOf
 ## charAt
 ~~~java
