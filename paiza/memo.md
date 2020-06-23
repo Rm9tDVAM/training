@@ -7,5 +7,5 @@
 ## indexOf
 ## charAt
 ~~~java
-if(str.charAt(i)==('String')){}
+if(str.charAt(i)==('char')){}
 ~~~
