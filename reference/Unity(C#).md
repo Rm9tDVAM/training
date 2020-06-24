@@ -72,6 +72,8 @@
 1. Component
     1. Is Trigger
     1. Is Kinematic
+    1. Apply Root Motion
+    1. Has Exit Time
 1. Method
     1. Update()
     1. Instantiate()

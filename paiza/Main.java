@@ -1,8 +1,16 @@
+import java.util.*;
 public class Main{
     public static void main(String[] args){
-        String str="abc";
-        boolean exists=str.contains("abc");
-        int index=str.indexOf("b");
-        System.out.print(exists+" "+index);
+        Scanner sc=new Scanner(System.in);
+        int sum=0;
+        for(int i=0;i<2;i++){
+            sum+=sc.nextInt();
+        }
+        if(sum>=16){
+            System.out.print("STAND");
+        }else{
+            System.out.print("HIT");
+        }
+        sc.close();
     }
 }

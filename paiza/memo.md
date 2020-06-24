@@ -17,3 +17,11 @@ if(str.indexOf("String")){}
 ~~~java
 if(str.charAt(i)==('char')){}
 ~~~
+## StringBuilder
+~~~java
+StringBuilder sb=new StringBuilder();
+~~~
+## ArrayList
+~~~java
+ArrayList<instance> arr=new ArrayList<>();
+~~~
