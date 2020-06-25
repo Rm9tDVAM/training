@@ -25,3 +25,7 @@ StringBuilder sb=new StringBuilder();
 ~~~java
 ArrayList<instance> arr=new ArrayList<>();
 ~~~
+## replaceAll
+~~~java
+String intStr=str.replaceAll("[^0-9]","");
+~~~
