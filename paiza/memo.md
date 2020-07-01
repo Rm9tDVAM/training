@@ -21,4 +21,5 @@ Math.floor(n); // 少数第一位で切り捨て
 List<Integer> intList=Arrays.stream(strArray)
     .map(Integer::parseInt)
     .collect(Collectors.toList());
+System.out.print((int)(m*((double)n/100)+m)); // %
 ~~~
