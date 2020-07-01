@@ -70,8 +70,8 @@
     - Edit →Preferences →Colors →Playmode tint →333333
 ## 用語と知識とか
 1. Component
-    1. Is Trigger
-    1. Is Kinematic
+    1. Trigger
+    1. Kinematic
     1. Apply Root Motion
     1. Has Exit Time
 1. Method
