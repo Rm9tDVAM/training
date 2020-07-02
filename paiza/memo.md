@@ -17,7 +17,7 @@ Math.ceil(n); // 少数第一位で切り上げ
 Math.floor(n); // 少数第一位で切り捨て
 (double)(Math.round(a*10))/10; // 小数点第二位で四捨五入
 (Math.round(a*10))/10; // 小数点第二位で切り上げ
-(Math.round(a*10))/10; // 小数点第二位で切り捨て
+(Math.floor(a*10))/10; // 小数点第二位で切り捨て
 List<Integer> intList=Arrays.stream(strArray)
     .map(Integer::parseInt)
     .collect(Collectors.toList());
