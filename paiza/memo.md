@@ -1,6 +1,10 @@
 # memo
 ~~~java
 List<型> xxxList=new ArrayList<>(); // add,set,get,size,isEmpty,contains,indexOf
+List<Integer> intList=Arrays.stream(str.split(" "))
+    .map(Integer::parseInt)
+    .collect(Collectors.toList());
+Collections.sort(intList); // 昇順
 Map<key型,value型> xxxMap=new HashMap<>(); // put,get,size,isEmpty,containsKey,containsValue,keyset()
 ((int)(n*(d/100))); // パーセント
 if(str.charAt(i)==('char')){}
@@ -18,8 +22,7 @@ Math.floor(n); // 少数第一位で切り捨て
 (double)(Math.round(a*10))/10; // 小数点第二位で四捨五入
 (Math.round(a*10))/10; // 小数点第二位で切り上げ
 (Math.floor(a*10))/10; // 小数点第二位で切り捨て
-List<Integer> intList=Arrays.stream(strArray)
-    .map(Integer::parseInt)
-    .collect(Collectors.toList());
 System.out.print((int)(m*((double)n/100)+m)); // %
+System.out.print(sum%100-sum%10); // 2桁目-1桁目
+String.valueOf(n).length() // int nのlength
 ~~~
