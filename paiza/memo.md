@@ -1,11 +1,12 @@
 # memo
 ~~~java
-List<型> xxxList=new ArrayList<>(); // add,set,get,size,isEmpty,contains,indexOf
 List<Integer> intList=Arrays.stream(str.split(" "))
     .map(Integer::parseInt)
     .collect(Collectors.toList());
+// add,set,get,size,isEmpty,contains,indexOf
 Collections.sort(intList); // 昇順
-Map<key型,value型> xxxMap=new HashMap<>(); // put,get,size,isEmpty,containsKey,containsValue,keyset()
+Map<key型,value型> xxxMap=new HashMap<>();
+// put,get,size,isEmpty,containsKey,containsValue,keyset()
 ((int)(n*(d/100))); // パーセント
 if(str.charAt(i)==('char')){}
 if(str.contains("String")){} // 含まれるかboolで返す
