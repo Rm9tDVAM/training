@@ -9,7 +9,7 @@ List<Integer> iList=Arrays.stream(str.split(" "))
 Collections.sort(iList); // 昇順
 Collections.reverse(iList); // 逆順
 // Map ( put,get,size,isEmpty,containsKey,containsValue,keyset )
-Map<key型,value型> xxxMap=new HashMap<>();
+Map<key型,value型> map=new HashMap<>();
 // charAt
 str.charAt(i)==('char')
 str.charAt(str.length()-n); // 後ろからn番文字
