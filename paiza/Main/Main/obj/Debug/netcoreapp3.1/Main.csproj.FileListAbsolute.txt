@@ -1,0 +1,12 @@
+D:\training\paiza\main\Main\bin\Debug\netcoreapp3.1\Main.exe
+D:\training\paiza\main\Main\bin\Debug\netcoreapp3.1\Main.deps.json
+D:\training\paiza\main\Main\bin\Debug\netcoreapp3.1\Main.runtimeconfig.json
+D:\training\paiza\main\Main\bin\Debug\netcoreapp3.1\Main.runtimeconfig.dev.json
+D:\training\paiza\main\Main\bin\Debug\netcoreapp3.1\Main.dll
+D:\training\paiza\main\Main\bin\Debug\netcoreapp3.1\Main.pdb
+D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.AssemblyInfoInputs.cache
+D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.AssemblyInfo.cs
+D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.csproj.CoreCompileInputs.cache
+D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.dll
+D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.pdb
+D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.genruntimeconfig.cache
