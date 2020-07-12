@@ -10,3 +10,4 @@ D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.csproj.CoreCompileInput
 D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.dll
 D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.pdb
 D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.genruntimeconfig.cache
+D:\training\paiza\main\Main\obj\Debug\netcoreapp3.1\Main.csprojAssemblyReference.cache
