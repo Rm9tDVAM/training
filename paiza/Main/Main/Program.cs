@@ -1,7 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
+namespace Main{
+    class Program{
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+            if (40 <= N && N <= 60)
+            {
+                Console.WriteLine("OK");
+            }
+            else
+            {
+                Console.WriteLine("NG");
+            }
+        }
+    }
+}
+/* 0712
+namespace Main{
+    class Program{
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+            if (40 <= N && N <= 60)
+            {
+                Console.WriteLine("OK");
+            }
+            else
+            {
+                Console.WriteLine("NG");
+            }
+        }
+    }
+}
+*/
+/* 0712
 namespace Main{
     class Program{
         static void Main(string[] args){
@@ -10,8 +43,8 @@ namespace Main{
             {
                 list.Add(System.Console.ReadLine().Length);
             }
-
             Console.WriteLine(list.Max());
         }
     }
 }
+ */
