@@ -37,4 +37,5 @@ n%100-n%10; // n=999, 90-9=90
 ((int)(n*(d/100))); // パーセント
 (int)(m*((double)n/100)+m); // パーセント
 String.valueOf(n).length() // int nのlength
+info@joytas.net
 ~~~

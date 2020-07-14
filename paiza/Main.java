@@ -2,31 +2,28 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        final int N=sc.nextInt();
-        String[][] sArr=new String[N][N];
+        // 1<=N<=1000, 各レシートの数
+        int N=sc.nextInt();sc.nextLine();
+        String[] sArr=new String[N];
         for(int i=0;i<sArr.length;i++){
-            for(int j=0;j<sArr[0].length;j++){
-                if(i==j){
-                    sArr[i][j]="-";
-                }
+            sArr[i]=sc.nextLine();
+        }
+        // 1<=d_i<=31, 日付
+        // 1<=p_i<=10000, 購入金額
+        int point=0;
+        for(int i=0;i<sArr.length;i++){
+            String[] tArr=sArr[i].split(" ");
+            String d_i=tArr[0];
+            int p_i=Integer.parseInt(tArr[1]);
+            if(d_i.contains("5")){
+                point+=(int)Math.floor(p_i*0.05);
+            }else if(d_i.contains("3")){
+                point+=(int)Math.floor(p_i*0.03);
+            }else{
+                point+=(int)Math.floor(p_i*0.01);
             }
         }
-        int round=((N*N)-N)/2;
-        for(int i=0;i<round;i++){
-            int f1=sc.nextInt();
-            int f2=sc.nextInt();
-            sArr[f1-1][f2-1]="W";
-            sArr[f2-1][f1-1]="L";
-        }
-        for(int i=0;i<sArr.length;i++){
-            for(int j=0;j<sArr[0].length;j++){
-                System.out.print(sArr[i][j]);
-                if(!(j+1==sArr[0].length)){
-                    System.out.print(" ");
-                }
-            }
-            System.out.println();
-        }
+        System.out.print(point);
         sc.close();
     }
 }

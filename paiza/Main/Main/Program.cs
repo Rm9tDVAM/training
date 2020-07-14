@@ -5,14 +5,8 @@ namespace Main{
         static void Main(string[] args)
         {
             int N = int.Parse(Console.ReadLine());
-            if (40 <= N && N <= 60)
-            {
-                Console.WriteLine("OK");
-            }
-            else
-            {
-                Console.WriteLine("NG");
-            }
+            int M = int.Parse(Console.ReadLine());
+            Console.WriteLine(N * M);
         }
     }
 }
