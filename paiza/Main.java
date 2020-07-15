@@ -1,31 +1,35 @@
 import java.util.*;
-import java.util.stream.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        int N=sc.nextInt();sc.nextLine();
-        String str=sc.nextLine();
-        List<String> sList=Arrays.stream(str.split(" "))
-            .collect(Collectors.toList());
-        // 点数 10 倍カードがある場合、総合点は上記の合計点の 10 倍とする。
-        int mag=1;
-        if(sList.contains("x10")){
-            sList.remove(sList.indexOf("x10"));
-            mag=10;
+        // 0<=X,Y,Z<=3,000
+        int X=sc.nextInt(); // 9-17
+        var Y=sc.nextInt(); // 17-22
+        int Z=sc.nextInt(); // 22-09
+        // 1<=N<=100
+        int N=sc.nextInt();
+        // 0<=S<T<23
+        int[] iArr=new int[24];
+        for(int i=0;i<iArr.length;i++){
+            if(i<=8){
+                iArr[i]=Z;
+            }else if(i<=16){
+                iArr[i]=X;
+            }else if(i<=21){
+                iArr[i]=Y;
+            }else{
+                iArr[i]=Z;
+            }
         }
-        List<Integer> iList = sList.stream()
-            .map(Integer::parseInt)
-            .collect(Collectors.toList());
-        // 点数 0 カードが ある場合、点数カードの中で最大の点を持つカードを 0 点にする。
-        if(sList.contains("0")){
-            iList.remove(iList.indexOf(Collections.max(iList)));
-        }
-        // 点数カードの合計点を計算する。
         int sum=0;
-        for(int i:iList){
-            sum+=i;
+        for(int i=0;i<N;i++){
+            int S=sc.nextInt();
+            int T=sc.nextInt();
+            for(int j=S;j<T;j++){
+                sum+=iArr[j];
+            }
         }
-        System.out.print(sum*mag);
+        System.out.print(sum);
         sc.close();
     }
 }

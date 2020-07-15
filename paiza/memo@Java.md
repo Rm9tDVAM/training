@@ -1,13 +1,17 @@
 # memo
 ~~~java
-// List ( add,set,get,size,isEmpty,contains,indexOf )
+// List ( add,set,get,size,isEmpty,contains,indexOf,remove )
 List<Integer> iList=Arrays.stream(str.split(" "))
     .map(Integer::parseInt)
     .sorted() // 昇順
     .sorted(Comparator.reverseOrder()) // 降順
     .collect(Collectors.toList());
+List<Integer> iList = sList.stream()
+    .map(Integer::parseInt)
+    .collect(Collectors.toList());
 Collections.sort(iList); // 昇順
 Collections.reverse(iList); // 逆順
+Collections.max(iList);
 // Map ( put,get,size,isEmpty,containsKey,containsValue,keyset )
 Map<key型,value型> map=new HashMap<>();
 // charAt
