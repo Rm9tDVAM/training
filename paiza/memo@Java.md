@@ -31,15 +31,22 @@ Math.round(n); // 小数点第一位で四捨五入
 (Math.ceil(a*10))/10; // 小数点第二位で切り上げ
 (Math.floor(a*10))/10; // 小数点第二位で切り捨て
 (double)(Math.round(a*10))/10; // 小数点第二位で四捨五入
+// matches
+matches("[aiueo]")
 // replace
 str.replace("String","String");
 str.replaceAll("[^0-9]","");
 // substring
-str.substring(5,6); // 5文字目
-// other
+String str="abcde";
+System.out.println(str.substring(0,1)); //a
+System.out.println(str.substring(1,2)); //b
+System.out.println(str.substring(2,3)); //c
+System.out.println(str.substring(str.length()-2,str.length()-1)); //d
+System.out.println(str.substring(str.length()-1)); //e
+// 割合
 n%100-n%10; // n=999, 90-9=90
 ((int)(n*(d/100))); // パーセント
 (int)(m*((double)n/100)+m); // パーセント
+// other
 String.valueOf(n).length() // int nのlength
-info@joytas.net
 ~~~
