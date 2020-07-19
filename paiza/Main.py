@@ -1,4 +1,15 @@
-print('\n'.join((i%3 == 0)*'Fizz' + (i%5 == 0)*'Buzz' or str(i) for i in range(1, 101)))
+ATK,DEF,AGI=(int(i) for i in input().split())
+N=int(input())
+count=0
+for i in range(N):
+    list=input().split()
+    if int(list[1])<=ATK<=int(list[2]) and\
+       int(list[3])<=DEF<=int(list[4]) and\
+       int(list[5])<=AGI<=int(list[6]):
+          print(list[0])
+          count+=1
+    if(i+1==N and count==0):
+        print("no evolution")
 '''
 0713
 N=int(input())
