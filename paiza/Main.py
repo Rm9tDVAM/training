@@ -1,3 +1,5 @@
+'''
+0719
 ATK,DEF,AGI=(int(i) for i in input().split())
 N=int(input())
 count=0
@@ -10,7 +12,7 @@ for i in range(N):
           count+=1
     if(i+1==N and count==0):
         print("no evolution")
-'''
+
 0713
 N=int(input())
 M=int(input())

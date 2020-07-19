@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\training\\paiza\\Main\\Main\\Main.csproj": {}
+    "D:\\training\\paiza\\main\\Main\\Main.csproj": {}
   },
   "projects": {
-    "D:\\training\\paiza\\Main\\Main\\Main.csproj": {
+    "D:\\training\\paiza\\main\\Main\\Main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\training\\paiza\\Main\\Main\\Main.csproj",
+        "projectUniqueName": "D:\\training\\paiza\\main\\Main\\Main.csproj",
         "projectName": "Main",
-        "projectPath": "D:\\training\\paiza\\Main\\Main\\Main.csproj",
+        "projectPath": "D:\\training\\paiza\\main\\Main\\Main.csproj",
         "packagesPath": "C:\\Users\\taka\\.nuget\\packages\\",
-        "outputPath": "D:\\training\\paiza\\Main\\Main\\obj\\",
+        "outputPath": "D:\\training\\paiza\\main\\Main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taka\\AppData\\Roaming\\NuGet\\NuGet.Config",
