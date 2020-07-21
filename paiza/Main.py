@@ -1,4 +1,25 @@
 '''
+N=int(input())
+dic={}
+for i in range(N):
+    list=input().split()
+    v=list[0]
+    p=int(list[1])
+    if v in dic:
+        dic[v]=dic[v]+p
+    else:
+        dic[v]=p
+point=0
+if "0" in dic:
+    point+=dic["0"]//100*5
+if "1" in dic:
+    point+=dic["1"]//100*3
+if "2" in dic:
+    point+=dic["2"]//100*2
+if "3" in dic:
+    point+=dic["3"]//100*1
+print(point)
+
 0719
 ATK,DEF,AGI=(int(i) for i in input().split())
 N=int(input())
