@@ -1,11 +1,47 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Mainn
 {
     class Program
     {
         static void Main(string[] args)
         {
-
+            int N = int.Parse(Console.ReadLine());
+            IDictionary<string, int> map = new Dictionary<string, int>();
+            for(int i = 0; i < N; i++)
+            {
+                String[] temp = Console.ReadLine().Split();
+                String v = temp[0];
+                int p=int.Parse(temp[1]);
+                if (map.ContainsKey(v))
+                {
+                    map[v] += p;
+                }
+                else
+                {
+                    map.Add(v, p);
+                }
+            }
+            Console.WriteLine(map);
+            int point = 0;
+            if (map.ContainsKey("0"))
+            {
+                point += map["0"] / 100 * 5;
+            }
+            if (map.ContainsKey("1"))
+            {
+                point += map["1"] / 100 * 3;
+            }
+            if (map.ContainsKey("2"))
+            {
+                point += map["2"] / 100 * 2;
+            }
+            if (map.ContainsKey("3"))
+            {
+                point += map["3"] / 100 * 1;
+            }
+            Console.WriteLine(point);
         }
     }
 }
