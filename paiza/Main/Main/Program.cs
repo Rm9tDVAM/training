@@ -1,4 +1,6 @@
-﻿using System;
+﻿/*
+0723
+using System;
 using System.Collections.Generic;
 
 namespace Main
@@ -7,11 +9,29 @@ namespace Main
     {
         static void Main(string[] args)
         {
+            int N = int.Parse(Console.ReadLine());
+            IDictionary<string, int> dic = new Dictionary<string, int>();
+            String[] sArr = Console.ReadLine().Split();
+            for(int i = 0; i < sArr.Length; i++)
+            {
+                dic.Add(sArr[i], 0);
+            }
+            int M = int.Parse(Console.ReadLine());
+            for(int i = 0; i < M; i++)
+            {
+                sArr = Console.ReadLine().Split();
+                dic[sArr[0]] += int.Parse(sArr[1]);
+            }
+            List<KeyValuePair<string, int>> list = new List<KeyValuePair<string, int>>(dic);
+            list.Sort((a, b) => b.Value - a.Value);
+            foreach(var v in list)
+            {
+                Console.WriteLine(v.Key);
+            }
 
         }
     }
 }
-/*
 0721
 namespace Main
 {
