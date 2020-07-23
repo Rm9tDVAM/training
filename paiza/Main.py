@@ -1,4 +1,16 @@
 '''
+0723
+N=int(input())
+dic={key:0 for key in input().split()}
+M=int(input())
+for i in range(M):
+    o,p=input().split()
+    dic[o]+=int(p)
+dic=dict(sorted(dic.items(),key=lambda x:x[1],reverse=True))
+for k in dic:
+    print(k)
+
+0721
 N=int(input())
 dic={}
 for i in range(N):

@@ -14,6 +14,17 @@ Collections.reverse(iList); // 逆順
 Collections.max(iList);
 // Map ( put,get,size,isEmpty,containsKey,containsValue,keyset )
 Map<key型,value型> map=new HashMap<>();
+// List<Entry<String,Integer>>
+List<Entry<String,Integer>> lEnt=new ArrayList<Entry<String,Integer>>(map.entrySet());
+Collections.sort(lEnt,new Comparator<Entry<String,Integer>>(){
+    public int compare(Entry<String,Integer>obj1,Entry<String,Integer>obj2){
+        return obj1.getValue().compareTo(obj2.getValue()); // 昇順
+        return obj2.getValue().compareTo(obj1.getValue()); // 降順
+    }
+});
+for(Entry<String,Integer>entry:lEnt){
+    System.out.println(entry.getKey());
+}
 // charAt
 str.charAt(i)==('char')
 str.charAt(str.length()-n); // 後ろからn番文字
