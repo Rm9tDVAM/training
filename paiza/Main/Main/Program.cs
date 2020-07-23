@@ -1,7 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mainn
+namespace Main
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
+}
+/*
+0721
+namespace Main
 {
     class Program
     {
@@ -23,7 +35,6 @@ namespace Mainn
                     map.Add(v, p);
                 }
             }
-            Console.WriteLine(map);
             int point = 0;
             if (map.ContainsKey("0"))
             {
@@ -45,7 +56,6 @@ namespace Mainn
         }
     }
 }
-/*
 0719
 namespace Main
 {
