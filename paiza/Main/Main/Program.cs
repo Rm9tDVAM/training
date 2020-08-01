@@ -1,8 +1,5 @@
 ﻿/*
 0723
-using System;
-using System.Collections.Generic;
-
 namespace Main
 {
     class Program

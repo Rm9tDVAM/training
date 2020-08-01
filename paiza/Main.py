@@ -1,4 +1,10 @@
 '''
+0801
+str=input()
+sum=str.count('<')*10
+sum+=str.count('/')*1
+print(sum)
+
 0723
 N=int(input())
 dic={key:0 for key in input().split()}
@@ -55,7 +61,7 @@ print(N*M)
 val=int(input())
 if 40<=val<=60:
     print("OK")
-else#:
+else:
     print("NG")
 
 0712
