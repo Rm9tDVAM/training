@@ -16,11 +16,11 @@ public class Main{
                 map.put(numberArray[i],0);
             }
             if(map.size()==M){
-                Common.print(i+1);
+                System.out.print(i+1);
                 return;
             }
             if(i+1==numberArray.length){
-                Common.print("unlucky");
+                System.out.print("unlucky");
             }
         }
     }
