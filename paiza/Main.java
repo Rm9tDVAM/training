@@ -2,55 +2,30 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        final int VERTICAL=sc.nextInt();
-        final int HORIZONTAL=sc.nextInt();
-        final int INPUT_TIMES=sc.nextInt();sc.nextLine();
-        String[] inputArray=new String[INPUT_TIMES];
-        for(int i=0;i<inputArray.length;i++){
-            inputArray[i]=sc.nextLine();
+        int N=sc.nextInt();
+        int M=sc.nextInt();
+        int[] numberArray=new int[N];
+        for(int i=0;i<numberArray.length;i++){
+            numberArray[i]=sc.nextInt();
         }
         sc.close();
-        String[][] gameField=initialization(VERTICAL,HORIZONTAL);
-        int isWhatNumber=0;
-        boolean isFound=false;
-        for(int i=0;i<INPUT_TIMES;i++){
-            String[] temporaryArray=inputArray[i].split(" ");
-            int verticalEntry=Integer.parseInt(temporaryArray[0]);
-            int horizontalEntry=Integer.parseInt(temporaryArray[1]);
-            int horizontalSpace=Integer.parseInt(temporaryArray[2]);
-            for(int j=0;j<gameField.length;j++){
-                for(int k=0;k<horizontalEntry;k++){
-                    if(isFound==false){
-                        if(gameField[j][k+horizontalSpace].equals(".")){
-                            if(k+1==horizontalEntry){
-                                isWhatNumber=j;
-                            }
-                        }else{
-                            isFound=true;
-                        }
-                    }
-                }
+        Common.print(numberArray);
+        Map<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<numberArray.length;i++){
+            if(!map.containsKey(numberArray[i])){
+                map.put(numberArray[i],0);
             }
-            for(int j=0;j<verticalEntry;j++){
-                for(int k=0;k<horizontalEntry;k++){
-                    gameField[isWhatNumber][k+horizontalSpace]="#";
-                }
-                isWhatNumber--;
+            if(map.size()==M){
+                Common.print(i+1);
+                return;
             }
-            isWhatNumber=0;
-            isFound=false;
-        }
-        print(gameField);
-    }
-    static String[][] initialization(int VERTICAL,int HORIZONTAL){
-        String[][] temporaryArray=new String[VERTICAL][HORIZONTAL];
-        for(int i=0;i<VERTICAL;i++){
-            for(int j=0;j<HORIZONTAL;j++){
-                temporaryArray[i][j]=".";
+            if(i+1==numberArray.length){
+                Common.print("unlucky");
             }
         }
-        return temporaryArray;
     }
+}
+class Common{
     static void print(Object object){
         if(object.getClass().isArray()){
             String className=object.getClass().getName();
@@ -63,7 +38,9 @@ public class Main{
                     System.out.println();
                 }
             }else{
-                System.out.println(Arrays.toString((Object[])object));
+                //System.out.println(Arrays.toString((Object[])object));
+                String[] strArray=
+                Arrays.asList(object).toArray(new String[object.length]);
             }
         }else{
             System.out.println(object);
