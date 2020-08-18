@@ -1,3 +1,31 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int CITYNUMBER=sc.nextInt();sc.nextLine();
+        List<String> city=new ArrayList<>();
+        List<String> time=new ArrayList<>();
+        String postCity=""; 
+        String postTime="";
+        for(int i=0;i<CITYNUMBER;i++){
+            String[] temp=sc.nextLine().split(" ");
+            city.add(temp[0]);
+            time.add(temp[1]);
+            if(i+1==CITYNUMBER){
+                temp=sc.nextLine().split(" ");
+                postCity=temp[0]; 
+                postTime=temp[1];
+            }
+        }
+        sc.close();
+        int timeDifference=Integer.parseInt(postTime.substring(0,2))-Integer.parseInt(time.get(city.indexOf(postCity)));
+        for(int i=0;i<city.size();i++){
+            int timeCalculation=Integer.parseInt(time.get(i))+24;
+            timeCalculation+=timeDifference;
+            System.out.printf("%02d%s%n",timeCalculation%24,postTime.substring(2));
+        }
+    }
+}
 class c{
     static void print(Object obj){
         //System.out.println(obj.getClass());
