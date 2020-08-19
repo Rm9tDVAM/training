@@ -2,28 +2,43 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        int CITYNUMBER=sc.nextInt();sc.nextLine();
-        List<String> city=new ArrayList<>();
-        List<String> time=new ArrayList<>();
-        String postCity=""; 
-        String postTime="";
-        for(int i=0;i<CITYNUMBER;i++){
-            String[] temp=sc.nextLine().split(" ");
-            city.add(temp[0]);
-            time.add(temp[1]);
-            if(i+1==CITYNUMBER){
-                temp=sc.nextLine().split(" ");
-                postCity=temp[0]; 
-                postTime=temp[1];
-            }
+        int machineNumber=sc.nextInt();
+        int sweetTreatNumber=sc.nextInt();
+        int[] containerNumber=new int[machineNumber];
+        for(int i=0;i<containerNumber.length;i++){
+            containerNumber[i]=sc.nextInt();
         }
         sc.close();
-        int timeDifference=Integer.parseInt(postTime.substring(0,2))-Integer.parseInt(time.get(city.indexOf(postCity)));
-        for(int i=0;i<city.size();i++){
-            int timeCalculation=Integer.parseInt(time.get(i))+24;
-            timeCalculation+=timeDifference;
-            System.out.printf("%02d%s%n",timeCalculation%24,postTime.substring(2));
+        int[] contentArray=new int[containerNumber.length];
+        int[] remainderArray=new int[containerNumber.length];
+        boolean[] remainderBoolArray=new boolean[containerNumber.length];
+        for(int i=0;i<containerNumber.length;i++){
+            contentArray[i]=sweetTreatNumber/containerNumber[i];
+            remainderArray[i]=sweetTreatNumber%containerNumber[i];
+            remainderBoolArray[i]=false;
         }
+        int remainderMin=1000;
+        for(int i=0;i<remainderArray.length;i++){
+            if(remainderArray[i]<remainderMin){
+                remainderMin=remainderArray[i];
+            }
+        }
+        for(int i=0;i<remainderArray.length;i++){
+            if(remainderArray[i]==remainderMin){
+                remainderBoolArray[i]=true;
+            }
+        }
+        int machineMax=0;
+        int answerIndex=0;
+        for(int i=0;i<remainderBoolArray.length;i++){
+            if(remainderBoolArray[i]==true){
+                if(machineMax<containerNumber[i]){
+                    machineMax=containerNumber[i];
+                    answerIndex=i+1;
+                }
+            }
+        }
+        System.out.print(answerIndex);
     }
 }
 class c{
