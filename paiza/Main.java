@@ -2,61 +2,74 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        int instructionNumber=sc.nextInt();sc.nextLine();
-        String[] instructionNumberArray=new String[instructionNumber];
-        for(int i=0;i<instructionNumber;i++){
-            instructionNumberArray[i]=sc.nextLine();
+        Cook cook=new Cook(sc.nextInt());sc.nextLine();
+        for(int i=0;i<cook.getFoodstuffNumber();i++){
+            String[] temporaryArray=sc.nextLine().split(" ");
+            cook.setRequiredFoodstuff(temporaryArray[0],Integer.parseInt(temporaryArray[1]));
+        }
+        cook.setFoodstuffNumber(sc.nextInt());sc.nextLine();
+        for(int i=0;i<cook.getFoodstuffNumber();i++){
+            String[] temporaryArray=sc.nextLine().split(" ");
+            cook.setFoodstuffStock(temporaryArray[0],Integer.parseInt(temporaryArray[1]));
         }
         sc.close();
-        Computer computer=new Computer();
-        for(int i=0;i<instructionNumber;i++){
-            String[] temporaryArray=instructionNumberArray[i].split(" ");
-            switch(temporaryArray[0]){
-                case "ADD":
-                    computer.add(Integer.parseInt(temporaryArray[1]));
-                    break;
-                case "SET":
-                    if(Integer.parseInt(temporaryArray[1])==1){
-                        computer.setVariableOne(Integer.parseInt(temporaryArray[2]));
-                    }else{
-                        computer.setVariableTwo(Integer.parseInt(temporaryArray[2]));
-                    }
-                    break;
-                case "SUB":
-                    computer.sub(Integer.parseInt(temporaryArray[1]));
-                    break;
-            }
+        if(!cook.isFoodstuffEnough()){
+            System.out.print("0");
+            return;
         }
-        computer.showStatus();
+        System.out.print(cook.someCountCreatable());
     }
 }
-class Computer{
-    private int variableOne;
-    private int variableTwo;
-    public Computer(){
-        this.variableOne=0;
-        this.variableTwo=0;
+class Cook{
+    private int foodstuffNumber;
+    private Map<String,Integer> requiredFoodstuff;
+    private Map<String,Integer> foodstuffStock;
+    Cook(){
+        this.foodstuffNumber=0;
+        this.requiredFoodstuff=new HashMap<>();
+        this.foodstuffStock=new HashMap<>();
     }
-    public int getVariableOne(){
-        return this.variableOne;
+    Cook(int foodstuffNumber){
+        new Cook();
+        this.foodstuffNumber=foodstuffNumber;
     }
-    public int getVariableTwo(){
-        return this.variableTwo;
+    public int getFoodstuffNumber(){
+        return this.foodstuffNumber;
     }
-    public void setVariableOne(int variableOne){
-        this.variableOne=variableOne;
+    public int getRequiredFoodstuff(String key){
+        return this.requiredFoodstuff.get(key);
     }
-    public void setVariableTwo(int variableTwo){
-        this.variableTwo=variableTwo;
+    public int getfoodstuffStock(String key){
+        return this.foodstuffStock.get(key);
     }
-    public void add(int num){
-        this.variableTwo=variableOne+num;
+    public void setFoodstuffNumber(int foodstuffNumber){
+        this.foodstuffNumber=foodstuffNumber;
     }
-    public void sub(int num){
-        this.variableTwo=variableOne-num;
+    public void setRequiredFoodstuff(String key,int value){
+        this.requiredFoodstuff.put(key,value);
+    }
+    public void setFoodstuffStock(String key,int value){
+        this.foodstuffStock.put(key,value);
     }
     public void showStatus(){
-        System.out.printf("%d %d%n",variableOne,variableTwo);
+        System.out.println(foodstuffNumber);
+        System.out.println(requiredFoodstuff);
+        System.out.println(foodstuffStock);
+    }
+    public Boolean isFoodstuffEnough(){
+        for(String key:this.requiredFoodstuff.keySet()){
+            if(!foodstuffStock.containsKey(key)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public int someCountCreatable(){
+        int creatableNumber=10000;
+        for(String key:this.requiredFoodstuff.keySet()){
+            creatableNumber=Math.min(creatableNumber,this.foodstuffStock.get(key)/this.requiredFoodstuff.get(key));
+        }
+        return creatableNumber;
     }
 }
 class C{
@@ -64,7 +77,6 @@ class C{
         //System.out.println(obj.getClass());
         //System.out.println(obj.getClass().getName());
         if(obj.getClass().isArray()){
-            //System.out.println("isArray");
             if(obj instanceof int[]){
                 System.out.println("C.print int[]");
                 for(int i:((int[])obj)){
