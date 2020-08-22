@@ -2,74 +2,126 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        Cook cook=new Cook(sc.nextInt());sc.nextLine();
-        for(int i=0;i<cook.getFoodstuffNumber();i++){
+        GameUsingNumber gameUsingNumber=new GameUsingNumber(sc.nextInt());sc.nextLine();
+        for(int i=0;i<gameUsingNumber.getHINTNUMBER();i++){
             String[] temporaryArray=sc.nextLine().split(" ");
-            cook.setRequiredFoodstuff(temporaryArray[0],Integer.parseInt(temporaryArray[1]));
-        }
-        cook.setFoodstuffNumber(sc.nextInt());sc.nextLine();
-        for(int i=0;i<cook.getFoodstuffNumber();i++){
-            String[] temporaryArray=sc.nextLine().split(" ");
-            cook.setFoodstuffStock(temporaryArray[0],Integer.parseInt(temporaryArray[1]));
-        }
-        sc.close();
-        if(!cook.isFoodstuffEnough()){
-            System.out.print("0");
-            return;
-        }
-        System.out.print(cook.someCountCreatable());
-    }
-}
-class Cook{
-    private int foodstuffNumber;
-    private Map<String,Integer> requiredFoodstuff;
-    private Map<String,Integer> foodstuffStock;
-    Cook(){
-        this.foodstuffNumber=0;
-        this.requiredFoodstuff=new HashMap<>();
-        this.foodstuffStock=new HashMap<>();
-    }
-    Cook(int foodstuffNumber){
-        new Cook();
-        this.foodstuffNumber=foodstuffNumber;
-    }
-    public int getFoodstuffNumber(){
-        return this.foodstuffNumber;
-    }
-    public int getRequiredFoodstuff(String key){
-        return this.requiredFoodstuff.get(key);
-    }
-    public int getfoodstuffStock(String key){
-        return this.foodstuffStock.get(key);
-    }
-    public void setFoodstuffNumber(int foodstuffNumber){
-        this.foodstuffNumber=foodstuffNumber;
-    }
-    public void setRequiredFoodstuff(String key,int value){
-        this.requiredFoodstuff.put(key,value);
-    }
-    public void setFoodstuffStock(String key,int value){
-        this.foodstuffStock.put(key,value);
-    }
-    public void showStatus(){
-        System.out.println(foodstuffNumber);
-        System.out.println(requiredFoodstuff);
-        System.out.println(foodstuffStock);
-    }
-    public Boolean isFoodstuffEnough(){
-        for(String key:this.requiredFoodstuff.keySet()){
-            if(!foodstuffStock.containsKey(key)){
-                return false;
+            switch(temporaryArray[0]){
+                case "<":
+                    gameUsingNumber.setHintSymbolMax(Integer.parseInt(temporaryArray[1]));
+                    break;
+                case ">":
+                    gameUsingNumber.setHintSymbolMin(Integer.parseInt(temporaryArray[1]));
+                    break;
+                case "/":
+                    gameUsingNumber.setHintSymbolSlash(Integer.parseInt(temporaryArray[1]));
+                    break;
             }
         }
-        return true;
-    }
-    public int someCountCreatable(){
-        int creatableNumber=10000;
-        for(String key:this.requiredFoodstuff.keySet()){
-            creatableNumber=Math.min(creatableNumber,this.foodstuffStock.get(key)/this.requiredFoodstuff.get(key));
+        sc.close();
+        if(!gameUsingNumber.hintSymbolMax.isEmpty()&&
+           !gameUsingNumber.hintSymbolMin.isEmpty()&&
+           !gameUsingNumber.hintSymbolSlash.isEmpty()){
+               hintAnswerThree(gameUsingNumber);
+        }else if(!gameUsingNumber.hintSymbolMax.isEmpty()&&
+                 !gameUsingNumber.hintSymbolMin.isEmpty()){
+                     hintAnswerTwo(gameUsingNumber);
+        }else if(!gameUsingNumber.hintSymbolMax.isEmpty()&&
+                 !gameUsingNumber.hintSymbolSlash.isEmpty()){
+                     hintAnswerMax(gameUsingNumber);
+        }else if(!gameUsingNumber.hintSymbolMin.isEmpty()&&
+                 !gameUsingNumber.hintSymbolSlash.isEmpty()){
+                     hintAnswerMin(gameUsingNumber);
         }
-        return creatableNumber;
+    }
+    static void hintAnswerMin(GameUsingNumber gameUsingNumber){
+        for(int i=hintMin(gameUsingNumber)+1;i<100;i++){
+            for(int j=0;j<gameUsingNumber.hintSymbolSlash.size();j++){
+                if(i%gameUsingNumber.getHintSymbolSlash(j)==0){
+                    System.out.print(i);
+                    return;
+                }
+            }
+        }
+    }
+    static void hintAnswerMax(GameUsingNumber gameUsingNumber){
+        for(int i=hintMax(gameUsingNumber)-1;i>0;i--){
+            for(int j=0;j<gameUsingNumber.hintSymbolSlash.size();j++){
+                if(i%gameUsingNumber.getHintSymbolSlash(j)==0){
+                    System.out.print(i);
+                    return;
+                }
+            }
+        }
+    }
+    static void hintAnswerTwo(GameUsingNumber gameUsingNumber){
+        for(int i=hintMin(gameUsingNumber)+1;i<hintMax(gameUsingNumber);i++){
+            System.out.print(i);
+        }
+    }
+    static void hintAnswerThree(GameUsingNumber gameUsingNumber){
+        for(int i=hintMin(gameUsingNumber)+1;i<hintMax(gameUsingNumber);i++){
+            for(int j=0;j<gameUsingNumber.hintSymbolSlash.size();j++){
+                if(!(i%gameUsingNumber.getHintSymbolSlash(j)==0)){
+                    break;
+                }
+                if(j+1==gameUsingNumber.hintSymbolSlash.size()){
+                    System.out.print(i);
+                }
+            }
+        }
+    }
+    static int hintMax(GameUsingNumber gameUsingNumber){
+        int hintMax=0;
+        for(int i=0;i<gameUsingNumber.hintSymbolMax.size();i++){
+            hintMax=Math.max(hintMax,gameUsingNumber.getHintSymbolMax(i));
+        }
+        return hintMax;
+    }
+    static int hintMin(GameUsingNumber gameUsingNumber){
+        int hintMin=1000;
+        for(int i=0;i<gameUsingNumber.hintSymbolMin.size();i++){
+            hintMin=Math.min(hintMin,gameUsingNumber.getHintSymbolMin(i));
+        }
+        return hintMin;
+    }
+}
+class GameUsingNumber{
+    final int HINTNUMBER;
+    List<Integer> hintSymbolMax;
+    List<Integer> hintSymbolMin;
+    List<Integer> hintSymbolSlash;
+    GameUsingNumber(int nextInt){
+        this.HINTNUMBER=nextInt;
+        this.hintSymbolMax=new ArrayList<>();
+        this.hintSymbolMin=new ArrayList<>();
+        this.hintSymbolSlash=new ArrayList<>();
+    }
+    public int getHINTNUMBER(){
+        return this.HINTNUMBER;
+    }
+    public int getHintSymbolMax(int index){
+        return this.hintSymbolMax.get(index);
+    }
+    public int getHintSymbolMin(int index){
+        return this.hintSymbolMin.get(index);
+    }
+    public int getHintSymbolSlash(int index){
+        return this.hintSymbolSlash.get(index);
+    }
+    public void setHintSymbolMax(int hintSymbolMax){
+        this.hintSymbolMax.add(hintSymbolMax);
+    }
+    public void setHintSymbolMin(int hintSymbolMin){
+        this.hintSymbolMin.add(hintSymbolMin);
+    }
+    public void setHintSymbolSlash(int hintSymbolSlash){
+        this.hintSymbolSlash.add(hintSymbolSlash);
+    }
+    public void showStatus(){
+        System.out.println(this.HINTNUMBER);
+        System.out.println("Max"+this.hintSymbolMax);
+        System.out.println("Mix"+this.hintSymbolMin);
+        System.out.println("Slash"+this.hintSymbolSlash);
     }
 }
 class C{
