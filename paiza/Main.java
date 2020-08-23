@@ -2,126 +2,75 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        GameUsingNumber gameUsingNumber=new GameUsingNumber(sc.nextInt());sc.nextLine();
-        for(int i=0;i<gameUsingNumber.getHINTNUMBER();i++){
+        NumsGame numsGame=new NumsGame(sc.nextInt());sc.nextLine();
+        for(int i=0;i<numsGame.getInputLine();i++){
             String[] temporaryArray=sc.nextLine().split(" ");
             switch(temporaryArray[0]){
-                case "<":
-                    gameUsingNumber.setHintSymbolMax(Integer.parseInt(temporaryArray[1]));
-                    break;
                 case ">":
-                    gameUsingNumber.setHintSymbolMin(Integer.parseInt(temporaryArray[1]));
+                    numsGame.setSmall(Integer.parseInt(temporaryArray[1]));
+                    break;
+                case "<":
+                    numsGame.setBig(Integer.parseInt(temporaryArray[1]));
                     break;
                 case "/":
-                    gameUsingNumber.setHintSymbolSlash(Integer.parseInt(temporaryArray[1]));
+                    numsGame.setSlashList(Integer.parseInt(temporaryArray[1]));
                     break;
             }
         }
         sc.close();
-        if(!gameUsingNumber.hintSymbolMax.isEmpty()&&
-           !gameUsingNumber.hintSymbolMin.isEmpty()&&
-           !gameUsingNumber.hintSymbolSlash.isEmpty()){
-               hintAnswerThree(gameUsingNumber);
-        }else if(!gameUsingNumber.hintSymbolMax.isEmpty()&&
-                 !gameUsingNumber.hintSymbolMin.isEmpty()){
-                     hintAnswerTwo(gameUsingNumber);
-        }else if(!gameUsingNumber.hintSymbolMax.isEmpty()&&
-                 !gameUsingNumber.hintSymbolSlash.isEmpty()){
-                     hintAnswerMax(gameUsingNumber);
-        }else if(!gameUsingNumber.hintSymbolMin.isEmpty()&&
-                 !gameUsingNumber.hintSymbolSlash.isEmpty()){
-                     hintAnswerMin(gameUsingNumber);
-        }
-    }
-    static void hintAnswerMin(GameUsingNumber gameUsingNumber){
-        for(int i=hintMin(gameUsingNumber)+1;i<100;i++){
-            for(int j=0;j<gameUsingNumber.hintSymbolSlash.size();j++){
-                if(i%gameUsingNumber.getHintSymbolSlash(j)==0){
-                    System.out.print(i);
-                    return;
-                }
-            }
-        }
-    }
-    static void hintAnswerMax(GameUsingNumber gameUsingNumber){
-        for(int i=hintMax(gameUsingNumber)-1;i>0;i--){
-            for(int j=0;j<gameUsingNumber.hintSymbolSlash.size();j++){
-                if(i%gameUsingNumber.getHintSymbolSlash(j)==0){
-                    System.out.print(i);
-                    return;
-                }
-            }
-        }
-    }
-    static void hintAnswerTwo(GameUsingNumber gameUsingNumber){
-        for(int i=hintMin(gameUsingNumber)+1;i<hintMax(gameUsingNumber);i++){
-            System.out.print(i);
-        }
-    }
-    static void hintAnswerThree(GameUsingNumber gameUsingNumber){
-        for(int i=hintMin(gameUsingNumber)+1;i<hintMax(gameUsingNumber);i++){
-            for(int j=0;j<gameUsingNumber.hintSymbolSlash.size();j++){
-                if(!(i%gameUsingNumber.getHintSymbolSlash(j)==0)){
+        for(int i=numsGame.getSmall()+1;i<numsGame.getBig();i++){
+            for(int j=0;j<numsGame.getSlashListSize();j++){
+                if(!(i%numsGame.getSlashList(j)==0)){
                     break;
                 }
-                if(j+1==gameUsingNumber.hintSymbolSlash.size()){
-                    System.out.print(i);
+                if(j+1==numsGame.getSlashListSize()){
+                    System.out.println(i);
+                    return;
                 }
             }
         }
     }
-    static int hintMax(GameUsingNumber gameUsingNumber){
-        int hintMax=0;
-        for(int i=0;i<gameUsingNumber.hintSymbolMax.size();i++){
-            hintMax=Math.max(hintMax,gameUsingNumber.getHintSymbolMax(i));
-        }
-        return hintMax;
-    }
-    static int hintMin(GameUsingNumber gameUsingNumber){
-        int hintMin=1000;
-        for(int i=0;i<gameUsingNumber.hintSymbolMin.size();i++){
-            hintMin=Math.min(hintMin,gameUsingNumber.getHintSymbolMin(i));
-        }
-        return hintMin;
-    }
 }
-class GameUsingNumber{
-    final int HINTNUMBER;
-    List<Integer> hintSymbolMax;
-    List<Integer> hintSymbolMin;
-    List<Integer> hintSymbolSlash;
-    GameUsingNumber(int nextInt){
-        this.HINTNUMBER=nextInt;
-        this.hintSymbolMax=new ArrayList<>();
-        this.hintSymbolMin=new ArrayList<>();
-        this.hintSymbolSlash=new ArrayList<>();
+class NumsGame{
+    private final int INPUTLINE;
+    private int small; // >n より大きい
+    private int big; // <n より小さい
+    private List<Integer> slashList;
+    NumsGame(int INPUTLINE){
+        this.INPUTLINE=INPUTLINE;
+        this.small=0;
+        this.big=100;
+        this.slashList=new ArrayList<>();
     }
-    public int getHINTNUMBER(){
-        return this.HINTNUMBER;
+    public int getInputLine(){
+        return this.INPUTLINE;
     }
-    public int getHintSymbolMax(int index){
-        return this.hintSymbolMax.get(index);
+    public int getSmall(){
+        return this.small;
     }
-    public int getHintSymbolMin(int index){
-        return this.hintSymbolMin.get(index);
+    public int getBig(){
+        return this.big;
     }
-    public int getHintSymbolSlash(int index){
-        return this.hintSymbolSlash.get(index);
+    public int getSlashListSize(){
+        return this.slashList.size();
     }
-    public void setHintSymbolMax(int hintSymbolMax){
-        this.hintSymbolMax.add(hintSymbolMax);
+    public int getSlashList(int index){
+        return this.slashList.get(index);
     }
-    public void setHintSymbolMin(int hintSymbolMin){
-        this.hintSymbolMin.add(hintSymbolMin);
+    public void setSmall(int input){
+        this.small=Math.max(this.small,input);
     }
-    public void setHintSymbolSlash(int hintSymbolSlash){
-        this.hintSymbolSlash.add(hintSymbolSlash);
+    public void setBig(int input){
+        this.big=Math.min(this.big,input);
+    }
+    public void setSlashList(int input){
+        this.slashList.add(input);
     }
     public void showStatus(){
-        System.out.println(this.HINTNUMBER);
-        System.out.println("Max"+this.hintSymbolMax);
-        System.out.println("Mix"+this.hintSymbolMin);
-        System.out.println("Slash"+this.hintSymbolSlash);
+        System.out.println("INPUTLINE:"+this.INPUTLINE);
+        System.out.println("small:"+this.small);
+        System.out.println("big:"+this.big);
+        System.out.println("slashList:"+this.slashList);
     }
 }
 class C{
