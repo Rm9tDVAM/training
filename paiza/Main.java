@@ -2,75 +2,46 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        NumsGame numsGame=new NumsGame(sc.nextInt());sc.nextLine();
-        for(int i=0;i<numsGame.getInputLine();i++){
-            String[] temporaryArray=sc.nextLine().split(" ");
-            switch(temporaryArray[0]){
-                case ">":
-                    numsGame.setSmall(Integer.parseInt(temporaryArray[1]));
-                    break;
-                case "<":
-                    numsGame.setBig(Integer.parseInt(temporaryArray[1]));
-                    break;
-                case "/":
-                    numsGame.setSlashList(Integer.parseInt(temporaryArray[1]));
-                    break;
+        SearchResult searchResult=new SearchResult(sc.nextLine());
+        sc.close();
+        Boolean isPrint=true;
+        for(int i=0,page=1;i<searchResult.getCOUNT();){
+            for(int j=0;j<searchResult.getPAGESIZE();j++,i++){
+                if(i<searchResult.getCOUNT()&&page==searchResult.getPAGENUMBER()){
+                    System.out.print(i+1);
+                    isPrint=false;
+                    if(!(j+1==searchResult.getPAGESIZE())){
+                        System.out.print(" ");
+                    }
+                }
+                if(j+1==searchResult.getPAGESIZE()){
+                    page++;
+                }
             }
         }
-        sc.close();
-        for(int i=numsGame.getSmall()+1;i<numsGame.getBig();i++){
-            for(int j=0;j<numsGame.getSlashListSize();j++){
-                if(!(i%numsGame.getSlashList(j)==0)){
-                    break;
-                }
-                if(j+1==numsGame.getSlashListSize()){
-                    System.out.println(i);
-                    return;
-                }
-            }
+        if(isPrint){
+            System.out.print("none");
         }
     }
 }
-class NumsGame{
-    private final int INPUTLINE;
-    private int small; // >n より大きい
-    private int big; // <n より小さい
-    private List<Integer> slashList;
-    NumsGame(int INPUTLINE){
-        this.INPUTLINE=INPUTLINE;
-        this.small=0;
-        this.big=100;
-        this.slashList=new ArrayList<>();
+class SearchResult{
+    private final int COUNT;
+    private final int PAGESIZE;
+    private final int PAGENUMBER;
+    SearchResult(String input){
+        String[] temporaryArray=input.split(" ");
+        this.COUNT=Integer.parseInt(temporaryArray[0]);
+        this.PAGESIZE=Integer.parseInt(temporaryArray[1]);
+        this.PAGENUMBER=Integer.parseInt(temporaryArray[2]);
     }
-    public int getInputLine(){
-        return this.INPUTLINE;
+    public int getCOUNT(){
+        return this.COUNT;
     }
-    public int getSmall(){
-        return this.small;
+    public int getPAGENUMBER(){
+        return this.PAGENUMBER;
     }
-    public int getBig(){
-        return this.big;
-    }
-    public int getSlashListSize(){
-        return this.slashList.size();
-    }
-    public int getSlashList(int index){
-        return this.slashList.get(index);
-    }
-    public void setSmall(int input){
-        this.small=Math.max(this.small,input);
-    }
-    public void setBig(int input){
-        this.big=Math.min(this.big,input);
-    }
-    public void setSlashList(int input){
-        this.slashList.add(input);
-    }
-    public void showStatus(){
-        System.out.println("INPUTLINE:"+this.INPUTLINE);
-        System.out.println("small:"+this.small);
-        System.out.println("big:"+this.big);
-        System.out.println("slashList:"+this.slashList);
+    public int getPAGESIZE(){
+        return this.PAGESIZE;
     }
 }
 class C{
