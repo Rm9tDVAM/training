@@ -2,46 +2,38 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        SearchResult searchResult=new SearchResult(sc.nextLine());
-        sc.close();
-        Boolean isPrint=true;
-        for(int i=0,page=1;i<searchResult.getCOUNT();){
-            for(int j=0;j<searchResult.getPAGESIZE();j++,i++){
-                if(i<searchResult.getCOUNT()&&page==searchResult.getPAGENUMBER()){
-                    System.out.print(i+1);
-                    isPrint=false;
-                    if(!(j+1==searchResult.getPAGESIZE())){
-                        System.out.print(" ");
-                    }
-                }
-                if(j+1==searchResult.getPAGESIZE()){
-                    page++;
-                }
+        Parity parity=new Parity(sc.nextInt());sc.nextLine();
+        for(int i=0;i<parity.getINPUTLINE();i++){
+            String[] temporaryArray=sc.nextLine().split("");
+            for(int j=0;j<4;j++){
+                parity.setBinaryArray(j,Integer.parseInt(temporaryArray[j]));
             }
         }
-        if(isPrint){
-            System.out.print("none");
+        sc.close();
+        for(int i=0;i<4;i++){
+            if(parity.getBinaryArray(i)%2==0){
+                System.out.print(0);
+            }else{
+                System.out.print(1);
+            }
         }
     }
 }
-class SearchResult{
-    private final int COUNT;
-    private final int PAGESIZE;
-    private final int PAGENUMBER;
-    SearchResult(String input){
-        String[] temporaryArray=input.split(" ");
-        this.COUNT=Integer.parseInt(temporaryArray[0]);
-        this.PAGESIZE=Integer.parseInt(temporaryArray[1]);
-        this.PAGENUMBER=Integer.parseInt(temporaryArray[2]);
+class Parity{
+    private final int INPUTLINE;
+    private int[] binaryArray;
+    Parity(int INPUTLINE){
+        this.INPUTLINE=INPUTLINE;
+        this.binaryArray=new int[4];
     }
-    public int getCOUNT(){
-        return this.COUNT;
+    public int getINPUTLINE(){
+        return this.INPUTLINE;
     }
-    public int getPAGENUMBER(){
-        return this.PAGENUMBER;
+    public void setBinaryArray(int index,int value){
+        this.binaryArray[index]+=value;
     }
-    public int getPAGESIZE(){
-        return this.PAGESIZE;
+    public int getBinaryArray(int index){
+        return this.binaryArray[index];
     }
 }
 class C{
