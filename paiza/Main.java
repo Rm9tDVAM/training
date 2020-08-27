@@ -2,64 +2,80 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        GameScore gameScore=new GameScore(sc.nextLine());
-        gameScore.inputFactor(sc.nextLine());
-        gameScore.inputScore(sc);
+        TestResult testResult=new TestResult(sc);
+        testResult.calculationRedPoint();
+        testResult.showRedPoint();
         sc.close();
-        gameScore.showScore();
     }
 }
-class GameScore{
-    private final int PARAMETER;
-    private final int USERS;
-    private final int TOP;
-    private Double[] factor;
-    private int[] score;
-    GameScore(String nextLine){
-        String[] temporaryArray=nextLine.split(" ");
-        this.PARAMETER=Integer.parseInt(temporaryArray[0]);
-        this.USERS=Integer.parseInt(temporaryArray[1]);
-        this.TOP=Integer.parseInt(temporaryArray[2]);
-        this.factor=new Double[PARAMETER];
-        this.score=new int[USERS];
-    }
-    public void inputFactor(String nextLine){
-        String[] temporaryArray=nextLine.split(" ");
-        for(int i=0;i<temporaryArray.length;i++){
-            this.factor[i]=Double.parseDouble(temporaryArray[i]);
-        }
-    }
-    public void inputScore(Scanner sc){
-        double temporaryDouble=0;
-        for(int i=0;i<USERS;i++){
+class TestResult{
+    int[] students;
+    int rank;
+    int[] english;
+    int[] japanese;
+    int[] math;
+    TestResult(Scanner sc){
+        this.students=new int[sc.nextInt()];
+        this.rank=sc.nextInt();sc.nextLine();
+        this.english=new int[students.length];
+        this.japanese=new int[students.length];
+        this.math=new int[students.length];
+        for(int i=0;i<students.length;i++){
             String[] temporaryArray=sc.nextLine().split(" ");
-            for(int j=0;j<this.PARAMETER;j++){
-                temporaryDouble+=Double.parseDouble(temporaryArray[j])*this.factor[j];
-            }
-            score[i]=(int)Math.round(temporaryDouble);
-            temporaryDouble=0;
+            this.english[i]=Integer.parseInt(temporaryArray[0]);
+            this.japanese[i]=Integer.parseInt(temporaryArray[1]);
+            this.math[i]=Integer.parseInt(temporaryArray[2]);
         }
     }
-    public void showScore(){
-        for(int i=0;i<this.score.length-1;i++){
-            for(int j=i+1;j<this.score.length;j++){
-                if(this.score[i]<this.score[j]){
-                    int temporaryInt=this.score[i];
-                    this.score[i]=this.score[j];
-                    this.score[j]=temporaryInt;
+    public void calculationRedPoint(){
+        this.calculation(this.english);
+        this.calculation(this.japanese);
+        this.calculation(this.math);
+    }
+    public void calculation(int[] inputArray){
+        int[] temporaryArray=new int[inputArray.length];
+        for(int i=0;i<inputArray.length;i++){
+            temporaryArray[i]=inputArray[i];
+        }
+        for(int i=0;i<temporaryArray.length-1;i++){
+            for(int j=i+1;j<temporaryArray.length;j++){
+                if((!(temporaryArray[i]==999))&&temporaryArray[i]==temporaryArray[j]){
+                    temporaryArray[j]=999;
                 }
             }
         }
-        for(int i=0;i<this.TOP;i++){
-            System.out.println(this.score[i]);
+        for(int i=0;i<temporaryArray.length-1;i++){
+            for(int j=i+1;j<temporaryArray.length;j++){
+                int temporaryInt;
+                if(temporaryArray[i]>temporaryArray[j]){
+                    temporaryInt=temporaryArray[i];
+                    temporaryArray[i]=temporaryArray[j];
+                    temporaryArray[j]=temporaryInt;
+                }
+            }
+        }
+        for(int i=0,count=0;i<this.rank;i++){
+            if(count<this.rank){
+                for(int j=0;j<inputArray.length;j++){
+                    if(temporaryArray[i]==inputArray[j]){
+                        students[j]++;
+                        count++;;
+                    }
+                }
+            }
+        }
+    }
+    public void showRedPoint(){
+        for(int i:students){
+            System.out.println(i);
         }
     }
     public void showStatus(){
-        System.out.println(this.PARAMETER);
-        System.out.println(this.USERS);
-        System.out.println(this.TOP);
-        System.out.println(Arrays.toString(factor));
-        System.out.println(Arrays.toString(score));
+        System.out.println(Arrays.toString(students));
+        System.out.println(Arrays.toString(english));
+        System.out.println(Arrays.toString(japanese));
+        System.out.println(Arrays.toString(math));
+        System.out.println();
     }
 }
 class C{
