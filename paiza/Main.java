@@ -2,80 +2,47 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        TestResult testResult=new TestResult(sc);
-        testResult.calculationRedPoint();
-        testResult.showRedPoint();
+        SpeedViolation speedViolation=new SpeedViolation(sc);
+        System.out.print(speedViolation.calculation());
         sc.close();
     }
 }
-class TestResult{
-    int[] students;
-    int rank;
-    int[] english;
-    int[] japanese;
-    int[] math;
-    TestResult(Scanner sc){
-        this.students=new int[sc.nextInt()];
-        this.rank=sc.nextInt();sc.nextLine();
-        this.english=new int[students.length];
-        this.japanese=new int[students.length];
-        this.math=new int[students.length];
-        for(int i=0;i<students.length;i++){
-            String[] temporaryArray=sc.nextLine().split(" ");
-            this.english[i]=Integer.parseInt(temporaryArray[0]);
-            this.japanese[i]=Integer.parseInt(temporaryArray[1]);
-            this.math[i]=Integer.parseInt(temporaryArray[2]);
+class SpeedViolation{
+    private final int INPUTLINE;
+    private final Double SPEEDLIMIT;
+    private String[] observationData;
+    private Double[] timeArray;
+    private Double[] locationArray;
+    SpeedViolation(Scanner sc){
+        this.INPUTLINE=sc.nextInt();
+        this.SPEEDLIMIT=sc.nextDouble();sc.nextLine();
+        this.observationData=new String[INPUTLINE];
+        this.timeArray=new Double[INPUTLINE];
+        this.locationArray=new Double[INPUTLINE];
+        for(int i=0;i<INPUTLINE;i++){
+            observationData[i]=sc.nextLine();
+        }
+        for(int i=0;i<this.observationData.length;i++){
+            String[] temporaryArray=this.observationData[i].split(" ");
+            this.timeArray[i]=Double.parseDouble(temporaryArray[0]);
+            this.locationArray[i]=Double.parseDouble(temporaryArray[1]);
         }
     }
-    public void calculationRedPoint(){
-        this.calculation(this.english);
-        this.calculation(this.japanese);
-        this.calculation(this.math);
-    }
-    public void calculation(int[] inputArray){
-        int[] temporaryArray=new int[inputArray.length];
-        for(int i=0;i<inputArray.length;i++){
-            temporaryArray[i]=inputArray[i];
-        }
-        for(int i=0;i<temporaryArray.length-1;i++){
-            for(int j=i+1;j<temporaryArray.length;j++){
-                if((!(temporaryArray[i]==999))&&temporaryArray[i]==temporaryArray[j]){
-                    temporaryArray[j]=999;
-                }
+    public String calculation(){
+        for(int i=1;i<this.observationData.length;i++){
+            if(this.timeArray[i]==0&&this.locationArray[i]-this.locationArray[i-1]>this.SPEEDLIMIT||
+              (this.locationArray[i]-this.locationArray[i-1])/(this.timeArray[i]-this.timeArray[i-1])>this.SPEEDLIMIT){
+                return "YES";
             }
         }
-        for(int i=0;i<temporaryArray.length-1;i++){
-            for(int j=i+1;j<temporaryArray.length;j++){
-                int temporaryInt;
-                if(temporaryArray[i]>temporaryArray[j]){
-                    temporaryInt=temporaryArray[i];
-                    temporaryArray[i]=temporaryArray[j];
-                    temporaryArray[j]=temporaryInt;
-                }
-            }
-        }
-        for(int i=0,count=0;i<this.rank;i++){
-            if(count<this.rank){
-                for(int j=0;j<inputArray.length;j++){
-                    if(temporaryArray[i]==inputArray[j]){
-                        students[j]++;
-                        count++;;
-                    }
-                }
-            }
-        }
-    }
-    public void showRedPoint(){
-        for(int i:students){
-            System.out.println(i);
-        }
+        return "NO";
     }
     public void showStatus(){
-        System.out.println(Arrays.toString(students));
-        System.out.println(Arrays.toString(english));
-        System.out.println(Arrays.toString(japanese));
-        System.out.println(Arrays.toString(math));
-        System.out.println();
+        System.out.println(this.INPUTLINE);
+        System.out.println(this.SPEEDLIMIT);
+        System.out.println(Arrays.toString(this.observationData));
+        System.out.println(Arrays.toString(this.timeArray));
+        System.out.println(Arrays.toString(this.locationArray));
     }
 }
 class C{
