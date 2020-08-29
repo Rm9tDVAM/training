@@ -1,48 +1,55 @@
 import java.util.*;
+import java.util.regex.Pattern;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        SpeedViolation speedViolation=new SpeedViolation(sc);
-        System.out.print(speedViolation.calculation());
+        AddressSurvey addressSurvey=new AddressSurvey(sc);
         sc.close();
-    }
-}
-class SpeedViolation{
-    private final int INPUTLINE;
-    private final Double SPEEDLIMIT;
-    private String[] observationData;
-    private Double[] timeArray;
-    private Double[] locationArray;
-    SpeedViolation(Scanner sc){
-        this.INPUTLINE=sc.nextInt();
-        this.SPEEDLIMIT=sc.nextDouble();sc.nextLine();
-        this.observationData=new String[INPUTLINE];
-        this.timeArray=new Double[INPUTLINE];
-        this.locationArray=new Double[INPUTLINE];
-        for(int i=0;i<INPUTLINE;i++){
-            observationData[i]=sc.nextLine();
-        }
-        for(int i=0;i<this.observationData.length;i++){
-            String[] temporaryArray=this.observationData[i].split(" ");
-            this.timeArray[i]=Double.parseDouble(temporaryArray[0]);
-            this.locationArray[i]=Double.parseDouble(temporaryArray[1]);
-        }
-    }
-    public String calculation(){
-        for(int i=1;i<this.observationData.length;i++){
-            if(this.timeArray[i]==0&&this.locationArray[i]-this.locationArray[i-1]>this.SPEEDLIMIT||
-              (this.locationArray[i]-this.locationArray[i-1])/(this.timeArray[i]-this.timeArray[i-1])>this.SPEEDLIMIT){
-                return "YES";
+        for(int i=0;i<addressSurvey.getIpAddressArraylength();i++){
+            String[] temporaryArray=addressSurvey.getIpAddressArray(i).split(Pattern.quote("."));
+            if(nullCheck(temporaryArray)){
+                System.out.println("True");
+            }else{
+                System.out.println("False");
             }
         }
-        return "NO";
+    }
+    static boolean nullCheck(Object[] obj){
+        if(!(obj.length==4)){
+            return false;
+        }
+        for(int i=0;i<4;i++){
+            if(obj[i].equals("")){
+                return false;
+            }
+        }
+        for(int i=0;i<4;i++){
+            if(Integer.parseInt(obj[i].toString())>255){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+class AddressSurvey{
+    private final int INPUT_LINE;
+    private final String[] ipAddressArray;
+    AddressSurvey(Scanner sc){
+        this.INPUT_LINE=sc.nextInt();sc.nextLine();
+        this.ipAddressArray=new String[this.INPUT_LINE];
+        for(int i=0;i<this.INPUT_LINE;i++){
+            ipAddressArray[i]=sc.nextLine();
+        }
+    }
+    public int getIpAddressArraylength(){
+        return this.ipAddressArray.length;
+    }
+    public String getIpAddressArray(int index){
+        return this.ipAddressArray[index];
     }
     public void showStatus(){
-        System.out.println(this.INPUTLINE);
-        System.out.println(this.SPEEDLIMIT);
-        System.out.println(Arrays.toString(this.observationData));
-        System.out.println(Arrays.toString(this.timeArray));
-        System.out.println(Arrays.toString(this.locationArray));
+        System.out.println(this.INPUT_LINE);
+        System.out.println(Arrays.toString(this.ipAddressArray));
     }
 }
 class C{
