@@ -34,6 +34,7 @@ str.contains("String") // 含まれるかboolで返す
 str.indexOf("String") // インデックスを返す
 // Integer
 Integer.parseInt(str,2); // 2-> 10
+Integer.parseInt(obj[i].toString())
 String str=Integer.toBinaryString(n); // 10-> 2
 // Math
 Math.ceil(n); // 少数第一位で切り上げ
@@ -54,6 +55,8 @@ System.out.println(str.substring(1,2)); //b
 System.out.println(str.substring(2,3)); //c
 System.out.println(str.substring(str.length()-2,str.length()-1)); //d
 System.out.println(str.substring(str.length()-1)); //e
+// split
+.split(Pattern.quote("."));
 // 割合
 n%100-n%10; // n=999, 90-9=90
 ((int)(n*(d/100))); // パーセント

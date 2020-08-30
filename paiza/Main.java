@@ -1,55 +1,53 @@
 import java.util.*;
-import java.util.regex.Pattern;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        AddressSurvey addressSurvey=new AddressSurvey(sc);
+        BlackAndWhite blackAndWhite=new BlackAndWhite(sc);
         sc.close();
-        for(int i=0;i<addressSurvey.getIpAddressArraylength();i++){
-            String[] temporaryArray=addressSurvey.getIpAddressArray(i).split(Pattern.quote("."));
-            if(nullCheck(temporaryArray)){
-                System.out.println("True");
-            }else{
-                System.out.println("False");
-            }
-        }
+        checkBlackAndWhite(blackAndWhite);
     }
-    static boolean nullCheck(Object[] obj){
-        if(!(obj.length==4)){
-            return false;
-        }
-        for(int i=0;i<4;i++){
-            if(obj[i].equals("")){
-                return false;
+    static void checkBlackAndWhite(BlackAndWhite blackAndWhite){
+        for(int i=0;i<blackAndWhite.getVERTICAL();i++){
+            String[] temporaryArray=blackAndWhite.getGRAY_IMAGE_ARRAY(i).split(" ");
+            for(int j=0;j<blackAndWhite.getHORIZONTAL();j++){
+                if(Integer.parseInt(temporaryArray[j])>=128){
+                    System.out.print("1");
+                }else{
+                    System.out.print("0");
+                }
+                if(!(j+1==blackAndWhite.getHORIZONTAL())){
+                    System.out.print(" ");
+                }
             }
+            System.out.println();
         }
-        for(int i=0;i<4;i++){
-            if(Integer.parseInt(obj[i].toString())>255){
-                return false;
-            }
-        }
-        return true;
     }
 }
-class AddressSurvey{
-    private final int INPUT_LINE;
-    private final String[] ipAddressArray;
-    AddressSurvey(Scanner sc){
-        this.INPUT_LINE=sc.nextInt();sc.nextLine();
-        this.ipAddressArray=new String[this.INPUT_LINE];
-        for(int i=0;i<this.INPUT_LINE;i++){
-            ipAddressArray[i]=sc.nextLine();
+class BlackAndWhite{
+    private final int VERTICAL;
+    private final int HORIZONTAL;
+    private final String[] GRAY_IMAGE_ARRAY;
+    BlackAndWhite(Scanner sc){
+        this.VERTICAL=sc.nextInt();
+        this.HORIZONTAL=sc.nextInt();sc.nextLine();
+        this.GRAY_IMAGE_ARRAY=new String[this.VERTICAL];
+        for(int i=0;i<this.VERTICAL;i++){
+            this.GRAY_IMAGE_ARRAY[i]=sc.nextLine();
         }
     }
-    public int getIpAddressArraylength(){
-        return this.ipAddressArray.length;
+    public int getVERTICAL(){
+        return this.VERTICAL;
     }
-    public String getIpAddressArray(int index){
-        return this.ipAddressArray[index];
+    public int getHORIZONTAL(){
+        return this.HORIZONTAL;
+    }
+    public String getGRAY_IMAGE_ARRAY(int index){
+        return this.GRAY_IMAGE_ARRAY[index];
     }
     public void showStatus(){
-        System.out.println(this.INPUT_LINE);
-        System.out.println(Arrays.toString(this.ipAddressArray));
+        System.out.println(this.VERTICAL);
+        System.out.println(this.HORIZONTAL);
+        System.out.println(Arrays.toString(this.GRAY_IMAGE_ARRAY));
     }
 }
 class C{
