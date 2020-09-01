@@ -2,75 +2,51 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        RabbitAndTurtle rabbitAndTurtle=new RabbitAndTurtle(sc);
+        UsingTimesSurvey uts=new UsingTimesSurvey(sc);
         sc.close();
-        System.out.print(Calculation(rabbitAndTurtle));
-    }
-    static String Calculation(RabbitAndTurtle rabbitAndTurtle){
-        String winner="";
-        double usagiRestDistance=rabbitAndTurtle.getUSAGI_REST_DISTANCE();
-        int usagiRestCount=0;
-        double usagiDistance=0;
-        double kameDistance=0;
-        boolean isUsagiRun=true;
-        while(true){
-            if(isUsagiRun){
-                usagiDistance+=1000/rabbitAndTurtle.getUSAGI_SPEED();
+        Map<Integer,Integer> userIdMap=new TreeMap<>();
+        for(int i=0;i<uts.getUserId().length;i++){
+            if(userIdMap.containsKey(Integer.parseInt(uts.getUserId(i)))){
+                userIdMap.put(Integer.parseInt(uts.getUserId(i)),userIdMap.get(Integer.parseInt(uts.getUserId(i)))+1);
+            }else{
+                userIdMap.put(Integer.parseInt(uts.getUserId(i)),1);
             }
-            kameDistance+=1000/rabbitAndTurtle.getKAME_SPEED();
-            if(usagiDistance>=rabbitAndTurtle.getDISTANCE()||
-               kameDistance>=rabbitAndTurtle.getDISTANCE()){
-                   break;
-            }
-            if(!isUsagiRun){
-                usagiRestCount--;
-                if(usagiRestCount==0){
-                    isUsagiRun=true;
+        }
+        int maxValue=0;
+        boolean isSecondLine=false;
+        for(int i:userIdMap.keySet()){
+            maxValue=Math.max(maxValue,userIdMap.get(i));
+        }
+        for(int i:userIdMap.keySet()){
+            if(userIdMap.get(i)==maxValue){
+                if(isSecondLine){
+                    System.out.print(" ");
                 }
-            }
-            if(usagiDistance>=usagiRestDistance){
-                isUsagiRun=false;
-                usagiRestCount=rabbitAndTurtle.getUSAGI_REST();
-                usagiRestDistance+=rabbitAndTurtle.getUSAGI_REST_DISTANCE();
+                System.out.print(i);
+                isSecondLine=true;
             }
         }
-        if(usagiDistance==kameDistance){
-            winner="DRAW";
-        }else if(usagiDistance<kameDistance){
-            winner="KAME";
-        }else{
-            winner="USAGI";
-        }
-        return winner;
     }
-    static class RabbitAndTurtle{
-        private final double DISTANCE;
-        private final double USAGI_SPEED;
-        private final double USAGI_REST_DISTANCE;
-        private final int USAGI_REST;
-        private final double KAME_SPEED;
-        RabbitAndTurtle(Scanner sc){
-            this.DISTANCE=sc.nextDouble()*1000;
-            this.USAGI_SPEED=sc.nextDouble();
-            this.USAGI_REST_DISTANCE=sc.nextDouble()*1000;
-            this.USAGI_REST=sc.nextInt();
-            this.KAME_SPEED=sc.nextDouble();
-        }
-        public double getDISTANCE(){
-            return this.DISTANCE;
-        }
-        public double getUSAGI_SPEED(){
-            return this.USAGI_SPEED;
-        }
-        public double getUSAGI_REST_DISTANCE(){
-            return this.USAGI_REST_DISTANCE;
-        }
-        public int getUSAGI_REST(){
-            return this.USAGI_REST;
-        }
-        public double getKAME_SPEED(){
-            return this.KAME_SPEED;
-        }
+}
+class UsingTimesSurvey{
+    private final int itemUsageTimes;
+    private final String[] userId;
+    UsingTimesSurvey(Scanner sc){
+        this.itemUsageTimes=sc.nextInt();sc.nextLine();
+        this.userId=sc.nextLine().split(" ");
+    }
+    public void showStatus(){
+        System.out.println(itemUsageTimes);
+        System.out.println(Arrays.toString(userId));
+    }
+    public int getItemUsageTimes(){
+        return this.getItemUsageTimes();
+    }
+    public String[] getUserId(){
+        return this.userId;
+    }
+    public String getUserId(int index){
+        return this.userId[index];
     }
 }
 class C{
