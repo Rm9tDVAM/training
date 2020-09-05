@@ -2,51 +2,75 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        UsingTimesSurvey uts=new UsingTimesSurvey(sc);
+        AttendanceTime at=new AttendanceTime(sc);
         sc.close();
-        Map<Integer,Integer> userIdMap=new TreeMap<>();
-        for(int i=0;i<uts.getUserId().length;i++){
-            if(userIdMap.containsKey(Integer.parseInt(uts.getUserId(i)))){
-                userIdMap.put(Integer.parseInt(uts.getUserId(i)),userIdMap.get(Integer.parseInt(uts.getUserId(i)))+1);
-            }else{
-                userIdMap.put(Integer.parseInt(uts.getUserId(i)),1);
-            }
+        calculation(at);
+    }
+    static void calculation(AttendanceTime at){
+        int hour=0;
+        int minute=0;
+        for(int i=1;i<at.getTO_TRAIN().length;i++){
+            minute+=Integer.parseInt(at.getTO_TRAIN(i));
         }
-        int maxValue=0;
-        boolean isSecondLine=false;
-        for(int i:userIdMap.keySet()){
-            maxValue=Math.max(maxValue,userIdMap.get(i));
+        hour=minute/60;
+        minute%=60;
+        for(int i=0;i<at.getTRAIN_TIMES();i++){
+            at.setLimitHour(i,at.getHOUR(i)+hour);
+            at.setLimitMinute(i,at.getMINUTE(i)+minute);
         }
-        for(int i:userIdMap.keySet()){
-            if(userIdMap.get(i)==maxValue){
-                if(isSecondLine){
-                    System.out.print(" ");
-                }
-                System.out.print(i);
-                isSecondLine=true;
-            }
-        }
+        at.showStatus();
     }
 }
-class UsingTimesSurvey{
-    private final int itemUsageTimes;
-    private final String[] userId;
-    UsingTimesSurvey(Scanner sc){
-        this.itemUsageTimes=sc.nextInt();sc.nextLine();
-        this.userId=sc.nextLine().split(" ");
+class AttendanceTime{
+    private final int LIMIT_HOUR=8;
+    private final int LIMIT_MINUTE=59;
+    private final String[] TO_TRAIN;
+    private final int TRAIN_TIMES;
+    private final int[] HOUR;
+    private final int[] MINUTE;
+    private int[] limitHour;
+    private int[] limitMinute;
+    AttendanceTime(Scanner sc){
+        TO_TRAIN=sc.nextLine().split(" ");
+        TRAIN_TIMES=sc.nextInt();
+        HOUR=new int[TRAIN_TIMES];
+        MINUTE=new int[TRAIN_TIMES];
+        for(int i=0;i<TRAIN_TIMES;i++){
+            HOUR[i]=sc.nextInt();
+            MINUTE[i]=sc.nextInt();
+        }
+        limitHour=new int[TRAIN_TIMES];
+        limitMinute=new int[TRAIN_TIMES];
+        showStatus();
+    }
+    public String[] getTO_TRAIN(){
+        return this.TO_TRAIN;
+    }
+    public String getTO_TRAIN(int index){
+        return this.TO_TRAIN[index];
+    }
+    public int getTRAIN_TIMES(){
+        return this.TRAIN_TIMES;
+    }
+    public int getHOUR(int index){
+        return this.HOUR[index];
+    }
+    public int getMINUTE(int index){
+        return this.MINUTE[index];
+    }
+    public void setLimitHour(int index,int hour){
+        this.limitHour[index]=hour;
+    }
+    public void setLimitMinute(int index,int minute){
+        this.limitMinute[index]=minute;
     }
     public void showStatus(){
-        System.out.println(itemUsageTimes);
-        System.out.println(Arrays.toString(userId));
-    }
-    public int getItemUsageTimes(){
-        return this.getItemUsageTimes();
-    }
-    public String[] getUserId(){
-        return this.userId;
-    }
-    public String getUserId(int index){
-        return this.userId[index];
+        System.out.println(Arrays.toString(TO_TRAIN));
+        System.out.println(TRAIN_TIMES);
+        System.out.println(Arrays.toString(HOUR));
+        System.out.println(Arrays.toString(MINUTE));
+        System.out.println(Arrays.toString(limitHour));
+        System.out.println(Arrays.toString(limitMinute));
     }
 }
 class C{
