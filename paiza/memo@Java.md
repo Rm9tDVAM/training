@@ -32,6 +32,8 @@ str.charAt(str.length()-n); // 後ろからn番文字
 str.contains("String") // 含まれるかboolで返す
 // indexOf
 str.indexOf("String") // インデックスを返す
+// int
+int min=2147483647;
 // Integer
 Integer.parseInt(str,2); // 2-> 10
 Integer.parseInt(obj[i].toString())

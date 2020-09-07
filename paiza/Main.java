@@ -2,75 +2,36 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        AttendanceTime at=new AttendanceTime(sc);
+        int salesCount=sc.nextInt();
+        int dataDisplayUnit=sc.nextInt();
+        int[] salesArray=new int[salesCount];
+        initialization(salesCount,salesArray, sc);
         sc.close();
-        calculation(at);
-    }
-    static void calculation(AttendanceTime at){
-        int hour=0;
-        int minute=0;
-        for(int i=1;i<at.getTO_TRAIN().length;i++){
-            minute+=Integer.parseInt(at.getTO_TRAIN(i));
+        int maxLength=maxLength(salesArray,dataDisplayUnit);
+        for(int i=0;i<salesCount;i++){
+            int temp=salesArray[i]/dataDisplayUnit;
+            System.out.print((i+1)+":");
+            for(int j=0;j<maxLength;j++){
+                if(temp>j){
+                    System.out.print("*");
+                }else{
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
         }
-        hour=minute/60;
-        minute%=60;
-        for(int i=0;i<at.getTRAIN_TIMES();i++){
-            at.setLimitHour(i,at.getHOUR(i)+hour);
-            at.setLimitMinute(i,at.getMINUTE(i)+minute);
+    }
+    static int maxLength(int[] salesArray,int dataDisplayUnit){
+        int maxLength=0;
+        for(int i=0;i<salesArray.length;i++){
+            maxLength=Math.max(maxLength,salesArray[i]/dataDisplayUnit);
         }
-        at.showStatus();
-    }
-}
-class AttendanceTime{
-    private final int LIMIT_HOUR=8;
-    private final int LIMIT_MINUTE=59;
-    private final String[] TO_TRAIN;
-    private final int TRAIN_TIMES;
-    private final int[] HOUR;
-    private final int[] MINUTE;
-    private int[] limitHour;
-    private int[] limitMinute;
-    AttendanceTime(Scanner sc){
-        TO_TRAIN=sc.nextLine().split(" ");
-        TRAIN_TIMES=sc.nextInt();
-        HOUR=new int[TRAIN_TIMES];
-        MINUTE=new int[TRAIN_TIMES];
-        for(int i=0;i<TRAIN_TIMES;i++){
-            HOUR[i]=sc.nextInt();
-            MINUTE[i]=sc.nextInt();
+        return maxLength;
+    } 
+    static void initialization(int salesCount,int[] salesArray,Scanner sc){
+        for(int i=0;i<salesCount;i++){
+            salesArray[i]=sc.nextInt();
         }
-        limitHour=new int[TRAIN_TIMES];
-        limitMinute=new int[TRAIN_TIMES];
-        showStatus();
-    }
-    public String[] getTO_TRAIN(){
-        return this.TO_TRAIN;
-    }
-    public String getTO_TRAIN(int index){
-        return this.TO_TRAIN[index];
-    }
-    public int getTRAIN_TIMES(){
-        return this.TRAIN_TIMES;
-    }
-    public int getHOUR(int index){
-        return this.HOUR[index];
-    }
-    public int getMINUTE(int index){
-        return this.MINUTE[index];
-    }
-    public void setLimitHour(int index,int hour){
-        this.limitHour[index]=hour;
-    }
-    public void setLimitMinute(int index,int minute){
-        this.limitMinute[index]=minute;
-    }
-    public void showStatus(){
-        System.out.println(Arrays.toString(TO_TRAIN));
-        System.out.println(TRAIN_TIMES);
-        System.out.println(Arrays.toString(HOUR));
-        System.out.println(Arrays.toString(MINUTE));
-        System.out.println(Arrays.toString(limitHour));
-        System.out.println(Arrays.toString(limitMinute));
     }
 }
 class C{
