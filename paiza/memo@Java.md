@@ -30,6 +30,8 @@ str.charAt(i)==('char')
 str.charAt(str.length()-n); // 後ろからn番文字
 // contains
 str.contains("String") // 含まれるかboolで返す
+// double
+double min=1.7976931348623157E308;
 // indexOf
 str.indexOf("String") // インデックスを返す
 // int
