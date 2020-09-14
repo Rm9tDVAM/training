@@ -2,59 +2,78 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        CompatibilityCheck CC=new CompatibilityCheck(sc);
-        System.out.print(Math.max(compatibilityCalculation(CC,CC.getNameA()),compatibilityCalculation(CC,CC.getNameB())));
+        TableAutogeneration ta=new TableAutogeneration(sc);
         sc.close();
+        verticalCalculation(ta);
+        horizontalCalculation(ta);
+        showTable(ta);
     }
-    static int compatibilityCalculation(CompatibilityCheck CC,String name){
-        String[] nameArray=name.split("");
-        List<Integer> numberList=new ArrayList<>();
-        for(int i=0;i<nameArray.length;i++){
-            numberList.add(CC.getNumberFromCharacter(nameArray[i]));
+    static void horizontalCalculation(TableAutogeneration ta){
+    }
+    static void verticalCalculation(TableAutogeneration ta){
+        for(int j=0;j<2;j++){
+            for(int i=2;i<ta.getVertical();i++){
+                int diffVertical=ta.getTable(1,j)-ta.getTable(0,j);
+                ta.setTalbe(i,j,ta.getTable(i-1,j)+diffVertical);
+            }
         }
-        for(int i=0;i<name.length()-1;i++){
-            int size=numberList.size();
-            for(int j=0;j<size-1;j++){
-                int addNum=(numberList.get(j)+numberList.get(j+1));
-                if(addNum>=101){
-                    addNum-=101;
+    }
+    static void showTable(TableAutogeneration ta){
+        System.out.println();
+        for(int i=0;i<ta.getVertical();i++){
+            for(int j=0;j<ta.getHorizontal();j++){
+                System.out.print(ta.getTable(i,j));
+                if(!(j+1==ta.getTable()[i].length)){
+                    System.out.print(" ");
                 }
-                numberList.add(addNum);
             }
-            for(int j=0;j<size;j++){
-                numberList.remove(0);
-            }
+            System.out.println();
         }
-        return numberList.get(0);
     }
 }
-class CompatibilityCheck{
-    private final String nameA;
-    private final String nameB;
-    private final Map<String,Integer> numberFromCharacter;
-    CompatibilityCheck(Scanner sc){
-        String[] temp=sc.nextLine().split(" ");
-        this.nameA=temp[0]+temp[1];
-        this.nameB=temp[1]+temp[0];
-        this.numberFromCharacter=new HashMap<>();
-        for(int i=97,j=1;i<123;i++,j++){
-            this.numberFromCharacter.put(String.valueOf((char)i),j);
+class TableAutogeneration{
+    private final int vertical;
+    private final int horizontal;
+    private int[][] table;
+    TableAutogeneration(Scanner sc){
+        this.vertical=sc.nextInt();
+        this.horizontal=sc.nextInt();
+        this.table=new int[this.vertical][this.horizontal];
+        for(int i=0;i<2;i++){
+            for(int j=0;j<2;j++){
+                this.table[i][j]=sc.nextInt();
+            }
         }
         //showStatus();
     }
-    public String getNameA(){
-        return this.nameA;
+    public int getVertical(){
+        return this.vertical;
     }
-    public String getNameB(){
-        return this.nameB;
+    public int getHorizontal(){
+        return this.horizontal;
     }
-    public int getNumberFromCharacter(String serchNumber){
-        return this.numberFromCharacter.get(serchNumber);
+    public int[][] getTable(){
+        return this.table;
+    }
+    public int getTable(int i,int j){
+        return this.table[i][j];
+    }
+    public void setTalbe(int i,int j,int inputNum){
+        this.table[i][j]=inputNum;
     }
     public void showStatus(){
-        System.out.println(this.nameA);
-        System.out.println(this.nameB);
-        System.out.println(this.numberFromCharacter);
+        System.out.println();
+        System.out.println(this.vertical);
+        System.out.println(this.horizontal);
+        for(int i=0;i<this.vertical;i++){
+            for(int j=0;j<this.horizontal;j++){
+                System.out.print(table[i][j]);
+                if(!(j+1==this.table[i].length)){
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
 class Common{
