@@ -9,6 +9,12 @@ public class Main{
         showTable(ta);
     }
     static void horizontalCalculation(TableAutogeneration ta){
+        for(int i=0;i<ta.getVertical();i++){
+            for(int j=2;j<ta.getHorizontal();j++){
+                int diffHorizontal=ta.getTable(i,1)-ta.getTable(i,0);
+                ta.setTalbe(i,j,ta.getTable(i,j-1)+diffHorizontal);
+            }
+        }
     }
     static void verticalCalculation(TableAutogeneration ta){
         for(int j=0;j<2;j++){
@@ -19,7 +25,6 @@ public class Main{
         }
     }
     static void showTable(TableAutogeneration ta){
-        System.out.println();
         for(int i=0;i<ta.getVertical();i++){
             for(int j=0;j<ta.getHorizontal();j++){
                 System.out.print(ta.getTable(i,j));
@@ -44,7 +49,6 @@ class TableAutogeneration{
                 this.table[i][j]=sc.nextInt();
             }
         }
-        //showStatus();
     }
     public int getVertical(){
         return this.vertical;
