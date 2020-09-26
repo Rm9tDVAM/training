@@ -2,17 +2,59 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        String[] inputPassArray=sc.nextLine().split("");
+        ElectionSpeech es=new ElectionSpeech(sc);
         sc.close();
-        for(int i=0;i<inputPassArray.length-1;i++){
-            for(int j=i+1;j<inputPassArray.length;j++){
-                if(inputPassArray[i].equals(inputPassArray[j])){
-                    System.out.print("NG");
-                    return;
+        electionSpeechCalculation(es);
+    }
+    static void electionSpeechCalculation(ElectionSpeech es){
+        int[] pollArray=new int[es.getSpeechTimes()];
+        for(int i=0;i<pollArray.length;i++){
+            for(int j=0;j<pollArray.length;j++){
+                if(!(j==es.getSpeechTimesArray(i)-1)&&!(0==pollArray[j])){
+                    pollArray[j]--;
+                }
+                if(j==es.getSpeechTimesArray(i)-1){
+                    pollArray[j]++;
                 }
             }
+        C.print(pollArray);
         }
-        System.out.print("OK");
+    }
+}
+class ElectionSpeech{
+    private final int candidate;
+    private final int voters;
+    private final int speechTimes;
+    private final int[] speechTimesArray;
+    ElectionSpeech(Scanner sc){
+        this.candidate=sc.nextInt();
+        this.voters=sc.nextInt();
+        this.speechTimes=sc.nextInt();
+        this.speechTimesArray=new int[speechTimes];
+        for(int i=0;i<this.speechTimes;i++){
+            this.speechTimesArray[i]=sc.nextInt();
+        }
+    }
+    public int getCandidate(){
+        return this.candidate;
+    }
+    public int getVoters(){
+        return this.voters;
+    }
+    public int getSpeechTimes(){
+        return this.speechTimes;
+    }
+    public int[] getSpeechTimesArray(){
+        return this.speechTimesArray;
+    }
+    public int getSpeechTimesArray(int index){
+        return this.speechTimesArray[index];
+    }
+    public void showStatus(){
+        System.out.println(this.candidate);
+        System.out.println(this.voters);
+        System.out.println(this.speechTimes);
+        System.out.println(Arrays.toString(this.speechTimesArray));
     }
 }
 class Common{
