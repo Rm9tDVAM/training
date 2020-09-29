@@ -7,14 +7,13 @@ public class Main{
         electionSpeechCalculation(es);
     }
     static void electionSpeechCalculation(ElectionSpeech es){
+        int voters=es.getVoters();
         int[] pollArray=new int[es.getSpeechTimes()];
         for(int i=0;i<pollArray.length;i++){
             for(int j=0;j<pollArray.length;j++){
-                if(!(j==es.getSpeechTimesArray(i)-1)&&!(0==pollArray[j])){
-                    pollArray[j]--;
-                }
-                if(j==es.getSpeechTimesArray(i)-1){
+                if(voters>0){
                     pollArray[j]++;
+                    voters--;
                 }
             }
         C.print(pollArray);
@@ -34,6 +33,7 @@ class ElectionSpeech{
         for(int i=0;i<this.speechTimes;i++){
             this.speechTimesArray[i]=sc.nextInt();
         }
+        //showStatus();
     }
     public int getCandidate(){
         return this.candidate;
