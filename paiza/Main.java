@@ -8,15 +8,27 @@ public class Main{
     }
     static void electionSpeechCalculation(ElectionSpeech es){
         int voters=es.getVoters();
-        int[] pollArray=new int[es.getSpeechTimes()];
-        for(int i=0;i<pollArray.length;i++){
+        int max=0;
+        int[] pollArray=new int[es.getCandidate()];
+        for(int i=0;i<es.getSpeechTimes();i++){
             for(int j=0;j<pollArray.length;j++){
-                if(voters>0){
-                    pollArray[j]++;
-                    voters--;
+                if(pollArray[j]>0){
+                    pollArray[j]--;
+                    pollArray[es.getSpeechTimesArray(i)-1]++;
                 }
             }
-        C.print(pollArray);
+            if(voters>0){
+                pollArray[es.getSpeechTimesArray(i)-1]++;
+                voters--;
+            }
+        }
+        for(int i=0;i<pollArray.length;i++){
+            max=Math.max(max,pollArray[i]);
+        }
+        for(int i=0;i<pollArray.length;i++){
+            if(pollArray[i]==max){
+                System.out.println(i+1);
+            }
         }
     }
 }
@@ -51,10 +63,12 @@ class ElectionSpeech{
         return this.speechTimesArray[index];
     }
     public void showStatus(){
+        System.out.println();
         System.out.println(this.candidate);
         System.out.println(this.voters);
         System.out.println(this.speechTimes);
         System.out.println(Arrays.toString(this.speechTimesArray));
+        System.out.println();
     }
 }
 class Common{
@@ -141,12 +155,14 @@ class C{
                 for(int i:((int[])obj)){
                     System.out.print(i+" ");
                 }
+                System.out.println();
             }
             if(obj instanceof String[]){
                 System.out.println("C.print String[]");
                 for(String s:((String[])obj)){
                     System.out.println(s+" ");
                 }
+                System.out.println();
             }
             if(obj instanceof int[][]){
                 int[][] intArray=((int[][])obj);
@@ -157,6 +173,7 @@ class C{
                     }
                     System.out.println();
                 }
+                System.out.println();
             }
         }else if(obj instanceof List){
             System.out.println("C.print List");
@@ -164,6 +181,7 @@ class C{
             for(int i=0;i<list.size();i++){
                 System.out.println(list.get(i));
             }
+                System.out.println();
         }else{
             System.out.println("C.print");
             System.out.println(obj);
