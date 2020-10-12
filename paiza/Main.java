@@ -2,73 +2,9 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        ElectionSpeech es=new ElectionSpeech(sc);
+        int imputLine=sc.nextInt();
         sc.close();
-        electionSpeechCalculation(es);
-    }
-    static void electionSpeechCalculation(ElectionSpeech es){
-        int voters=es.getVoters();
-        int max=0;
-        int[] pollArray=new int[es.getCandidate()];
-        for(int i=0;i<es.getSpeechTimes();i++){
-            for(int j=0;j<pollArray.length;j++){
-                if(pollArray[j]>0){
-                    pollArray[j]--;
-                    pollArray[es.getSpeechTimesArray(i)-1]++;
-                }
-            }
-            if(voters>0){
-                pollArray[es.getSpeechTimesArray(i)-1]++;
-                voters--;
-            }
-        }
-        for(int i=0;i<pollArray.length;i++){
-            max=Math.max(max,pollArray[i]);
-        }
-        for(int i=0;i<pollArray.length;i++){
-            if(pollArray[i]==max){
-                System.out.println(i+1);
-            }
-        }
-    }
-}
-class ElectionSpeech{
-    private final int candidate;
-    private final int voters;
-    private final int speechTimes;
-    private final int[] speechTimesArray;
-    ElectionSpeech(Scanner sc){
-        this.candidate=sc.nextInt();
-        this.voters=sc.nextInt();
-        this.speechTimes=sc.nextInt();
-        this.speechTimesArray=new int[speechTimes];
-        for(int i=0;i<this.speechTimes;i++){
-            this.speechTimesArray[i]=sc.nextInt();
-        }
-        //showStatus();
-    }
-    public int getCandidate(){
-        return this.candidate;
-    }
-    public int getVoters(){
-        return this.voters;
-    }
-    public int getSpeechTimes(){
-        return this.speechTimes;
-    }
-    public int[] getSpeechTimesArray(){
-        return this.speechTimesArray;
-    }
-    public int getSpeechTimesArray(int index){
-        return this.speechTimesArray[index];
-    }
-    public void showStatus(){
-        System.out.println();
-        System.out.println(this.candidate);
-        System.out.println(this.voters);
-        System.out.println(this.speechTimes);
-        System.out.println(Arrays.toString(this.speechTimesArray));
-        System.out.println();
+        System.out.println(imputLine*7);
     }
 }
 class Common{
