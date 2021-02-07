@@ -43,8 +43,8 @@ Excelのアプリケーション自体を操作するクラス
     |〃|Property **Selection** As Object|現在選択されているオブジェクト|
     |Worksheet,<br>Chart|Property **ActiveSheet** As Object|アクティブシートを表すオブジェクト|
     |Sheet|Property **Chart** As Sheets|アクティブなブックのすべてのグラフシートを表すSheetsコレクション|
-    |Sheet|Property **Sheets** As Sheets|アクティブなブックのすべてのシートを表すSheetsコレクション|
-    |Sheet|Property **Worksheets** As Sheets|アクティブなブックのすべてのワークシートを表すSheetsコレクション|
+    |〃|Property **Sheets** As Sheets|アクティブなブックのすべてのシートを表すSheetsコレクション|
+    |〃|Property **Worksheets** As Sheets|アクティブなブックのすべてのワークシートを表すSheetsコレクション|
 - Selection プロパティとActiveCell プロパティ
     - 標準モジュールModule1
         ~~~
@@ -123,3 +123,67 @@ Excelのアプリケーション自体を操作するクラス
             End With
         End Sub
         ~~~
+## 11-2-7 特定のメッセージを非表示にする
+- シート削除のメッセージを非表示にする
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Application.DisplayAlerts = False
+
+            With ThisWorkbook.Worksheets.Add
+                .Name = "Hoge"
+                .Delete
+            End With
+
+            Application.DisplayAlerts = True
+        End Sub
+        ~~~
+## 11-2-8 アプリケーションの設定とマクロの高速化
+- 列挙型 XlCalculation のメンバー
+    |メンバー|値|説明|
+    |---|---|---|
+    |xlCalculationAutomatic|-4105|自動で計算する|
+    |xlCalculationManual|-4135|手動で計算する|
+    |xlCalculationSemiautomatic|2|テーブル以外自動で計算する|
+- マクロの実行速度と高速化
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Sheet1.Cells.Clear
+            Dim start As Date: start = Time
+
+            With Application
+                .Calculation = xlCalculationManual
+                .EnableEvents = False
+                .ScreenUpdating = False
+            End With
+
+            With Sheet1
+                Dim i As Long
+                For i = 1 To 300
+                    .Cells(i, 1).Value = i
+                    .Cells(i, 2).FormulaLocal = "=SUM("A1:A" & i & ")"
+                    .Rows(i).Copy
+                    Sheet2.Cells(i, 1).PasteSpecial
+                Next i
+            End With
+
+            With Application
+                .Calculation = xlCalculationAtutomatic
+                .EnableEvents = True
+                .ScreenUpdating = True
+            End With
+
+            Dim finish As Date: finish = Time
+            Debug.Print Minute(finish - start) * 60 + Second(finish - start)
+        End Sub
+        ~~~
+- マクロの高速化についての計測結果
+    |パターン|Calculation<br>プロパティ|EnableEvents<br>プロパティ|ScreenUpdating<br>プロパティ|合計実行時間<br>[全てオンとの差]|
+    |---|---|---|---|---|
+    |全てオン|自動|True|True|147[0]|
+    |計算モードのみ手動|手動|True|True|126[-21]|
+    |イベント発生のみオフ|自動|False|True|140[-7]|
+    |画面描画のみオフ|自動|True|False|66[-81]|
+    |全てオフ|手動|False|False|59[-88]|
+## 11-2-9 マクロの実行を時間で制御する
