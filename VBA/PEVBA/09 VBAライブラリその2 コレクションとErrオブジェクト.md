@@ -39,3 +39,112 @@
         ~~~
 # 9-3 自作コレクションを作る
 ## 9-3-1 コレクションを持つクラス
+- コレクションの要素となるクラスPerson
+    - クラスモジュールPerson
+        ~~~
+        Public Id As String
+        Public FirstName As String
+        Public Age As Long
+        ~~~
+- Personsクラス
+    - クラスモジュールPersons
+        ~~~
+        Public Item As Collection
+        ~~~
+        ~~~
+        Private Sub Class_Initialize()
+            Set Item = New Collection
+        End Sub
+        ~~~
+        ~~~
+        Public Sub Add(ByVal newId As String, ByVal newName As String, ByVal newAge As Long)
+            Dim p As Person: Set p = New Person
+            With p
+                .Id = newId
+                .FirstName = newName
+                .Age = newAge
+            End With
+
+            Items.Add p, newId
+        End Sub
+        ~~~
+- Person コレクションの動作確認
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Dim myPersons As Persons: Set myPersons = New Persons
+            With myPersons
+                .Add "m01", "Bob", 25
+                .Add "m02", "Tom", 32
+                .Add "m03", "Ivy", 28
+                Debug.Print .Items(1).FirstName 'Bob
+                Debug.Print .Items("m02").Age '32
+            End With
+        End Sub
+        ~~~
+## 9-3-3 列挙メソッドを追加する
+- 自作コレクションに列挙メソッドを追加する
+    - Persons.cls
+        ~~~
+        Public Function NewEnum() As IEnumVARIANT
+        Attribute NewEnum.VB_UserMemId = -4
+            Set NewEnum = items_.[_NewEnum]
+        End Function
+        ~~~
+- Persons コレクションのループ
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Dim myPersons As Persons: Set myPersons = New Persons
+            With myPersons
+                .Add "m01", "Bob", 25
+                .Add "m02", "Tom", 32
+                .Add "m03", "Ivy", 28
+            End With
+
+            Dim p As Person
+            For Each p In myPersons
+                Debug.Print p.FirstName, p.Age
+            Next p
+        End Sub
+        ~~~
+# 9-4 エラーを表すオブジェクト ErrObject クラス
+## 9-4-1 Err オブジェクトとは
+実行時エラーに関する情報を含むオブジェクトとそのメンバーを提供するクラス
+- Errobject クラスのメンバー
+    |メンバー|説明|
+    |---|---|
+    |Propety **Description** As String|エラーの説明|
+    |Propety **HelpContext** As Long|ヘルプファイルのトピックのコンテキストID|
+    |Property **HelpFile** As String|ヘルプファイルのパス|
+    |Property **Number** As Long|エラーを識別するための数値、エラー番号<br>既定のメンバー|
+    |Property **Source** As String|エラーが発生したオブジェクトまたはアプリケーション名|
+    |Sub **Clear()**|Errオブジェクトのすべてのプロパティをクリアする|
+    |Sub **Raise**(Number As Long, [Source], [Descriptin], [HelpFile], [HelpContext])|Numberで表す実行時エラーを発生させる|
+- Err オブジェクト
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            On Error GoTo ErrorHandler
+
+            With Err
+                .Clear
+                .Raise 11
+            End With
+            
+        Exit Sub
+
+        ErrorHandler:
+            With Err
+                Dim title As String: title = "エラーが発生しました"
+
+                Dim m As String: m = ""
+                m = m & "エラー番号:" & .Number & vbNewLine
+                m = m & "エラー内容:" & .Descriptin & vbNewLine
+                m = m & vbNewLine
+                m = m & "ヘルプを参照するには、「ヘルプ」ボタンをクリックしてください。"
+
+                MsgBox m, vbExclamation + vbMsgBoxHalpButton, title, .HelpFile, .HelpContext
+            End With
+        End Sub
+        ~~~
