@@ -187,3 +187,227 @@ Excelのアプリケーション自体を操作するクラス
     |画面描画のみオフ|自動|True|False|66[-81]|
     |全てオフ|手動|False|False|59[-88]|
 ## 11-2-9 マクロの実行を時間で制御する
+- OnTime メソッドと Wait メソッド
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Application.OnTime Now + TimeSerial(0, 0, 3), "ShowMessage"
+        End Sub
+        ~~~
+        ~~~
+        Private Sub ShowMessage()
+            MsgBox "時間になりました"
+            Application.Wait Now + TimeSerial(0, 0, 3)
+            MsgBox "3秒待機しました"
+        End Sub
+        ~~~
+## 11-2-10 ワークシート関数を使用する
+- WorksheetFunction オブジェクトによる MAX 関数と MIN 関数
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1
+                Dim rng As Range: Set rng = .Range("A1:A10")
+                Debug.Print WorksheetFunction.Max(rng)
+                Debug.Print WorksheetFunction.Min(rng)
+            End With
+        End Sub
+        ~~~
+- WorksheetFunction オブジェクトによる ROUND 関数
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            '偶数丸め
+            Debug.Print 2.4, Round(2.4) '2.4 2
+            Debug.Print 2.5, Round(2.5) '2.5 2
+            Debug.Print 2.6, Round(2.6) '2.6 3
+
+            '四捨五入
+            With WorksheetFunction
+                Debug.Print 2.4, .Round(2.4, 0) '2.4 2
+                Debug.Print 2.5, .Round(2.5, 0) '2.5 3
+                Debug.Print 2.6, .Round(2.6, 0) '2.6 3
+            End With
+        End Sub
+        ~~~
+- Evaluate メソッドの引数 Name の種類
+    |名前|説明|
+    |---|---|
+    |数式|ワークシート関数も含む数式の結果|
+    |セル範囲|A1スタイルによる表現でRangeオブジェクト|
+    |定義された名前|名前を定義したオブジェクト|
+- Evaluate メソッド
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            [B1].Value = 123
+            Evaluate("B2").Value = 456
+
+            Debug.Print [B1].Value '123
+            Debug.Print Evaluate("B2") '456
+
+            Debug.Print [MAX(Sheet1!A1:A10)] '範囲の最大値79
+            Debug.Print Evaluate("MAX(Sheet1!A1:A10)") '範囲の最大値79
+
+            Debug.Print [ROUND(2.5, 0)] '3
+            Debug.Print Evaluate("ROUND(2.5, 0)") '3
+
+            Debug.Print [Fuga].Address '$E$3:$F$5
+            Debug.Print Evaluate("Fuga").Address '$E$3:$F$5
+
+            Debug.Print TypeName([楕円 1]) 'Oval
+            Debug.Print TypeName(Evaluate("楕円 1")) 'Oval
+        End Sub
+        ~~~
+## 11-2-11 Application オブジェクトから取得できるオブジェクト
+- Application クラスのオブジェクトを取得する主なプロパティ
+    |メンバー|グローバル|読み取り専用|説明|
+    |---|---|---|---|
+    |Property **CommandBars** As CommandBars|〇|〇|すべてのコマンドバー(ツールバーやショートカットメニューなど)を表す CommandBars コレクション|
+    |Property **FileDialog**(*fileDialogType As MsoFileDialogType*) As FileDialog||〇|ファイルダイアログを表す FileDialog オブジェクト|
+    |Property **VBE** As VBE|---|〇|VBE を表す VBE オブジェクト|
+    |Property **Windows** As Windows|〇|〇|すべてのウィンドウを表す Windows コレクション|
+## 11-2-12 Application クラスのイベント
+- Application クラスの主なイベント
+    |イベント|説明|
+    |---|---|
+    |Event **NewWorkbook**(*Wb As Workbook*)|新しいブックを作成したとき|
+    |Event **SheetActivate**(*Sh As Object*)|シートがアクティブになったとき|
+    |Event **SheetBeforeDefete**(*Sh As Object*)|シートが削除される前|
+    |Event **SheetBeforeDoubleClick**(*Sh As Object, Target As Range, Cancel As Boolean*)|シートがダブルクリックされたとき|
+    |Event **SheetBeforeRightClick**(*Sh As Object, Target As Range, Cancel As Boolean*)|シートが→クリックされたとき|
+    |Event **SheetCalculate**(*Sh As Object*)|シートが再計算されたとき|
+    |Event **SheetChange**(*Sh As Object, Target As Range*)|シートのセルが変更されたとき|
+    |Event **SheetDeactivate**(*Sh As Object*)|シートが日アクティブになったとき|
+    |Event **SheetFollowHyperlink**(*Sh As Object, Target As Hyperlink*)|シートのハイパーリンクをクリックしたとき引数 *Hyperlink* は対象の Hyperlink オブジェクト|
+    |Event **SheetSelectionChange**(*Sh As Object, Target As Range*)|シートの選択範囲が変更されたとき|
+    |Event **WindowActivate**(*Wb As Workbook, Wn As Windwo*)|ウィンドウがアクティブになったとき|
+    |Event **WindowDeactivate**(*Wb As Workbook, Wn As Window*)|ウィンドウが非アクティブになったとき|
+    |Event **WindowResize**(*Wb As Workbook, Wn As Window*)|ウィンドウのサイズを変更したとき|
+    |Event **WorkbookActivate**(*Wb As Workbook*)|ブックがアクティブになったとき|
+    |Event **WorkbookAddinInstall**(*Wb As Workbook*)|ブックがアドインとして組み込まれたとき|
+    |Event **WorkbookAddinUninstall**(*Wb As Workbook*)|ブックのアドイン組み込みが解除されたとき|
+    |Event **WorkbookAfterSave**(*Wb As Workbook, Success As Boolean*)|ブックを保存した後<br>引数 Success は保存が成功したかどうかを表すブール値|
+    |Event **WorkbookBeforeClose**(*Wb As Workbook, Cancel As Boolean*)|ブックを閉じる前|
+    |Event **WorkbookBeforePrint**(*Wb As Workbook, Cancel As Boolean*)|ブックを印刷する前|
+    |Event **WorkbookBeforeSave**(*Wb As Workbook, SaveAsUI As Boolean, Cancel As Boolean*)|ブックを保存する前<br>引数 *SaveAsUI* は名前を付けて保存かどうかを表すブール値|
+    |Event **WorkbookDeactivate**(*Wb As Workbook*)|ブックが非アクティブになったとき|
+    |Event **WorkbookNewSheet**(*wb As Workbook, Sh As Object*)|ブックに新しいシートを作成したとき|
+    |Event **WorkbookOpen**(*Wb As Workbook*)|ブックを開いたとき|
+- Application イベントの引数
+    |引数|説明|
+    |---|---|
+    |*Wb*|イベントの対象の Workbook オブジェクト|
+    |*Sh*|イベント対象の Worksheet オブジェクトまたは Chart オブジェクト|
+    |*Target*|イベントの対象の Range オブジェクト|
+    |*Win*|イベントの対象の Window オブジェクト|
+    |*Cancel*|イベント操作を中止するかどうかを表すブール値|
+- Application オブジェクトのイベント
+    - クラスモジュールClass1
+        ~~~
+        Public WithEvent App As Application
+        ~~~
+        ~~~
+        Private Sub App_NewWorkbook(ByVal Wb As Workbook)
+            MsgBox "ブック" & Wb.Name & " が作成されました"
+        End Sub
+        ~~~
+    - 標準モジュールMobule1
+        ~~~
+        Private c As Class1
+        ~~~
+        ~~~
+        Sub InitializeApp()
+            Set c = New Class1
+            Set c.App = Application
+        End Sub
+        ~~~
+        ~~~
+        Sub MySub()
+            Workbooks.Add
+        End Sub
+        ~~~
+# 11-3 ブックを操作する Workbooks クラス / Workbook クラス
+## 11-3-1 Workbooks クラスとは
+- Workbooks クラスの主なプロパティ
+    |メンバー|読み取り専用|説明|
+    |---|---|---|
+    |Property **Count** As Long|〇|コレクションに含まれるオブジェクトの数|
+    |Property **_Default**(*index*) As Workbook|〇|既定のメンバー<br>コレクションの要素のうち *Index* で参照される単一のオブジェクト|
+    |Property **Item**(*Index*) As Object|〇|コレクションの要素のうち *Index* で参照される単一のオブジェクト|
+    |Property **Parent** As Object|〇|親オブジェクト|
+- Workbooks クラスの主なメソッド
+    |メンバー|説明|
+    |---|---|
+    |Function **Add**([*Template*]) As Workbook|新しいブックを作成する|
+    |Function **Open**(*Filename As String*, [*UpdateLinks*], [*ReadOnly*], [*Format*], [*Password*], [*WriteResPassword*], [*IgnoreReadOnlyRecommended], [*Origin*], [*Delimiter*], [*Editable*], [*Notify*], [*Notify*], [*Converter*], [*AddToMru*], [*Local*], [*CorrupLoad*] As Workbook)|*Filename* で指定するブックを開く|
+## 11-3-2 ブックを参照する
+- Workbooks コレクションからブックを参照する
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Debug.Print Workbooks.Item(1).Name 'Book1
+            Debug.Print Workbooks.[_Default](1).Name 'Book1
+            Debug.Print Workbooks(1).Name 'Book1
+
+            Debug.Print Workbooks("Book1").Name 'Book1
+            Debug.Print Workbooks("Book2.xlsx").Name 'Book2.xlsx
+        End Sub
+        ~~~
+- Workbooks コレクションのループ
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Dim wb As Workbook
+            For Each wb In Workbooks
+                Debug.Print wb.Name
+            Next wb
+
+            Dim i As Long
+            For i = 1 To Workbooks.Count
+                Debug.Print i, Workbooks(i).Name
+            Next i
+        End Sub
+        ~~~
+## 11-3-3 ブックを作成する/開く
+- 列挙型 XIWBATemplate のメンバー
+    |メンバー|値|説明|
+    |---|---|---|
+    |xlWBATChart|-4109|グラフシート|
+    |xlWBATExcel4IntlMacroSheet|4|Excel バージョン4 のマクロシート|
+    |xlWBATExcel4MacroSheet|3|Excel バージョン 4 のインターナショナルマクロシート|
+    |xlWBATWorksheet|-4167|ワークシート|
+- 新しいブックを作成する
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Dim wb As Workbook: Set wb = Workbooks.Add
+            Debug.Print wb.Name
+
+            With Workbooks.Add
+                Debug.Print .Name
+            End with
+        End Sub
+        ~~~
+- Workbooks コレクションの Open メソッドの引数
+    |パラメーター|説明|
+    |---|---|
+    |*FileName*|開くブックのファイル名|
+    |*UpdateLinks*|ブックを開いた際に外部参照を更新するかどうかについて、3(更新する)または0(更新しない)を指定する|
+    |*ReadOnly*|ブックを読み取り専用モードで開くかどうかをブール値で指定する|
+    |*Format*|テキストファイルを開く際の区切り文字を1(タブ)、2(カンマ)、3(スペース)、4(セミコロン)、5(なし)、6(カスタム文字)から指定する|
+    |*Password*|パスワード保護されたブックを開くのに必要なパスワードを文字列で指定する。省略時、パスワードが必要な場合は入力ダイアログが表示される|
+    |*WriteResPassword*|書き込み保護されたブックに書き込みをするために必要なパスワードを指定する。省略時、パスワードが必要な場合は入力ダイアログが表示される|
+    |*IgnoreReadOnly*<br>*Recommended*|読み取り専用を推奨するメッセージを非表示にするかどうかをブール値で指定する|
+    |*Origin*|テキストファイルを開く際の、作成されたプラットフォームについて、列挙型 XlPlatform のメンバーから指定する。1(xlMacintosh)、2(xlMSDOS)、3(xlWindows)|
+    |*Delimiter*|引数 *Format* 6(カスタム文字)の場合の区切り文字を文字列で指定する|
+    |*Editable*|開くブックが Excel 4.0 のアドインでありウィンドウに表示する場合、または Excel テンプレートであり編集用で開く場合に True を設定する|
+    |*Notify*|ファイルが読み取り/書き込みモードで開けない場合に、ファイルを通知リストに追加するかどうかをブール値で指定する|
+    |*Converter*|ファイルを開くときに最初に実行するファイルコンバータのインデックスを指定する|
+    |*AddToMru*|最近使用したファイルの一覧にブックを追加するかどうかをブール値で指定する|
+    |*Local*|Excel の言語設定に合わせるかどうかをブール値で指定する。規定値は False で、その場合は VBA の言語設定で保存される|
+    |*CorruptLoad*|ブックの読み込み方法を列挙型 XlCorruptLoad のメンバーから指定する。<br>規定値 xlNormalLoad(標準)、xlRepairFile(修復モード)、xlExtractData(データの抽出モード)|
+- ブックを開く
+    - 標準モジュールModule1
+        ~~~
+        ~~~
