@@ -1071,4 +1071,47 @@ Excelのアプリケーション自体を操作するクラス
     |xlShiftToLeft|-4159|左方向にシフトする|
     |xlShiftUp|-4262|上方向にシフトする|
 - Insert メソッド / Delete メソッド
-    
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            Dim v As Variat
+            With Sheet1
+                .Range("B4:D4").Delete
+                .Rows("4:5").Insert
+                .Columns("D").Insert
+            End With
+        End Sub
+        ~~~
+## 11-5-12 セル範囲をソートする
+- Sort メソッドの引数
+    |パラメーター|説明|
+    |---|---|
+    |*Key1 ~ Key3*|並び替えの1~3番目のキーとなるフィールドを Range オブジェクトまたはセル範囲を表す文字列で指定する|
+    |*Order1 ~ Order3*|Key1 ~ Key3 で指定したフィールドの順序を列挙型XlSortOrder のメンバーから指定する<br>xlAscending:昇順(規定値)<br>xlDescending:降順|
+    |*Header*|最初の行をヘッダー行として扱うかどうかを列挙型 XlYesNoGuess のメンバーから指定する<br>xlNo:ヘッダーとして扱わない(規定値)<br>xlYes:ヘッダーとして扱う<br>xlGuess:Excelが自動で判定する|
+    |*OrderCustom*|ユーザー設定の並び替え順のリスト内の番号を示す、1から始まる整数を指定する|
+    |*MatchCase*|大文字小文字を区別するかどうかを表すブール値を指定する|
+    |*Orientation*|並び替えの方法を列挙型 XlSortMethod のメンバーから指定する<br>xlPinYin:ふりがな順で並び替える(規定値)<br>xlStroke:総画数で並び替える|
+    |*DataOption1 ~ DataOption3*|*Key1 ~ Key3* で指定したフィールドのテキストを並び替える列挙型 XlSortDataOption のメンバーから指定する<br>xlSortNormal:数値データとテキストデータを個別に並び替える(規定値)<br>xlSortTextAsNumbers:テキストデータを数値データとして並び替える|
+- Sort メソッド
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1
+                .Rnage("B2").CurrentRegion.Sort _
+                    Key1:=.Range("D2"), Order1:=xlDescending, _
+                    Key2:=.Range("C2"), Order2:=xlAscending, _
+                    Header:=xlYes
+            End With
+        End Sub
+        ~~~
+## 11-5-13 セルの値を検索する / 置換する
+- Find メソッドの引数
+    |パラメーター|説明|
+    |---|---|
+    |*What*|検索する値を指定する|
+    |*After*|指定した単一セルを表す Range オブジェクトの後から検索を開始する。省略時は、対象セル範囲の左上隅の後のセルから検索を開始する|
+    |||
+    |||
+    |||
+    |||
