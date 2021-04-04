@@ -1111,7 +1111,293 @@ Excelのアプリケーション自体を操作するクラス
     |---|---|
     |*What*|検索する値を指定する|
     |*After*|指定した単一セルを表す Range オブジェクトの後から検索を開始する。省略時は、対象セル範囲の左上隅の後のセルから検索を開始する|
-    |||
-    |||
-    |||
-    |||
+    |*Lookln*|検索対象を列挙型 XlFindLookln のメンバーから指定する<br>xlFormulas:数式<br>xlValues:値<br>xlComment:メモ|
+    |*LookAt*|検索を完全一致とするかどうかを列挙型 XlLookAt のメンバーから指定する<br>xlPart:部分一致<br>xlWhole:完全に一致|
+    |*SearchOrder*|検索を行方向に行うか、列方向に行うかについて列挙型 XlSearchOrder のメンバーから指定する<br>xlByRows:行方向<br>xlByColumns:列方向|
+    |*SearchDirection*|検索の向きについて、列挙型 XlSearchDirection のメンバーから指定する<br>xlNext:左から右、または上から下(規定値)<br>xlPrevious:右から左、または下から上|
+    |*MathcCase*|大文字と小文字を区別するかどうかを表すブール値を指定する|
+    |*MatchByte*|全角と半角を区別するかどうかを表すブール値を指定する|
+    |*SearchFormat*|検索するセルの書式を指定する|
+- Find メソッドと FindNext メソッド
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.Range("B2:E9")
+                Dim rng As Range
+                Set rng = .Find( _
+                    What:="an", After:=.Range("B2"), _
+                    Lookin:=xlValues, LookAt:=xlPart, _
+                    MatchCase:=False, MatchByte:=True)
+
+                If Not rng Is Nothing Then
+                    Dim firstAddress As String: firstAddress = rng.Address
+                    Do
+                        Debug.Print rng.Value, 'orange banana Dan
+                        Set rng = .FindNext(rng)
+                    Loop While rng.Address <> firstAddress
+                End If
+            End With
+        End Sub
+        ~~~
+- Replace メソッドの引数
+    |パラメーター|説明|
+    |---|---|
+    |*What*|検索する値を指定する|
+    |*Replacement*|置換後の値を指定する|
+    |*LookAt*|検索を完全一致とするかどうかを列挙型 XlLookAt のメンバーから指定する<br>xlPart:部分一致<br>xlWhole:完全一致|
+    |*SearchOrder*|検索を行方向に行うか、列方向に行うかについて列挙型 XlSearchOrder のメンバーから指定する<br>xlByRows:行方向<br>xlByColumns:列方向|
+    |*MatchCase*|大文字と小文字を区別するかどうかを表すブール値を指定する|
+    |*MatchByte*|全角と半角を区別するかどうかを表すブール値を指定する|
+    |*SearchFormat*|検索するセルのしょっ式を指定する|
+    |*ReplaceFormat*|置換するセルの書式を指定する|
+- Replace メソッド
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.Range("B2:E9")
+                .Replace
+                    What:="female", Replacement:="女性", _
+                    LookAt:=xlPart, MatchCase:=False, MatchByte:=True
+                .Replace
+                    What:="male", Replacement:="男性", _
+                    LookAt:=xlPart, MatchCase:=False, MatchByte:=True
+            End With
+        End Sub
+        ~~~
+## 11-5-14 Range オブジェクトから取得できるオブジェクト
+- Range オブジェクトからオブジェクトを取得する主なメンバー
+    |メンバー|読み取り専用|説明|
+    |---|---|---|
+    |Property **Areas** As Areas|〇|セル範囲に含まれるすべてのセル範囲を表す Areas コレクション|
+    |Property **Borders** As Borders|〇|セル範囲の罫線を表す Borders コレクション|
+    |Property **Comment** As Comment|〇|セル範囲の左上隅のセルのメモを表す Comment オブジェクト|
+    |Property **Font** As Font|〇|セル範囲のフォントを表す Font オブジェクト|
+    |Property **FormatConditions** As FormatConditions|〇|セル範囲のすべての条件付き書式を表す FormatConditions コレクション|
+    |Property **Hyperlinks** As Hyperlinks|〇|セル範囲のすべてのハイパーリンクを表す Hyperlinks コレクション|
+    |Property **interior** As Interior|〇|セル範囲の内部装飾を表す Interior オブジェクト|
+    |Property **ListObject** As listObject|〇|セル範囲が含まれるテーブルを表す ListObject オブジェクト|
+    |Property **Phonetics** As Phonetics|〇|セル範囲のすべてのふりがなを表す Phonetics コレクション|
+    |Property **SparklineGroups** As SparklineGroups|〇|セル範囲のすべてのスパークラインを表す SparklineGroups コレクション|
+    |Property **Validation** As Validation|〇|セル範囲の入力規則を表す Validation オブジェクト|
+# 11-6 テーブルを操作する
+## 11-6-1 テーブルとその操作
+- データ表を転記するマクロ
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1
+                Dim v As Variant
+                v = .Range("B2:D52).Value
+                .Range("F2").Resize(UBound(v), UBound(v, 2).Value = v)
+            End With
+        End Sub
+        ~~~
+- テーブルのデータを転記するマクロ
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1
+                Dim v As Variant
+                v = .ListObject(1).Range.Value
+                .Range("F2").Resize(UBound(v)), UBound(v, 2).Value = v
+            End With
+        End Sub
+        ~~~
+## 11-6-2 ListObjects クラスとは
+- ListObjects クラスの主なメンバー
+    |メンバー|読み取り専用|説明|
+    |---|---|---|
+    |Property **Count** As Long|〇|コレクションに含まれるオブジェクトの数|
+    |Property _**Default**(*Index*) As ListObject|〇|既定のメンバー<br>コレクションの要素のうち *Index* で参照される単一のオブジェクト|
+    |Property **Item**(*Index*) As ListObject|〇|コレクションの要素のうち *Index* で参照される単一のオブジェクト|
+    |Property **Parent** As Object|〇|親オブジェクト|
+    |Function **Add**([SourceType As XlListObjectSourceType = xlSrcRange], [Source], [LinkSource], [XlListObjectHeaders As XlYesNoGuess = xlGuess], [Destination], [TableStyleName]) As ListObject|－|テーブルを作成する|
+## 11-6-3 テーブルを参照する
+- ListObjects コレクションからテーブルを参照する
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1
+                Debug.Print .ListObjects.Item(1).Name 'テーブル1
+                Debug.Print .ListObjects.[_Default](1).Name 'テーブル1
+                Debug.Print .ListObjects(1).Name 'テーブル1
+                Debug.Print .ListObjects("テーブル1").Name 'テーブル1
+            Ent With
+        End Sub
+        ~~~
+## 11-6-4 テーブルを追加する
+- ListObject クラスの Add メソッドの引数
+    |パラメーター|説明|
+    |---|---|
+    |*SourceType*|テーブルの元データとなるデータソースの種類を列挙型 XlListObjectSourceType のメンバーから指定する<br>xlSrcRange:セル範囲(規定値)<br>xlSrcExternal:外部データソース|
+    |*Source*|引数 SourceType が xlSrcRange の場合、データソースとなるセル範囲を Range オブジェクトで指定する。省略時は Excel が自動で対象範囲を判定する<br>引数 SourceType が xlSrcExternal の場合は、データソースへの接続を指定する配列を指定する。|
+    |*LinkSource*|外部データソースを ListObject オブジェクトにリンクするかどうかを表すブール値を既定する<br>引数 SourceType が xlSrcRange の場合は、指定値は無効となる|
+    |*XlListObjectHasHeaders*|データベースの先頭行をヘッダーとして扱うかどうかを列挙型 XlYesNoGuess のメンバーから指定する<br>xlNo:ヘッダーとして扱わない<br>xlYes:ヘッダーとして扱う<br>xlGuess:Excel が自動で判定する(規定値)|
+    |*Destination*|引数 *SourceType* が *xlSrcExternal* の場合に、作成するテーブルの左上隅となる単一セルを Range オブジェクトで指定する<br>引数 *SourceType* が xlSrcRange の場合は、指定値は無効となる|
+    |*TableStyleName*|テーブルに設定するスタイル名を表す文字列を指定する。省略時は既定のテーブルスタイルが適用される|
+- 引数やプロパティを組み合わせた Add メソッド
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1
+                With .ListObject.Add(Source:=.Range("F3:H5"), XlListObjectHasHeaders:=xlNo)
+                    .Name = "tableMembers"
+                    .TableStyle = ""
+            End With
+        End Sub
+        ~~~
+## 11-6-5 ListObject クラスとは
+- テーブルからセル範囲を取得する
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObject(1)
+                Debug.Print .Range.Address(False, False)
+                Debug.Print .HeaderRowRange.Address(False, False)
+                Debug.Print .DataBodyRange.Address(False, False)
+                Debug.Print .TotalRowRange.Address(False, False)
+            End With
+        End Sub
+        ~~~
+## 11-6-7 テーブル行やテーブル列を取得する
+- ListRows プロパティ / ListColumns プロパティ
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjects(1)
+                Debug.Print .ListRows.Count
+                Debug.Print .ListColumns.Count
+            End With
+        End Sub
+        ~~~
+## ListRows クラスとテーブル行の参照
+- ListRows コレクションからテーブル行を参照する
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObject(1)
+                Debug.Print .ListRows.Item(1).Range.Address '$B$3:$D$3
+                Debug.Print .ListRows.Rows.[_Default](2).Range.Address '$B$4:$D$4
+                Debug.Print .ListRows(3).Range.Address '$B$5:$D$5
+            End With
+        End Sub
+        ~~~
+- ListRows コレクションのループ
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjects(1)
+                Dim record As ListRow
+                For Each record In .ListRows
+                    Debug.Print record.Range.Address
+                Next record
+
+                Dim i As Long
+                FOr i = 1 To .ListRows.Count
+                    Debug.Print i, .ListRows(i).Range.Address
+                Next i
+            End With
+        End Sub
+        ~~~
+## 11-6-9 テーブルを追加する
+- Add メソッドによるテーブル行の追加
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjcets(1).ListRows
+                Dim record As ListRow:Set record = .Add(Position:=2)
+                record.Range.Value = Array("Ivy", 24, "banana")
+                .Add.Range.Value = Array("Dan", 30, "mellon")
+            End With
+        End Sub
+        ~~~
+## 11-6-10 ListRow クラスとテーブル行の操作
+- テーブル行の操作
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjects(1)
+                With .ListRows(1)
+                    Dim v As Variant: v = .Range.Value
+                    Stop
+                    Debug.Print .Range(1).Value,
+                    Debug.Print .Range(2).Value,
+                    Debug.Print .Range(3).Value 'Bob 25 apple
+                End With
+                .ListRows(2).Range(1).Value = "Tim"
+                .ListRows(3).Range.Value = Array("Ivy", 24, "banana")
+            End With
+        End Sub
+        ~~~
+## 11-6-11 ListColumns クラスとテーブル列の参照
+- ListColumns コレクションからテーブル列を参照する
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjects(1)
+                Debug.Print .ListColumns.Item(1).Range.Address '$B$2:$B$5
+                Debug.Print .ListColumns.[_Default](2).Range.Address '$C$2:$C$5
+                Debug.Print .ListColumns(3).Range.Address '$D$2:$D$5
+                Debug.Print .ListColumns("name").Range.Address '$B$2:$B$5
+            End With
+        End Sub
+        ~~~
+- ListColumns コレクションのループ
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjects(1)
+                Dim field As ListColumn
+                For Each field In .ListColumns
+                    Debug.Print field.Range.Address
+                Next field
+
+                Dim i As Long
+                For i = 1 To .ListColumns.Count
+                    Debug.Print i, .ListColumns(i).Range.Address
+                Next i
+            End With
+        End Sub
+        ~~~
+## 11-6-12 テーブル列を追加する
+- Add メソッドによるテーブル列の追加
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjects(1).ListColums
+                Dim data As Variant: data = Array("gender", "male", "female")
+                Dim field As ListColumn: Set field = .Add(Position:=3)
+                field.Range.Value = WorksheetFunction.Transpose(data)
+
+                With .Add
+                    .Range(1).Value = "age"
+                    .Range(2).Formula = "=DTEDIF([@birthday], TODAY(),""Y"")
+                End With
+            End With
+        End Sub
+        ~~~
+## 11-6-13 ListColumn クラスとテーブル列の操作
+- テーブル列の操作
+    - 標準モジュールModule1
+        ~~~
+        Sub MySub()
+            With Sheet1.ListObjects(1)
+                Debug.Print .ListColumns(1).Name 'Name
+                Debug.Print .ListColumns(1) 'name
+
+                .ListColumns(1).Name = "firstName"
+
+                With .ListColumns(1)
+                End With
+                    Debug.Print .Range.Address '$B$2:$B$6
+                    Debug.print .DataBodyRange.Address '$B$3:$B$5
+                    Debug.Print .Total.Address '$B$6
+
+                    Debug.Print .Range(3).Value 'Tom
+                    Debug.Print .DataBodyRange(2).Value 'Tom
+
+                    .DataBodyRange(2).Value = "Tim"
+            End With
+            Debug.Print .ListColumns("age").Total.Value '75
+        End Sub
+        ~~~
